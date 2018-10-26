@@ -1,0 +1,13 @@
+Sources and ideas
+
+Schedule an email (as a reminder): http://pear.php.net/manual/en/package.mail.mail-queue.mail-queue.tutorial.php
+
+Send text message: twilio?
+
+Calendar: https://fullcalendar.io/download or just display for current month
+
+Scheduled email: https://www.smtpjs.com/
+https://elasticemail.com/account/#/settings/accountconfiguration
+
+
+https://stackoverflow.com/questions/2571658/how-to-schedule-emails-to-send-out
