@@ -1,0 +1,23 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	background-image: url("../images/default.jpg");
+	font-family: 'Arial', sans-serif;
+}
+
+header {
+	height: 70px;
+	background-color: black;/*rgb(66, 238, 244);*/
+}
+
+#sign_in {
+	position: fixed;
+	padding: 25px;
+	background-color: rgb(194, 252, 244);
+	border-radius: 20px;
+	width: 14%;
+	height: 35%;
+	top: 35%;
+	left: 43%;
+}
