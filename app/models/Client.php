@@ -18,7 +18,7 @@ class Client extends Model{
 	public function getAll() {
 		$sql = "SELECT * FROM Client";
 		$stmt = self::$_connection->prepare($sql);
-		$stmt->execute();
+		//$stmt->execute();
 
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Client");
 		return $stmt->fetchAll();
