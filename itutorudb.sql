@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2018 at 04:47 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Nov 02, 2018 at 12:18 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -182,8 +180,16 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userId`, `username`, `password`) VALUES
+(1, 'naomi', '123'),
+(2, '1664931', 'Test123.');
 
 -- --------------------------------------------------------
 
@@ -298,43 +304,36 @@ ALTER TABLE `usernote`
 --
 ALTER TABLE `message`
   MODIFY `messageId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
   MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
   MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
   MODIFY `resourceId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
   MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
   MODIFY `sessionId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -394,7 +393,6 @@ ALTER TABLE `tutor`
 ALTER TABLE `usernote`
   ADD CONSTRAINT `usrnote_noteid_fk` FOREIGN KEY (`noteId`) REFERENCES `note` (`noteId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usrnote_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

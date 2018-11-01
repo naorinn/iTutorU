@@ -21,3 +21,27 @@ header {
 	top: 35%;
 	left: 43%;
 }
+
+#register {
+	position: fixed;
+	padding: 25px;
+	background-color: white;
+	border-radius: 20px;
+	width: 13%;
+	height: 40%;
+	top: 23%;
+	left: 43%;
+}
+
+
+.content_block {
+	position: fixed;
+	padding: 25px;
+	background-color: white;
+	border-radius: 20px;
+	width: 90%;
+	height: 90%;
+	
+	margin: 5%;
+	top: -1%;
+}

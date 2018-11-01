@@ -14,18 +14,18 @@
 					<h4><b><u>Sign in</u></b></h4>
 					<label for="username">
 						Username:
-						<input name="username" type="text" class="form-control form-control-sm"/>
+						<input name="username" required="required" title="Your username is your school ID" type="text" class="form-control form-control-sm"/>
 					</label>
 					<br/><br/>
 					<label for="password">
 						Password:
-						<input name="password" type="password" class="form-control form-control-sm"/>
-						<small class="form-text text-muted"><a>Forgot password?</a></small>
+						<input name="password" required="required" type="password" class="form-control form-control-sm"/>
+						<small class="form-text text-muted"><a href="#">Forgot password?</a></small>
 					</label>
 					<br>
 					<input class="btn btn-primary mb-2" type="submit" value="Login"/>
 					<br><br>
-					<small class="form-text text-muted">Don't have an account? <a>Create one!</a></small>
+					<small class="form-text text-muted">Don't have an account? <a href="Default/create">Create one!</a></small>
 				</div>
 
 			</form>
