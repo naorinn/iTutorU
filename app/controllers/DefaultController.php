@@ -2,14 +2,14 @@
 //dos not interact with DB; model does
 	class DefaultController extends Controller{
 
-		public function index($name = 'John'){
+		/*public function index($name = 'John'){
 			//echo 'in default controller';
 			//$name = 'hello ther!';
 			$client = $this->model('Client');
 			
 			/*$client->first_name = "John";
 			$client->last_name = "Reese";
-			$client->insert();*/
+			$client->insert();
 
 			$clients = $client->getAll(); 
 
@@ -22,7 +22,7 @@
 			$this->view('Default/index', ['first_name'=>$client->first_name, 'last_name'=>$client->last_name]);
 			//$this->view('Default/index');
 		}
-
+*/
 
 		
 
