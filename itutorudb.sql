@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2018 at 12:18 AM
+-- Generation Time: Nov 05, 2018 at 07:02 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -189,7 +189,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `username`, `password`) VALUES
 (1, 'naomi', '123'),
-(2, '1664931', 'Test123.');
+(2, '1664931', '$2y$10$hDS6CbyPvOauF4jMfFdO6evOh3wxGyNllCMNqeNqyXEfTXsPXCD7.'),
+(3, '1234567', '$2y$10$hDS6CbyPvOauF4jMfFdO6evOh3wxGyNllCMNqeNqyXEfTXsPXCD7.');
 
 -- --------------------------------------------------------
 
@@ -333,7 +334,7 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
