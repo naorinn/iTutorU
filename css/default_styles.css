@@ -9,6 +9,10 @@ body{
 header {
 	height: 70px;
 	background-color: black;/*rgb(66, 238, 244);*/
+	font: x-large sans-serif;
+	text-align: left;
+	text-indent: 20px;
+
 }
 
 #sign_in {
@@ -45,3 +49,5 @@ header {
 	margin: 5%;
 	top: -1%;
 }
+
+
