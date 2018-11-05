@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		
-			<header class="main">iTutorU</header>	
+			<header class="main"></header>	
 			
 			<form method="post" action="User/login">
 				<div id="sign_in" class="form-group">

@@ -29,7 +29,7 @@ class UserController extends Controller {
 		$_SESSION = array();
 
 		session_destroy();
-		header('location:/User/login');
+		header('location:/Default/index');
 	}
 
 
@@ -49,7 +49,7 @@ class UserController extends Controller {
 					$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
 					try{
 						$user->insert();
-						header('location:/User/login');
+						header('location:/Default/index');
 					}catch(Exception $e){
 						$this->view('User/signup', ['errormessage' => 'The username you have entered is already in the database.']);
 					}

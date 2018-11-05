@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../../../css/default_styles.css" type="text/css" />
 	</head>
 	<body>
-		<header class="main"></header>	
+		<header class="main">iTutorU <input class="btn btn-primary mb-2" type="submit" value="Logout"/></header>	
 
 			This is home
 
