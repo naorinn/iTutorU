@@ -29,30 +29,7 @@ class UserController extends Controller {
 			$this->view('User/create');
 
 		}
-
-
-		/*public function _create(){
-			//header('Location: https://login.yahoo.com/account/create?specId=yidReg');
-
-			//operations to register (add user) then redirect to create profile
-			
-			if(isset($_POST['username']) && isset($_POST['password'])) {
-				//$username = 
-				//validateInput();
-				if($_POST['password'] == $_POST['retypePassword']) {
-					$user = $this->model('User');
-					$user->username = $_POST['username'];
-					$user->password = $_POST['password'];//password_hash($_POST['password'], 10);
-					$user->insert();
-				}
-				else{
-					$message = "Passwwords do not match!";
-					$this->view('Default/create', ['message'=>$message]);
-				}
-			}
-			
-			
-		}*/
+		
 
 	public function _create(){
 		if(isset($_POST['username'])){
