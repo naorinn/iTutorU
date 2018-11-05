@@ -1,1 +1,1 @@
-<header class="main">iTutorU <a class="btn btn-primary mb-2" type="submit" href="/../../controllers/User.php/_logout" >Logout</a></header>
+<header class="main"><img src="/../../../images/logo1.png"/> <a id="logout" class="btn btn-info mb-2" type="submit" href="/User/_logout">Logout</a></header>

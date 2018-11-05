@@ -15,6 +15,19 @@ header {
 
 }
 
+header #logout{
+	float: right;	
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+header img{
+
+	width: 12%;
+	
+}
+
+
 #sign_in {
 	position: fixed;
 	padding: 25px;
