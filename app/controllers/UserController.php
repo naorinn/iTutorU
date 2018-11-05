@@ -1,7 +1,7 @@
 <?php
 class UserController extends Controller {
 	
-	public function login() {
+	public function _login() {
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$username = $_POST['username'];
 			$password = $_POST['password'];

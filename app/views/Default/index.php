@@ -11,7 +11,7 @@
 		
 			<header class="main"></header>	
 			
-			<form method="post" action="User/login">
+			<form method="post" action="User/_login">
 				<div id="sign_in" class="form-group">
 					<h4><b><u>Sign in</u></b></h4>
 					<label for="username">
