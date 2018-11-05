@@ -1,1 +1,1 @@
-<header class="main">iTutorU <input class="btn btn-primary mb-2" type="submit" value="Logout"/></header>
+<header class="main">iTutorU <input class="btn btn-primary mb-2" type="submit" action="User/logout" value="Logout"/></header>
