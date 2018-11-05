@@ -23,6 +23,16 @@ class User extends Model
 		return $stmt->fetch();
 	}
 
+	public function getUser($username){
+		$sql = "SELECT * FROM User WHERE username=:username";
+        $stmt = self::$_connection->prepare($sql);
+        $stmt->execute(['username'=>$username]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+		return $stmt->fetch();
+
+	}
+
 }
 
 

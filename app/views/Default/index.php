@@ -9,7 +9,7 @@
 	<body>
 		<header class="main"></header>	
 
-			<form method="post" action="Default/login">
+			<form method="post" action="User/login">
 				<div id="sign_in" class="form-group">
 					<h4><b><u>Sign in</u></b></h4>
 					<label for="username">
@@ -25,7 +25,7 @@
 					<br>
 					<input class="btn btn-primary mb-2" type="submit" value="Login"/>
 					<br><br>
-					<small class="form-text text-muted">Don't have an account? <a href="Default/create">Create one!</a></small>
+					<small class="form-text text-muted">Don't have an account? <a href="User/create">Create one!</a></small>
 				</div>
 
 			</form>
