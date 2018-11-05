@@ -1,1 +1,1 @@
-<header class="main">iTutorU <input class="btn btn-primary mb-2" type="submit" action="User/logout" value="Logout"/></header>
+<header class="main">iTutorU <a class="btn btn-primary mb-2" type="submit" href="/../../controllers/User.php/_logout" >Logout</a></header>

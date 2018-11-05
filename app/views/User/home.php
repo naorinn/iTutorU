@@ -9,7 +9,10 @@
 	<body>
 		<?php include_once('/../Default/header.php')?>
 
-			This is home
+			<div class="content_block">
+				
+
+			</div>
 
 	</body>
 </html>
