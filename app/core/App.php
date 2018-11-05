@@ -3,7 +3,7 @@
 //Entry point to application
 class App {
 
-	protected $controller = 'DefaultController';
+	protected $controller = 'UserController';
 	protected $method = 'index';
 	protected $params = [];
 

@@ -1,5 +1,12 @@
 <?php
 class UserController extends Controller {
+
+
+	public function index(){
+
+			$this->view('User/index');
+			
+		}
 	
 	public function _login() {
 		if(isset($_POST['username']) && isset($_POST['password'])){
@@ -25,11 +32,11 @@ class UserController extends Controller {
 		}
 	}
 
-	public function logout(){
+	public function _logout(){
 		$_SESSION = array();
 
 		session_destroy();
-		header('location:Default/index');
+		header('location:/index');
 	}
 
 
