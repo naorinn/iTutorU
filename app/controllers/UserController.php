@@ -1,5 +1,6 @@
 <?php
 class UserController extends Controller {
+	
 	public function login() {
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$username = $_POST['username'];
@@ -23,6 +24,14 @@ class UserController extends Controller {
 		//}
 		}
 	}
+
+	public function logout(){
+		$_SESSION = array();
+
+		session_destroy();
+		header('location:/User/login');
+	}
+
 
 	public function create() {
 			
