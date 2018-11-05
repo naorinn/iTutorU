@@ -1,0 +1,27 @@
+div {
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	height: 73%;
+	width: 70%;
+	font-family: 'Arial', sans-serif;
+	background-color: white;
+	background-image: url("../images/error.png");
+	background-repeat: no-repeat;
+	border-radius: 20px;
+	top: 10%;
+	left: 15%;
+
+}
+
+p {
+	text-align:  center;
+	float: right;
+	margin-left: 55%;
+	margin-right: 5%;
+	margin-top: 10%;
+	color: rgb(67, 188, 204);
+	font-family: 'Arial Black', 'Helvetica', 'sans-serif';
+	font-size: 50px;
+	line-height: 230%;
+}
