@@ -11,8 +11,8 @@
 		<div id="register">
 			<form method="post" action="_create">
 				
-				<div id="regsiter" class="form-group">
-					<h4><b><u>Regsiter</u></b></h4>
+				<div id="register" class="form-group">
+					
 					<label for="username">
 						Username:
 						<input name="username" required="required" pattern="^[0-9]{7}$" title="Your username is your school ID" type="text" class="form-control form-control-sm"/>
