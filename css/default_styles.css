@@ -15,6 +15,10 @@ header {
 
 }
 
+header img {
+	cursor: pointer;
+}
+
 header #logout{
 	float: right;	
     margin-right: 1%;
