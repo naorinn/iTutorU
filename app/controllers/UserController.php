@@ -53,12 +53,18 @@ class UserController extends Controller {
 				if(isset($_POST['retypePassword']) && $_POST['password']==$_POST['retypePassword']){
 					$user = $this->model('User');
 					$user->username = $_POST['username'];
-					$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);			
-					try{
+					$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);	
+					
+					$current_user = $this->model('User');
+					$existingUser = $current_user->getUser($_POST['username']);
+
+					if($existingUser == false){		
+						
 						$user->insert();
-						header('location:/Default/index');
-					}catch(Exception $e){
-						$this->view('User/signup', ['errormessage' => 'The username you have entered is already in the database.']);
+						header('location:/Profile/index');
+						
+					} else {
+						$this->view('User/create', ['errormessage' => 'The username you have entered is already in the database.']);
 					}
 				}
 				else{
