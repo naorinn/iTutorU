@@ -7,8 +7,8 @@ class ProfileController extends Controller{
 	}
 
 	public function create() {
-		$schools = ["Vanier College", "Dawson College", "Marian"];
-
+		$school = $this->model('School');
+		$schools = $school->getSchools();
 		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools]);
 	}
 

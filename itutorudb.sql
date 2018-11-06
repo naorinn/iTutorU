@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2018 at 07:02 PM
+-- Generation Time: Nov 06, 2018 at 07:00 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -77,6 +77,172 @@ CREATE TABLE `program` (
   `programName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `program`
+--
+
+INSERT INTO `program` (`programId`, `programName`) VALUES
+(1, '080.04 - University prerequisites'),
+(2, '081.A6 - Springboard to a DCS: option orientation/exploration'),
+(3, '081.B6 - Springboard to a DCS: option prerequisites/remedial courses/paths'),
+(4, '081.C6 - Springboard to a DCS : option integration into Qu?bec society'),
+(5, '110.A0 - Dental Technology'),
+(6, '110.B0 - Denturology'),
+(7, '111.A0 - Dental Hygiene'),
+(8, '112.A0 - Acupuncture'),
+(9, '120.A0 - Dietetics'),
+(10, '140.A0 - Medical Electrophysiology'),
+(11, '140.C0 - Biomedical Laboratory Technology'),
+(12, '141.A0 - Respiratory and Anaesthesia Technology'),
+(13, '142.A0 - Diagnostic Imaging'),
+(14, '142.C0 - Radiation Oncology'),
+(15, '142.F0 - Nuclear Medicine Technology'),
+(16, '144.A0 - Physiotherapy Technology'),
+(17, '144.B0 - Orthotics and Prosthetics'),
+(18, '145.A0 - Animal Health Technology'),
+(19, '145.C0 - Environmental and Wildlife Management'),
+(20, '152.B0 - Farm Management and Technology'),
+(21, '153.A0 - Livestock Production'),
+(22, '153.B0 - Horticultural and Environmental Technology'),
+(23, '153.C0 - Ornamental Horticulture: Landscaping and Marketing'),
+(24, '153.D0 - Farm Equipment Technology'),
+(25, '154.A0 - Food Processing'),
+(26, '160.A0 - Optical Dispensing'),
+(27, '160.B0 - Hearing Aid Technology'),
+(28, '171.A0 - Funeral Service Technology'),
+(29, '180.A0 - Nursing'),
+(30, '180.B0 - Nursing (After a SSVD)'),
+(31, '181.A0 - Pre-Hospital Emergency Care'),
+(32, '190.B0 - Forest Technology'),
+(33, '200.11 - Science and Music'),
+(34, '200.12 - Science and Social Science'),
+(35, '200.13 - Science and Visual Arts'),
+(36, '200.15 - Science and Dance'),
+(37, '200.16 - Science and Arts, Literature and Communication'),
+(38, '200.B0 - Science'),
+(39, '200.C0 - Computer Sciences and Mathematics'),
+(40, '200.D0 - Science in English and French'),
+(41, '200.Z0 - Science - International Baccalaureate'),
+(42, '210.AA - Laboratory Technology: Biotechnology'),
+(43, '210.AB - Laboratory Technology: Analytical Chemistry'),
+(44, '210.B0 - Chemical Process Technology'),
+(45, '221.A0 - Architectural Technology'),
+(46, '221.B0 - Civil Engineering Technology'),
+(47, '221.C0 - Building Systems Technology'),
+(48, '221.D0 - Realty Appraisal'),
+(49, '222.A0 - Urban and Regional Planning'),
+(50, '230.AA - Geomatics Technology: Cartography'),
+(51, '230.AB - Geomatics Technology: Geodetic Surveying'),
+(52, '232.A0 - Cellulose conversion Technology (Eco-Bio)'),
+(53, '235.B0 - Industrial Engineering Technology'),
+(54, '235.C0 - Pharmaceutical Production Technology'),
+(55, '241.A0 - Mechanical Engineering Technology'),
+(56, '241.C0 - Composite Materials Processing'),
+(57, '241.D0 - Industrial Maintenance Mechanics'),
+(58, '243.A0 - Computer Engineering Technology'),
+(59, '243.BA - Electronics: Telecommunications'),
+(60, '243.BB - Electronics: Computers and Networks'),
+(61, '243.BC - Electronics: Audiovisual'),
+(62, '243.C0 - Industrial Electronics'),
+(63, '244.A0 - Engineering Physic Technology'),
+(64, '260.A0 - Water Technology'),
+(65, '260.B0 - Environment, Occupational Health and Safety'),
+(66, '270.AA - Metallurgical Engineering Technology: Production Techniques'),
+(67, '270.AB - Metallurgical Engineering Technology: Advanced Welding Techniques'),
+(68, '270.AC - Metallurgical Engineering Technology: Quality Control'),
+(69, '271.AA - Mineral Technology: Geology'),
+(70, '271.AB - Mineral Technology: Mining'),
+(71, '271.AC - Mineral Technology: Mineral processing'),
+(72, '280.B0 - Aerospace engineering'),
+(73, '280.C0 - Aircraft Maintenance'),
+(74, '280.D0 - Avionics'),
+(75, '300.11 - Social Science and Music'),
+(76, '300.13 - Social Science and Visual Arts'),
+(77, '300.15 - Social Science and Dance'),
+(78, '300.16 - Social Science and Arts, Literature and Communication'),
+(79, '300.30 - Social Science '),
+(80, '300.31 - Social Science with Mathematics'),
+(81, '300.32 - Social Science - Commerce'),
+(82, '300.33 - Social Science - the Individual'),
+(83, '300.34 - Social Science - the Society'),
+(84, '300.35 - Social Science - the World'),
+(85, '300.B0 - Social Science - First Nations'),
+(86, '300.C0 - Social Science in English and French'),
+(87, '300.Z0 - Social Science - International Baccalaureate'),
+(88, '310.A0 - Police Technology'),
+(89, '310.B0 - Youth and Adult Correctional Intervention'),
+(90, '310.C0 - Paralegal Technology'),
+(91, '311.A0 - Fire Safety (After a DEP)'),
+(92, '322.A0 - Early Childhood Education'),
+(93, '351.A0 - Special Care Counselling'),
+(94, '384.A0 - Social Research Techniques'),
+(95, '388.A0 - Social Service'),
+(96, '391.A0 - Community Recreational Leadership Training'),
+(97, '393.A0 - Information and Library Technologies'),
+(98, '410.A0 - Transportation Logistics'),
+(99, '410.B0 - Accounting and Management Technology'),
+(100, '410.C0 - Insurance and Financial Advisory Services'),
+(101, '410.D0 - Business Management'),
+(102, '410.F0 - Financial services and insurance technology'),
+(103, '411.A0 - Medical Records Management'),
+(104, '412.AA - Office System Technology: Office Work Coordination'),
+(105, '412.AB - Office System Technology: Micropublishing and Hypermedia'),
+(106, '414.A0 - Tourism'),
+(107, '420.AA - Computer Science Technology: Administrative Data Processing'),
+(108, '420.AC - Computer Science Technology: Network Management'),
+(109, '420.B0 - Computer Science Technology (new program)'),
+(110, '430.A0 - Hotel Management'),
+(111, '430.B0 - Food Service and Restaurant Management'),
+(112, '500.11 - Arts, Literature and Communication and Music'),
+(113, '500.13 - Arts, Literature and Communication and Visual Arts'),
+(114, '500.15 - Arts, Literature and Communication and Dance'),
+(115, '500.AE - Arts, Literature and Communication: Multidisciplinary'),
+(116, '500.AF - Arts, Literature and Communication: Arts'),
+(117, '500.AG - Arts, Literature and Communication: Cinema'),
+(118, '500.AH - Arts, Literature and Communication: Literature'),
+(119, '500.AJ - Arts, Literature and Communication: Media'),
+(120, '500.AK - Arts, Literature and Communication: Theater'),
+(121, '500.AL - Arts, Literature and Communication: Languages'),
+(122, '500.B1 - Arts, Literature and Communication - First Nations'),
+(123, '501.13 - Music and Visual Arts'),
+(124, '501.15 - Music and Dance'),
+(125, '501.A0 - Music'),
+(126, '506.13 - Dance and Visual Arts'),
+(127, '506.A0 - Dance'),
+(128, '510.A0 - Visual Arts'),
+(129, '551.A0 - Professionnal Music and Song Techniques'),
+(130, '551.B0 - Sound technologies'),
+(131, '561.A0 - Professional Theatre: Production'),
+(132, '561.BA - Dance: Performance in Classical Dance'),
+(133, '561.BB - Dance : Performance in Modern Dance'),
+(134, '561.C0 - Professional Theatre: Acting'),
+(135, '570.B0 - Museum Techniques'),
+(136, '570.C0 - Industrial Design Techniques'),
+(137, '570.D0 - Display Design'),
+(138, '570.E0 - Interior Design'),
+(139, '570.F0 - Professional Photography'),
+(140, '570.G0 - Graphic Design'),
+(141, '571.A0 - Fashion Design'),
+(142, '571.B0 - Apparel Production Management'),
+(143, '571.C0 - Fashion Marketing'),
+(144, '573.AA - Ceramics'),
+(145, '573.AB - Textile Construction'),
+(146, '573.AC - Cabinet Making and Millwork'),
+(147, '573.AD - Textile Printing'),
+(148, '573.AE - Jewellery'),
+(149, '573.AF - Guitar making'),
+(150, '573.AG - Leatherwork'),
+(151, '573.AJ - Glass Arts'),
+(152, '574.AB - Animation'),
+(153, '574.B0 - 3D Animation and Computer - Generated Imagery'),
+(154, '581.B0 - Printing'),
+(155, '581.D0 - Computer Graphics in Prepress work'),
+(156, '582.A1 - Multimedia Integration'),
+(157, '700.16 - Liberal Arts Literature and Communication'),
+(158, '700.A0 - Sciences and Arts'),
+(159, '700.B0 - Liberal Arts'),
+(160, '700.Z0 - Multidisciplinary International Baccalaureate Program');
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +294,68 @@ CREATE TABLE `school` (
   `schoolId` int(11) NOT NULL,
   `schoolName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`schoolId`, `schoolName`) VALUES
+(1, 'Cégep de l\'Abitibi-Témiscamingue'),
+(2, 'Collège Ahuntsic'),
+(3, 'Collège d\'Alma'),
+(4, 'Cégep André-Laurendeau'),
+(5, 'Cégep de Baie-Comeau'),
+(6, 'Cégep Beauce-Appalaches'),
+(7, 'Collège de Bois-de-Boulogne'),
+(8, 'Champlain Regional College'),
+(9, 'aint Lambert Campus'),
+(10, 'aint Lawrence Campus'),
+(11, 'Lennoxville Campus'),
+(12, 'Cégep de Chicoutimi'),
+(13, 'Dawson College'),
+(14, 'Cégep de Drummondville'),
+(15, 'Collège Édouard-Montpetit'),
+(16, 'École nationale d\'aérotechnique'),
+(17, 'Collège François-Xavier-Garneau'),
+(18, 'Cégep de la Gaspésie et des Îles'),
+(19, 'Collège Gérald-Godin'),
+(20, 'Cégep de Granby-Haute-Yamaska'),
+(21, 'Heritage College'),
+(22, 'John Abbott College'),
+(23, 'Cégep de Jonquière'),
+(24, 'Cégep de La Pocatière'),
+(25, 'Cégep régional de Lanaudière'),
+(26, 'Joliette Campus'),
+(27, 'L\'Assomption Campus'),
+(28, 'Terrebonne Campus'),
+(29, 'Cégep de Lévis-Lauzon'),
+(30, 'Cégep Limoilou'),
+(31, 'Collège Lionel-Groulx'),
+(32, 'Collège de Maisonneuve'),
+(33, 'Cégep Marie-Victorin'),
+(34, 'Cégep de Matane'),
+(35, 'Collège Montmorency'),
+(36, 'Cégep de l\'Outaouais'),
+(37, 'Cégep de Rimouski'),
+(38, 'Cégep de Rivière-du-Loup'),
+(39, 'Collège de Rosemont'),
+(40, 'Cégep de Saint-Félicien'),
+(41, 'Cégep de Saint-Hyacinthe'),
+(42, 'Cégep de Saint-Jean-sur-Richelieu'),
+(43, 'Cégep de Saint-Jérôme'),
+(44, 'Cégep de Saint-Laurent'),
+(45, 'Cégep de Sainte-Foy'),
+(46, 'Cégep de Sept-Îles'),
+(47, 'Collège Shawinigan'),
+(48, 'Cégep de Sherbrooke'),
+(49, 'Cégep de Sorel-Tracy'),
+(50, 'Cégep de Thetford'),
+(51, 'Cégep de Trois-Rivières'),
+(52, 'Collège de Valleyfield'),
+(53, 'Vanier College'),
+(54, 'Cégep de Victoriaville'),
+(55, 'Cégep du Vieux Montréal'),
+(56, 'Kiuna Institute');
 
 -- --------------------------------------------------------
 
@@ -314,7 +542,7 @@ ALTER TABLE `note`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 --
 -- AUTO_INCREMENT for table `resource`
 --
@@ -324,7 +552,7 @@ ALTER TABLE `resource`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `session`
 --
