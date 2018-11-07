@@ -20,14 +20,14 @@
 							<div class="col">
 								<label for="firstName">
 									First name:
-									<input name="firstName" required="required" pattern="" title="" type="text" class="form-control form-control-sm"/>
+									<input name="firstName" required="required" pattern="^[a-zA-Zàâçéèêëîïôûùüÿñæœ .-]{1,30}$" title="First name must be letters, maximum 30 characters" type="text" class="form-control form-control-sm"/>
 								</label>
 							</div>
 								
 							<div class="col">
 								<label for="lastName">
 									Last name:
-									<input name="lastName" required="required" pattern="" title="" type="text" class="form-control form-control-sm"/>
+									<input name="lastName" required="required" pattern="^[a-zA-Zàâçéèêëîïôûùüÿñæœ .-]{1,30}$/i" title="Last name must be letters, maximum 30 characters" type="text" class="form-control form-control-sm"/>
 								</label>
 								<br/><br/>
 							</div>

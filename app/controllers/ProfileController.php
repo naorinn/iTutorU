@@ -16,7 +16,17 @@ class ProfileController extends Controller{
 	}
 
 	public function _create() {
+		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
 
+
+			$this->view('User/home');
+		}
+		else{
+			$this->view('Profile/create', ['e_profile_create'=>'Please enter all required information.']);
+		}
+		if(isset($_POST['profileImage'])){
+			echo 'prof image';
+		}
 	}
 
 	public function update() {
