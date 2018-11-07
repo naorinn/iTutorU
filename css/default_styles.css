@@ -15,7 +15,7 @@ header {
 
 }
 
-header img {
+header img, #profileImage {
 	cursor: pointer;
 }
 

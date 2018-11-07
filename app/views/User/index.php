@@ -11,7 +11,7 @@
 		
 			<header class="main"></header>	
 			
-			<form method="post" action="/User/_login">
+			<form method="post" action="/User/login">
 				<div id="sign_in" class="form-group">
 					<h4><b><u>Sign in</u></b></h4>
 					<label for="username">
@@ -22,12 +22,17 @@
 					<label for="password">
 						Password:
 						<input name="password" required="required" type="password" class="form-control form-control-sm"/>
-						<small class="form-text text-muted"><a href="#">Forgot password?</a></small>
+						<!--<small class="form-text text-muted"><a href="#">Forgot password?</a></small>-->
 					</label>
 					<br>
 					<input class="btn btn-primary mb-2" type="submit" value="Login"/>
 					<br><br>
-					<small class="form-text text-muted">Don't have an account? <a href="User/create">Create one!</a></small>
+					<small class="form-text text-muted">Don't have an account? <a href="/User/create">Create one!</a></small>
+					
+					<br/><br/>
+						<small id="error" style="color: red;"><?php if(isset($data['error'])){echo $data['error'];}?></small>
+				
+					
 				</div>
 
 			</form>

@@ -1,8 +1,8 @@
 <?php 
 
-class School extends Model{
+class Program extends Model{
 
-	var $schoolName;
+	var $programName;
 
 
 	public function __construct() {
@@ -11,11 +11,11 @@ class School extends Model{
 
 	
 
-	public function getSchools() {
-		$sql = "SELECT schoolName FROM School";
+	public function getPrograms() {
+		$sql = "SELECT programName FROM Program";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute();
-		$stmt->setFetchMode(PDO::FETCH_CLASS, "School");
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Program");
 		return $stmt->fetchAll();
 	}
 

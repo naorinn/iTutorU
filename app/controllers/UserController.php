@@ -8,27 +8,29 @@ class UserController extends Controller {
 			
 		}
 	
-	public function _login() {
+	public function login() {
 		if(isset($_POST['username']) && isset($_POST['password'])){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 			$user = $this->model('User');
 			$current_user = $user->getUser($username);
-			//var_dump($current_user);
-			if(isset($current_user)){
-				//$current_user = $users[0];
+			
+			if($current_user != null){				
 				if(password_verify($password, $current_user->password)){					
 					$_SESSION['username'] = $username;
 					$_SESSION['userId'] = $current_user->userId;					
 					header('location:/User/home');
 				}else{
-					echo "in else";//$this->view('Login/index',['error'=>'Invalid username or password.']);
+					$this->view('User/index',['error'=>'Invalid username or password.']);
 				}
-			}//else
-				//$this->view('Login/index',['error'=>'Invalid username or password.']);
-		//}else
-			//$this->view('User/login');
-		//}
+			}
+			else
+			{
+				$this->view('User/index',['error'=>'Invalid username or password.']);
+			}		
+		}
+		else{
+			$this->view('User/index',['error'=>'Please enter your username and password.']);
 		}
 	}
 
@@ -61,22 +63,22 @@ class UserController extends Controller {
 					if($existingUser == false){		
 						
 						$user->insert();
-						header('location:/Profile/index');
+						header('location:/Profile/create');
 						
 					} else {
-						$this->view('User/create', ['errormessage' => 'The username you have entered is already in the database.']);
+						$this->view('User/create', ['create_error' => 'The username you have entered is already in the database.']);
 					}
 				}
 				else{
-					$this->view('User/create', ['error'=>'Please retype your password correctly.']);
+					$this->view('User/create', ['create_error'=>'Please retype your password correctly.']);
 				}
 			}
 			else{
-				$this->view('User/create', ['error'=>'Please enter a valid password.']);
+				$this->view('User/create', ['create_error'=>'Please enter a valid password.']);
 			}
 			
 		}else{
-			$this->view('User/create', ['error'=>'Please enter a valid username.']);
+			$this->view('User/create', ['create_error'=>'Please enter a valid username.']);
 		}
 	}
 
@@ -85,5 +87,34 @@ class UserController extends Controller {
 
 		$this->view('User/home');
 	}
+
+
+	public function validateInput($username, $pass) {
+			//https://regexone.com/references/php
+			//http://php.net/manual/en/function.password-hash.php
+			$usernameRegex = "/^[0-9]{7}$/";
+			$passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%.*?&_])[A-Za-z\d@$!%*\_\.?&]{8,}$";
+			$valid = false;
+
+			if(preg_match($usernameRegex, $username))
+			{
+				$valid = true;
+			}
+			else{
+				$message = "Your username is your school ID";
+				$this->view('Default/create', ['message'=>$message]);
+				$valid = false;
+			}
+
+			if(preg_match($passwordRegex, $pass)){
+				$valid = true;
+			}
+			else{
+				$message = "Your password must be 8 characters long, contain at least one uppercase, contain at least one lowercase, contain at least one number, contain at least one special character";
+				$this->view('Default/create', ['message'=>$message]);
+				$valid = false;
+			}
+			return $valid;
+		}
 }
 ?>

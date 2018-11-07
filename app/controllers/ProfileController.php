@@ -8,8 +8,11 @@ class ProfileController extends Controller{
 
 	public function create() {
 		$school = $this->model('School');
-		$schools = $school->getSchools();
-		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools]);
+		$schools = $school->getSchools();	
+
+		$program = $this->model('Program');
+		$programs = $program->getPrograms();	
+		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
 	}
 
 	public function _create() {
