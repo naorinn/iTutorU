@@ -13,7 +13,7 @@ class UserController extends Controller {
 			$username = $_POST['username'];
 			$password = $_POST['password'];
 			$user = $this->model('User');
-			$current_user = $user->getUser($username);
+			$current_user = $user->getUserByUsername($username);
 			
 			if($current_user != null){				
 				if(password_verify($password, $current_user->password)){					
@@ -58,12 +58,15 @@ class UserController extends Controller {
 					$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);	
 					
 					$current_user = $this->model('User');
-					$existingUser = $current_user->getUser($_POST['username']);
+					$existingUser = $current_user->getUserByUsername($_POST['username']);
 
 					if($existingUser == false){		
 						
 						$user->insert();
 						header('location:/Profile/create');
+						$verifyUser = $user->getUserByUsername($username);
+						$_SESSION['username'] = $verifyUser->username;
+						$_SESSION['userId'] = $verifyUser->userId;
 						
 					} else {
 						$this->view('User/create', ['create_error' => 'The username you have entered is already in the database.']);
@@ -80,6 +83,7 @@ class UserController extends Controller {
 		}else{
 			$this->view('User/create', ['create_error'=>'Please enter a valid username.']);
 		}
+
 	}
 
 

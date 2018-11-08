@@ -10,6 +10,7 @@
 		<?php include_once('/../Default/header.php')?>
 
 			<div class="content_block">
+			<?php $id = $_SESSION['userId'];  echo "user id is: $id"; ?>
 				<h3><b>Create Profile</b></h3>
 				<img id="profileImage" src='<?php echo $data["profileImage"]?>' /> <br/><br/>
 				<a class="btn btn-info mb-2"  href="#">Select profile image</a><br/><br/>
@@ -27,7 +28,7 @@
 							<div class="col">
 								<label for="lastName">
 									Last name:
-									<input name="lastName" required="required" pattern="^[a-zA-Zàâçéèêëîïôûùüÿñæœ .-]{1,30}$/i" title="Last name must be letters, maximum 30 characters" type="text" class="form-control form-control-sm"/>
+									<input name="lastName" required="required" pattern="^[a-zA-Zàâçéèêëîïôûùüÿñæœ .-]{1,30}$" title="Last name must be letters, maximum 30 characters" type="text" class="form-control form-control-sm"/>
 								</label>
 								<br/><br/>
 							</div>

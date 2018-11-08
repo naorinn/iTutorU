@@ -1,6 +1,7 @@
 <?php
 class User extends Model 
 {
+	var $userId;
 	var $username;
 	var $password;
 
@@ -23,10 +24,20 @@ class User extends Model
 		return $stmt->fetch();
 	}
 
-	public function getUser($username){
+	public function getUserByUsername($username){
 		$sql = "SELECT * FROM User WHERE username=:username";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['username'=>$username]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+		return $stmt->fetch();
+
+	}
+
+	public function getUserById($userId){
+		$sql = "SELECT * FROM User WHERE userId=:userId";
+        $stmt = self::$_connection->prepare($sql);
+        $stmt->execute(['userId'=>$userId]);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
 		return $stmt->fetch();
