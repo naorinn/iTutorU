@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2018 at 07:00 PM
+-- Generation Time: Nov 08, 2018 at 08:54 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -60,10 +60,17 @@ CREATE TABLE `profile` (
   `userId` int(11) NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
-  `profileImagePath` varchar(1024) NOT NULL,
+  `profileImagePath` varchar(1024) DEFAULT NULL,
   `schoolId` int(11) NOT NULL,
   `programId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`userId`, `firstName`, `lastName`, `profileImagePath`, `schoolId`, `programId`) VALUES
+(4, 'Naorin', 'Khan', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -308,8 +315,8 @@ INSERT INTO `school` (`schoolId`, `schoolName`) VALUES
 (6, 'Cégep Beauce-Appalaches'),
 (7, 'Collège de Bois-de-Boulogne'),
 (8, 'Champlain Regional College'),
-(9, 'aint Lambert Campus'),
-(10, 'aint Lawrence Campus'),
+(9, 'Saint Lambert College'),
+(10, 'Saint Lawrence College'),
 (11, 'Lennoxville Campus'),
 (12, 'Cégep de Chicoutimi'),
 (13, 'Dawson College'),
@@ -418,7 +425,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userId`, `username`, `password`) VALUES
 (1, 'naomi', '123'),
 (2, '1664931', '$2y$10$hDS6CbyPvOauF4jMfFdO6evOh3wxGyNllCMNqeNqyXEfTXsPXCD7.'),
-(3, '1234567', '$2y$10$hDS6CbyPvOauF4jMfFdO6evOh3wxGyNllCMNqeNqyXEfTXsPXCD7.');
+(3, '1234567', '$2y$10$hDS6CbyPvOauF4jMfFdO6evOh3wxGyNllCMNqeNqyXEfTXsPXCD7.'),
+(4, '1522125', '$2y$10$mWsjBKAkO/gjsDGPWxjx7eCAhSdWIK/QMlC/wk08gTkiqgIhjrXES');
 
 -- --------------------------------------------------------
 
@@ -562,7 +570,7 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --

@@ -31,7 +31,9 @@
 					</label>
 					<br/><br/>
 					<input class="btn btn-primary mb-2" type="submit" value="Register"/>
-					<br><br>					
+
+					<br/><br/>
+						<small id="error" style="color: red;"><?php if(isset($data['create_error'])){echo $data['create_error'];}?></small>					
 				</div>
 			</form>
 		</div>

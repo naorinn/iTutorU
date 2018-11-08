@@ -17,16 +17,20 @@ class ProfileController extends Controller{
 
 	public function _create() {
 		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
-			$firstName = $_POST['firstName'];
-			$lastName = $_POST['lastName'];
-			$school = $_POST['school'];
-			$program = $_POST['program'];
-
-			//$profileImage = $_POST['profileImagePath'];
 			$profile = $this->model('Profile');
 			$user = $this->model('User');
-			$id = $_SESSION['userId'];
-			$current_user = $user->getUserById($id);
+			//$current_user = $user->getUserById($id);
+
+			$profile->userId = $_SESSION['userId'];
+			$profile->firstName = $_POST['firstName'];
+			$profile->lastName = $_POST['lastName'];
+			$profile->schoolId = 1;//$_POST['school'];
+			$profile->programId = 1;//$_POST['program'];
+
+			//$profileImage = $_POST['profileImagePath'];
+			
+			
+			
 			$profile->insert();
 
 			echo "profile created";

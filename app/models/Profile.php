@@ -13,7 +13,7 @@ class Profile extends Model
 	}
 
 	public function insert(){
-		$sql= "INSERT INTO Profile (userId, firstName, lastName, schoolId, programId) VALUES (:userId, :firstName, lastName, schoolId, programId)";
+		$sql= "INSERT INTO Profile (userId, firstName, lastName, schoolId, programId) VALUES (:userId, :firstName, :lastName, :schoolId, :programId)";
 			$stmt = self::$_connection->prepare($sql);
 			$stmt->execute(['userId'=>$this->userId,'firstName'=>$this->firstName, 'lastName'=>$this->lastName, 'schoolId'=>$this->schoolId, 'programId'=>$this->programId]);		
 			//'profileImagePath'=>$this->profileImagePath,	
