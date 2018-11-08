@@ -22,6 +22,11 @@ class Model extends ModelCaller
 		
 	}
 
+
+	public function lastInsertId(){
+		return self::$_connection->lastInsertId();
+	}
+
 }
 
 ?>

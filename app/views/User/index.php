@@ -32,8 +32,7 @@
 					<br/><br/>
 						<small id="error" style="color: red;"><?php if(isset($data['error'])){echo $data['error'];}?></small>
 				
-					<br/><br/>
-						<small id="error" style="color: red;"><?php if(isset($data['create_error'])){echo $data['create_error'];}?></small>
+					
 				</div>
 
 			</form>

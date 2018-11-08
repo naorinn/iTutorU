@@ -63,10 +63,12 @@ class UserController extends Controller {
 					if($existingUser == false){		
 						
 						$user->insert();
+						//$verifyUser = $user->getUserByUsername($username);
+						$_SESSION['userId'] = $user->lastInsertId();
+
+						$_SESSION['username'] = $user->username;
+//						$_SESSION['userId'] = $verifyUser->userId;
 						header('location:/Profile/create');
-						$verifyUser = $user->getUserByUsername($username);
-						$_SESSION['username'] = $verifyUser->username;
-						$_SESSION['userId'] = $verifyUser->userId;
 						
 					} else {
 						$this->view('User/create', ['create_error' => 'The username you have entered is already in the database.']);

@@ -41,7 +41,7 @@
 							<?php
 								$schools = $data['schools'];								
 								foreach($schools as $school){
-									print("<option>$school->schoolName</option>");
+									print("<option value =\"$school->schoolId\">$school->schoolName</option>");
 								}
 							?>
 						</select>						
@@ -54,7 +54,7 @@
 							<?php
 								$programs = $data['programs'];								
 								foreach($programs as $program){
-									print("<option>$program->programName</option>");
+									print("<option value =\"$program->programId\">$program->programName</option>");
 								}
 							?>
 						</select>	

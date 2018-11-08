@@ -20,20 +20,20 @@ class ProfileController extends Controller{
 			$profile = $this->model('Profile');
 			$user = $this->model('User');
 			//$current_user = $user->getUserById($id);
+			var_dump($_SESSION['userId']);
 
 			$profile->userId = $_SESSION['userId'];
 			$profile->firstName = $_POST['firstName'];
 			$profile->lastName = $_POST['lastName'];
-			$profile->schoolId = 1;//$_POST['school'];
-			$profile->programId = 1;//$_POST['program'];
+			$profile->schoolId = $_POST['school'];
+			$profile->programId = $_POST['program'];
 
 			//$profileImage = $_POST['profileImagePath'];
 			
 			
-			
 			$profile->insert();
 
-			echo "profile created";
+			//echo "profile created";
 
 			$this->view('User/home');
 		}
