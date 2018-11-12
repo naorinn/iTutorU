@@ -12,7 +12,7 @@ class Program extends Model{
 	
 
 	public function getPrograms() {
-		$sql = "SELECT programName FROM Program";
+		$sql = "SELECT * FROM Program";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Program");

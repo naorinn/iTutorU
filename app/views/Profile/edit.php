@@ -10,13 +10,9 @@
 		<?php include_once('/../Default/header.php')?>
 
 			<div class="content_block">			
-				<h3><b>Create Profile</b></h3>
-				<form action="_uploadProfileImage" method="post" enctype="multipart/form-data">
-					<img id="profileImage" src='<?php echo $data["profileImage"]?>' /> <br/><br/>
-					<input type="file" name="profile_pic" >
-					<input type="submit" class="btn btn-info mb-2"/>
-				</form>
-
+				<h3><b>Edit Profile</b></h3>
+				<img id="profileImage" src='<?php echo $data["profileImage"]?>' /> <br/><br/>
+				<a class="btn btn-info mb-2"  href="#">Change profile image</a><br/><br/>
 				<form method="post" action="_create">
 					<div id="profile_create" class="form-group">
 					

@@ -20,7 +20,7 @@ class ProfileController extends Controller{
 			$profile = $this->model('Profile');
 			$user = $this->model('User');
 			//$current_user = $user->getUserById($id);
-			var_dump($_SESSION['userId']);
+			//var_dump($_SESSION['userId']);
 
 			$profile->userId = $_SESSION['userId'];
 			$profile->firstName = $_POST['firstName'];
@@ -45,20 +45,29 @@ class ProfileController extends Controller{
 		}
 	}
 
-	public function update() {
+	public function edit() {
+		$school = $this->model('School');
+		$schools = $school->getSchools();	
 
+		$program = $this->model('Program');
+		$programs = $program->getPrograms();	
+		$this->view('Profile/edit', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
 	}
 
-	public function _update() {
+	public function _edit() {
 
 	}
 
 	public function updateProfileImage() {
-
+		$this->view('Profile/profileImage', ['profileImage'=>'/images/profile_default.jpg']);
 	}
 
 	public function _updateProfileImage() {
 
+	}
+
+	public function _uploadProfileImage() {
+		
 	}
 	
 

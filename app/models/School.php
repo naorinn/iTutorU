@@ -12,7 +12,7 @@ class School extends Model{
 	
 
 	public function getSchools() {
-		$sql = "SELECT schoolName FROM School";
+		$sql = "SELECT * FROM School";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "School");
