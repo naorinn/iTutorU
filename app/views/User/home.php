@@ -7,10 +7,13 @@
 		<link rel="stylesheet" href="../../../css/default_styles.css" type="text/css" />
 	</head>
 	<body>
-		<?php include_once('/../Default/header.php')?>
+		<?php include_once('/../Default/header.php') ?>
 
 			<div class="content_block">
-				
+				<div>
+					<h4>My sessions</h4>
+
+				</div>
 
 			</div>
 

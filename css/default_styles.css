@@ -15,8 +15,22 @@ header {
 
 }
 
+header a {
+	cursor: pointer;
+}
+
 header img, #profileImage {
 	cursor: pointer;
+	margin-right: 10%;
+}
+
+header #search_bar {
+	
+	margin-right: 10%;
+}
+
+header #search_bar input {
+	width: 25%;
 }
 
 header #logout{
@@ -43,7 +57,18 @@ header img{
 	left: 43%;
 }
 
-#register {
+#user_register {
+	position: fixed;
+	padding: 25px;
+	background-color: white;
+	border-radius: 20px;
+	width: 20%;
+	height: 40%;
+	top: 23%;
+	left: 43%;
+}
+
+#profile_register {
 	position: fixed;
 	padding: 25px;
 	background-color: white;

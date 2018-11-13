@@ -13,16 +13,16 @@ class ProfileController extends Controller{
 		$program = $this->model('Program');
 		$programs = $program->getPrograms();
 
-		if(isset($_POST['action'])){
-			$file_name = helpers::imageUpload('profileImagePath');
+		//if(isset($_POST['action'])){
+			//$file_name = helpers::imageUpload('profileImagePath');
 			$profile = $this->model('Profile');
-			$profile->profileImagePath = $file_name;
-			$profile->changeProfilePic();
+			//$profile->profileImagePath = $file_name;
+			//$profile->changeProfilePic();
 			//redirect
-			header('location:/Profile/create/', ['profile' => $profile,'schools'=>$schools, 'programs'=>$programs]);
-		}else{
-			$this->view('Profile/addProfilePic');
-		}
+			$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+		//}else{
+			//$this->view('Profile/addProfilePic');
+		//}
 
 	}
 
