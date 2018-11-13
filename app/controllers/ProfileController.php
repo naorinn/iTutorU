@@ -12,52 +12,36 @@ class ProfileController extends Controller{
 
 		$program = $this->model('Program');
 		$programs = $program->getPrograms();
-
-		//if(isset($_POST['action'])){
-			//$file_name = helpers::imageUpload('profileImagePath');
-			$profile = $this->model('Profile');
-			//$profile->profileImagePath = $file_name;
-			//$profile->changeProfilePic();
-			//redirect
-			$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
-		//}else{
-			//$this->view('Profile/addProfilePic');
-		//}
-
+		$profile = $this->model('Profile');
+			
+		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
 	}
 
-		//$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+		
 	
 
 	public function _create() {
 		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
 			$profile = $this->model('Profile');
-			$user = $this->model('User');
-			//$current_user = $user->getUserById($id);
-			//var_dump($_SESSION['userId']);
+			$user = $this->model('User');			
 
 			$profile->userId = $_SESSION['userId'];
 			$profile->firstName = $_POST['firstName'];
 			$profile->lastName = $_POST['lastName'];
 			$profile->schoolId = $_POST['school'];
 			$profile->programId = $_POST['program'];
-
-			//$profileImage = $_POST['profileImagePath'];
-			
-			
 			$profile->insert();
 
-			//echo "profile created";
-
+			echo "profile created";
+			header('location:/User/home');
 			$this->view('User/home');
+
 		}
 		else{
 			$this->view('Profile/create', ['e_profile_create'=>'Please enter all required information.']);
-		}
-		if(isset($_POST['profileImage'])){
-			echo 'prof image';
-		}
+		}		
 	}
+
 
 	public function edit() {
 		$school = $this->model('School');
