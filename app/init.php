@@ -4,5 +4,6 @@
 	require_once 'core/ModelCaller.php';
 	require_once 'core/Controller.php';
 	require_once 'core/Model.php';
+	require_once '/core/helpers.php';
 
 ?>

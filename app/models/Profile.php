@@ -28,7 +28,11 @@ class Profile extends Model
 		return $stmt->fetch();
 	}
 
-	
+	public function changeProfilePic(){
+		$sql = "UPDATE Profile SET profileImagePath = :profileImagePath WHERE userId = :userId";
+		$sth = self::$_connection->prepare($sql);
+		$sth->execute(['profileImagePath'=>$this->profileImagePath,'userId'=>$this->userId]);
+	}
 
 	public function getProfileByUserId($userId){
 		$sql = "SELECT * FROM Profile WHERE userId = :userId";
@@ -39,6 +43,8 @@ class Profile extends Model
 		return $stmt->fetch();
 
 	}
+
+
 
 }
 

@@ -7,14 +7,16 @@
 		<link rel="stylesheet" href="../../../css/default_styles.css" type="text/css" />
 	</head>
 	<body>
-		<?php include_once('/../Default/header.php')?>
+		<?php include_once('/../Default/header.php');?>
 
+		<?php $profile = $data['profile']; ?>
+		
 			<div class="content_block">			
 				<h3><b>Create Profile</b></h3>
-				<form action="_uploadProfileImage" method="post" enctype="multipart/form-data">
-					<img id="profileImage" src='<?php echo $data["profileImage"]?>' /> <br/><br/>
-					<input type="file" name="profile_pic" >
-					<input type="submit" class="btn btn-info mb-2"/>
+				<form action="" method="post" enctype="multipart/form-data">
+					<img src='/images/<?php echo ($profile->profileImagePath!=null?$profile->profileImagePath:'profile_default.png'); ?>' /> /> <br/><br/>
+					<input type="file" name="profileImagePath" >
+					<input type="submit" class="btn btn-info mb-2" name="action"/>
 				</form>
 
 				<form method="post" action="_create">

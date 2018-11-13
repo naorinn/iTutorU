@@ -11,9 +11,23 @@ class ProfileController extends Controller{
 		$schools = $school->getSchools();	
 
 		$program = $this->model('Program');
-		$programs = $program->getPrograms();	
-		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+		$programs = $program->getPrograms();
+
+		if(isset($_POST['action'])){
+			$file_name = helpers::imageUpload('profileImagePath');
+			$profile = $this->model('Profile');
+			$profile->profileImagePath = $file_name;
+			$profile->changeProfilePic();
+			//redirect
+			header('location:/Profile/create/', ['profile' => $profile,'schools'=>$schools, 'programs'=>$programs]);
+		}else{
+			$this->view('Profile/addProfilePic');
+		}
+
 	}
+
+		//$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+	
 
 	public function _create() {
 		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
@@ -64,10 +78,17 @@ class ProfileController extends Controller{
 
 	public function _updateProfileImage() {
 
-	}
+		if(isset($_POST['action'])){
+			$file_name = helpers::imageUpload('profileImagePath');
+			$profile = $this->model('Profile');
+			$profile->profileImagePath = $file_name;
+			$profile->changeProfilePic();
+			//redirect
+			header('location:/Profile/create/', ['profile' => $profile]);
+		}else{
+			$this->view('Profile/addProfilePic');
+		}
 
-	public function _uploadProfileImage() {
-		
 	}
 	
 
