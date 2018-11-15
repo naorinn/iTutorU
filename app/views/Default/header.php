@@ -11,10 +11,10 @@
 
 	<!--header right-->
 	<a href="/Profile/edit">Profile</a>
-	<a>Tutors</a>
-	<a>My notes</a>
-	<a>My sessions</a>
-	<a>Messages</a>
+	<a href="/Tutor/create">Tutor</a>
+	<a href="/Notes/index">My notes</a>
+	<a href="/Session/index">My sessions</a>
+	<a href="/Messages/index">Messages</a>
 
 	<a id="logout" class="btn btn-info mb-2" type="submit" href="/User/_logout">Logout</a>
 
