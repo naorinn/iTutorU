@@ -10,7 +10,7 @@
 	</span>
 
 	<!--header right-->
-	<a>Profile</a>
+	<a href="/Profile/edit">Profile</a>
 	<a>Tutors</a>
 	<a>My notes</a>
 	<a>My sessions</a>
