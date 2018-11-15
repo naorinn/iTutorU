@@ -34,11 +34,11 @@ class UserController extends Controller {
 		}
 	}
 
-	public function _logout(){
+	public function logout(){
 		$_SESSION = array();
 
 		session_destroy();
-		header('location:/');
+		header('location:/User/index');
 	}
 
 

@@ -6,6 +6,7 @@ class App {
 	protected $controller = 'UserController';
 	protected $method = 'index';
 	protected $params = [];
+	protected $found;
 
 	public function __construct() {
 		$url = $this->parseUrl();
@@ -13,6 +14,7 @@ class App {
 		if(file_exists('app/controllers/' . $url[0] . 'Controller.php')){
 			$this->controller = $url[0] . 'Controller';
 			unset($url[0]);
+			//$found = true;
 		}
 
 		require_once 'app/controllers/' . $this->controller . '.php';
@@ -20,7 +22,7 @@ class App {
 
 
 		if(isset($url[1])) {
-			if(method_exists($this->controller, $url[1])){
+			if(method_exists($this->controller, $url[1]) /*&& $this->found*/){
 				$this->method = $url[1];				
 			}
 			unset($url[1]);

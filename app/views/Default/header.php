@@ -10,13 +10,14 @@
 	</span>
 
 	<!--header right-->
+	<a href="/User/home">Home</a>
 	<a href="/Profile/edit">Profile</a>
-	<a href="/Tutor/create">Tutor</a>
+	<a href="/Tutor/create">Become a tutor</a>
 	<a href="/Notes/index">My notes</a>
 	<a href="/Session/index">My sessions</a>
 	<a href="/Messages/index">Messages</a>
 
-	<a id="logout" class="btn btn-info mb-2" type="submit" href="/User/_logout">Logout</a>
+	<a id="logout" class="btn btn-info mb-2" type="submit" href="/User/logout">Logout</a>
 
 
 </header>
