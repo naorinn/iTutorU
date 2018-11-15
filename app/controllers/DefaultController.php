@@ -2,6 +2,9 @@
 //dos not interact with DB; model does
 	class DefaultController extends Controller{
 
+		public function index() {
+				$this->view('Default/404');
+		}
 		/*public function index($name = 'John'){
 			//echo 'in default controller';
 			//$name = 'hello ther!';

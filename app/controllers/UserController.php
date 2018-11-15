@@ -6,7 +6,7 @@ class UserController extends Controller {
 
 			$this->view('User/index');
 			
-		}
+	}
 	
 	public function login() {
 		if(isset($_POST['username']) && isset($_POST['password'])){
@@ -90,8 +90,12 @@ class UserController extends Controller {
 
 
 	public function home() {
-
-		$this->view('User/home');
+		if($_SESSION['userId'] != null)
+		{
+			$this->view('User/home');
+		}
+		else
+			header('location:/');
 	}
 
 

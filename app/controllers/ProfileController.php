@@ -91,7 +91,7 @@ class ProfileController extends Controller{
 			$profile = $this->model('Profile');
 			$profile->profileImagePath = $file_name;
 			$profile->changeProfilePic();
-			//redirect
+			
 			header('location:/Profile/create/', ['profile' => $profile]);
 		}else{
 			$this->view('Profile/addProfilePic');

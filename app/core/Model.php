@@ -17,7 +17,8 @@ class Model extends ModelCaller
 			self::$_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch(Exception $ex) {
-			header('location: /app/views/Default/404.php');//, ['error' => 'Connection to database could not be established!']);
+			header('location: /Default/404');
+			//header('location: /app/views/Default/404.php');//, ['error' => 'Connection to database could not be established!']);
 		}
 		
 	}
