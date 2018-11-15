@@ -2,19 +2,32 @@
 
 class ProfileController extends Controller{
 
+	
+
+
 	public function index() {
-		$this->view('Profile/index');
+		if($_SESSION['userId'] != null)
+		{
+			$this->view('Profile/index');
+		}
+		else
+			header('location:/');
 	}
 
 	public function create() {
-		$school = $this->model('School');
-		$schools = $school->getSchools();	
+		if($_SESSION['userId'] != null)
+		{
+			$school = $this->model('School');
+			$schools = $school->getSchools();	
 
-		$program = $this->model('Program');
-		$programs = $program->getPrograms();
-		$profile = $this->model('Profile');
-			
-		$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+			$program = $this->model('Program');
+			$programs = $program->getPrograms();
+			$profile = $this->model('Profile');
+				
+			$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+		}
+		else
+			header('location:/');
 	}
 
 		
@@ -44,12 +57,18 @@ class ProfileController extends Controller{
 
 
 	public function edit() {
-		$school = $this->model('School');
-		$schools = $school->getSchools();	
+		if($_SESSION['userId'] != null)
+		{		
+			$school = $this->model('School');
+			$schools = $school->getSchools();	
 
-		$program = $this->model('Program');
-		$programs = $program->getPrograms();	
-		$this->view('Profile/edit', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+			$program = $this->model('Program');
+			$programs = $program->getPrograms();	
+			$this->view('Profile/edit', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+		}
+		else
+			header('location:/');
+
 	}
 
 	public function _edit() {
@@ -57,7 +76,12 @@ class ProfileController extends Controller{
 	}
 
 	public function updateProfileImage() {
-		$this->view('Profile/profileImage', ['profileImage'=>'/images/profile_default.jpg']);
+		if($_SESSION['userId'] != null)
+		{
+			$this->view('Profile/profileImage', ['profileImage'=>'/images/profile_default.jpg']);
+			}
+		else
+			header('location:/');
 	}
 
 	public function _updateProfileImage() {
@@ -74,6 +98,7 @@ class ProfileController extends Controller{
 		}
 
 	}
+
 	
 
 }
