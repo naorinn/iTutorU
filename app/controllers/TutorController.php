@@ -4,7 +4,7 @@ class TutorController extends Controller {
 
 	public function index(){
 
-			$this->view('Tutor/index');
+		$this->view('Tutor/index');
 			
 	}
 	
@@ -27,21 +27,21 @@ class TutorController extends Controller {
 	}
 
 	public function search() {
-
-//		echo $searchTerm;
-//		$array = json_decode(urldecode($searchTerm));
-		var_dump($_GET['search']);
-		/*if($_SESSION['userId'] != null)
+		if($_SESSION['userId'] != null)
 		{		
+			//var_dump($_GET['searchSubject']);
 			$tutor = $this->model('Tutor');
 			$tutors = $tutor->getTutors();	
 
-			$program = $this->model('Program');
-			$programs = $program->getPrograms();	
-			$this->view('Tutor/search', []);
+			$this->view('Tutor/search', ['tutors'=>$tutors]);
+
+
+			//$program = $this->model('Program');
+			//$programs = $program->getPrograms();	
+			//$this->view('Tutor/search', []);
 		}
 		else
-			header('location:/');*/
+			header('location:/');
 		
 	}
 }

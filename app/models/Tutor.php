@@ -2,8 +2,10 @@
 class Tutor extends Model 
 {
 	var $userId;
-	var $firstNam;
-	var $password;
+	var $description;
+	var $pay;
+	var $rating;
+	var $timesTutored;
 
 	public function __construct() {
 		parent::__construct();
@@ -38,6 +40,16 @@ class Tutor extends Model
 		$sql = "SELECT * FROM User WHERE userId=:userId";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['userId'=>$userId]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+		return $stmt->fetch();
+
+	}
+
+	public function getTutors($username){
+		$sql = "SELECT * FROM User WHERE username=:username";
+        $stmt = self::$_connection->prepare($sql);
+        $stmt->execute(['username'=>$username]);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
 		return $stmt->fetch();
