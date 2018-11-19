@@ -11,10 +11,10 @@
 
 			<div class="content_block">			
 				<h3><b>Profile Image</b></h3>
-				<form>
-					<img id="profileImage" src='<?php echo $data["profileImage"]?>' /> <br/><br/>
-					<a class="btn btn-info mb-2"  href="#">Select image</a>
-					<a class="btn btn-info mb-2"  href="#">Reset image</a><br/><br/>
+				<form action="_updateProfileImage" method="post" enctype="multipart/form-data">
+					<img src='<?php echo ($data['profileImage']); ?>' /> <br/><br/>
+					<input type="file" name="profileImagePath" >
+					<input type="submit" class="btn btn-info mb-2" name="action"/>
 				</form>
 				
 			</div>

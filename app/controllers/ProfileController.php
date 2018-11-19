@@ -35,8 +35,7 @@ class ProfileController extends Controller{
 
 	public function _create() {
 		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
-			$profile = $this->model('Profile');
-			$user = $this->model('User');			
+			$profile = $this->model('Profile');				
 
 			$profile->userId = $_SESSION['userId'];
 			$profile->firstName = $_POST['firstName'];
@@ -56,15 +55,18 @@ class ProfileController extends Controller{
 	}
 
 
-	public function edit() {
+	public function edit($message='') {
 		if($_SESSION['userId'] != null)
 		{		
 			$school = $this->model('School');
 			$schools = $school->getSchools();	
 
+			$profile = $this->model('Profile');
+			$current_profile = $profile->getProfileByUserId($_SESSION['userId']);
+
 			$program = $this->model('Program');
 			$programs = $program->getPrograms();	
-			$this->view('Profile/edit', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+			$this->view('Profile/edit', ['message'=>$message, 'schools'=>$schools, 'programs'=>$programs, 'profile'=>$current_profile]);
 		}
 		else
 			header('location:/');
@@ -72,29 +74,48 @@ class ProfileController extends Controller{
 	}
 
 	public function _edit() {
+		if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
+			$profile = $this->model('Profile');					
 
+			$profile->userId = $_SESSION['userId'];
+			$profile->firstName = $_POST['firstName'];
+			$profile->lastName = $_POST['lastName'];
+			$profile->schoolId = $_POST['school'];
+			$profile->programId = $_POST['program'];
+			$profile->update();			
+			//header('location:/User/home');
+			$this->edit("Profile updated successfully!");
+
+		}
+		//else{
+		//	$this->view('Profile/create', ['e_profile_create'=>'Please enter all required information.']);
+		//}		
 	}
 
 	public function updateProfileImage() {
 		if($_SESSION['userId'] != null)
 		{
 			$this->view('Profile/profileImage', ['profileImage'=>'/images/profile_default.jpg']);
-			}
+		}
 		else
 			header('location:/');
 	}
 
 	public function _updateProfileImage() {
 
-		if(isset($_POST['action'])){
+		if(true){
 			$file_name = helpers::imageUpload('profileImagePath');
+			//var_dump($file_name);
 			$profile = $this->model('Profile');
-			$profile->profileImagePath = $file_name;
-			$profile->changeProfilePic();
+			$current_profile = $profile->getProfileByUserId($_SESSION['userId']);
+			$current_profile->profileImagePath = $file_name;
 			
-			header('location:/Profile/create/', ['profile' => $profile]);
-		}else{
-			$this->view('Profile/addProfilePic');
+			$current_profile->changeProfilePic($_SESSION['userId']);
+			
+			header('location:/Profile/edit');
+		}
+		else{
+			$this->edit();
 		}
 
 	}
