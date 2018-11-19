@@ -44,9 +44,9 @@ class UserController extends Controller {
 
 	public function create() {
 			
-			$this->view('User/create');
+		$this->view('User/create');
 
-		}
+	}
 		
 
 	public function _create(){

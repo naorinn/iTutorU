@@ -9,7 +9,6 @@
 	<body>
 		<?php include_once('/../Default/header.php');
 			$profile = $data['profile'];
-			//echo $data['message'];
 		?>
 
 			<div class="content_block">			

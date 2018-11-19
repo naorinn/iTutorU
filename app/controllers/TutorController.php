@@ -9,7 +9,7 @@ class TutorController extends Controller {
 	}
 	
 	public function create() {
-
+		$this->view('Tutor/create');
 	}
 
 	public function _create() {

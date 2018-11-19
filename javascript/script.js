@@ -4,3 +4,7 @@ function getDays(){
 	var month = date.getMonth();
 	return new Date(year, month+1, 0).getDate();
 }
+
+function updateTextInput(val) {
+	document.getElementById('textInput').value=val; 
+}
