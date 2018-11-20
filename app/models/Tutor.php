@@ -46,12 +46,26 @@ class Tutor extends Model
 
 	}
 
-	public function getTutors($searchWord = ''){
-		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :searchWord";
-		$searchWord = "%$searchWord%";
-        $stmt = self::$_connection->prepare($sql);
-        $stmt->execute(['searchWord'=>$searchWord]);
+	public function getTutors($subject = '', $program='', $price = 0, $price_upper = 0){
+		$sql = "";
+		if($program != '' || $price != ''){
+			$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :subject AND (p.programId = :program OR t.pay BETWEEN :price AND :price_upper)";
+			$subject = "%$subject%";
+			$stmt = self::$_connection->prepare($sql);
+        	$stmt->execute(['subject'=>$subject, 'program'=>$program, 'price'=>$price, 'price_upper'=>$price_upper]);
 
+		}
+		else{			
+			$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :subject";
+			$subject = "%$subject%";
+			$stmt = self::$_connection->prepare($sql);
+			$stmt->execute(['subject'=>$subject]);
+		}
+		
+
+       // $stmt = self::$_connection->prepare($sql);
+        //$stmt->execute(['subject'=>$subject, 'program'=>$program, 'price'=>$price]);
+//$stmt->execute(['subject'=>$subject]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Tutor");
 		return $stmt->fetchAll();
 

@@ -45,6 +45,19 @@ header img{
 	
 }
 
+#advanced_search {
+	background-color: black;
+	padding: 0.5%;
+	height: 15%;
+	color: white;
+	font-weight: bold;
+}
+
+#advanced_search input{
+	color: black;
+}
+
+
 
 #sign_in {
 	position: fixed;
