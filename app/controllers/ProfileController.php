@@ -95,7 +95,7 @@ class ProfileController extends Controller{
 	public function updateProfileImage() {
 		if($_SESSION['userId'] != null)
 		{
-			$this->view('Profile/profileImage', ['profileImage'=>'/images/profile_default.jpg']);
+			$this->view('Profile/profileImage', ['profileImagePath'=>'/images/profile_default.jpg']);
 		}
 		else
 			header('location:/');
