@@ -21,18 +21,17 @@
 					</label>
 					<br/><br/>
 					<label for="pay">
-						Pay:
-						<input name="pay" required="required" type="range" min="0" max="20" value="0" class="form-control form-control-sm"/>
+						Pay ($/per sessions):
+						<input name="pay" required="required" type="number" min="0" max="30" value="0" class="form-control form-control-sm"/>
 						
 					</label>
 					<br/><br/>
-					<label for="retypePassword">
-						Re-type password:
-						<input name="retypePassword" required="required" type="password" class="form-control form-control-sm" onchange="updateTextInput(this.value)"/>
-						<small id="textInput"></small>
+					<label for="about">
+						About me:
+						<textarea name="about" cols="50" required="required" placeholder="Write a bit about yourself..." type="password" class="form-control form-control-sm" ></textarea>					
 					</label>
 					<br/><br/>
-					<input class="btn btn-primary mb-2" type="submit" value="Submit"/>
+					<input class="btn btn-primary mb-2" type="submit" value="Save"/>
 
 					<br/><br/>
 						<small id="error" style="color: red;"><?php if(isset($data['create_error'])){echo $data['create_error'];}?></small>					

@@ -11,6 +11,12 @@
 		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">
+				<?php
+					$message = $data['message'];
+					if($message != ''){
+						print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
+					}
+				?>
 				<div>
 					<h4>Home</h4>
 					<div id="calendar"></div>

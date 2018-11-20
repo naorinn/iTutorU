@@ -12,9 +12,9 @@ class Tutor extends Model
 	}
 
 	public function insert(){
-		$sql= "INSERT INTO User (username, password) VALUES (:username, :password)";
+		$sql= "INSERT INTO Tutor (userId, description, pay) VALUES (:userId, :description, :pay)";
 			$stmt = self::$_connection->prepare($sql);
-			$stmt->execute(['username'=>$this->username, 'password'=>$this->password]);			
+			$stmt->execute(['userId'=>$this->userId, 'description'=>$this->description, 'pay'=>$this->pay]);			
 	}
 
 	public function find($username) {

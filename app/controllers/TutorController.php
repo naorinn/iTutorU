@@ -13,7 +13,15 @@ class TutorController extends Controller {
 	}
 
 	public function _create() {
-		
+		if(isset($_POST['description']) && isset($_POST['about']) && isset($_POST['pay'])){
+			$tutor = $this->model('Tutor');
+			$tutor->userId = $_SESSION['userId'];
+			$tutor->description = $_POST['description'];
+			$tutor->pay = $_POST['pay'];
+			//$tutor->about = $_POST['about'];
+			$tutor->insert();
+			$this->view('User/home', ['message'=>"Your tutor profile was created successfully! Congratulations!"]);
+		}
 	}
 
 
@@ -52,7 +60,6 @@ class TutorController extends Controller {
 	public function advancedSearch() {
 		if($_SESSION['userId'] != null)
 		{		
-			//var_dump($_GET['searchSubject']);
 			$subject = $_GET['subject'];
 			$program = $_GET['program'];
 			$price = $_GET['price'];
@@ -66,11 +73,6 @@ class TutorController extends Controller {
 			$programs = $program->getPrograms();	
 		
 			$this->view('Tutor/search', ['tutors'=>$tutors, 'programs'=>$programs]);
-			
-
-			//$program = $this->model('Program');
-			//$programs = $program->getPrograms();	
-			//$this->view('Tutor/search', []);
 		}
 		else
 			header('location:/');
