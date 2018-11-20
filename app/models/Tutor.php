@@ -47,10 +47,10 @@ class Tutor extends Model
 	}
 
 	public function getTutors($searchWord = ''){
-		$sql = "SELECT * FROM Tutor t, Profile p WHERE t.userId=:p.userId AND t.description LIKE %:searchWord%";
-
+		$sql = "SELECT * FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :searchWord";
+		$searchWord = "%$searchWord%";
         $stmt = self::$_connection->prepare($sql);
-        $stmt->execute(['t.userId'=>$userId]);
+        $stmt->execute(['searchWord'=>$searchWord]);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
 		return $stmt->fetch();

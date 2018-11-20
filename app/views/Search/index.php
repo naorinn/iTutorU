@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../../../css/default_styles.css" type="text/css" />
 	</head>
 	<body>
-		<?php include_once('/../Default/header.php')?>
+		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">			
 				<h3><b>Search</b></h3>

@@ -8,7 +8,7 @@
 		<script src="../../../javascript/script.js"></script>
 	</head>
 	<body>
-		<?php include_once('/../Default/header.php');?>
+		<?php include_once('app/views/Default/header.php') ?>
 		<div class="content_block">
 			<form method="post" action="_create">
 				

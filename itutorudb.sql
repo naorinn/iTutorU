@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2018 at 08:54 PM
+-- Generation Time: Nov 20, 2018 at 04:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -60,7 +60,7 @@ CREATE TABLE `profile` (
   `userId` int(11) NOT NULL,
   `firstName` varchar(30) NOT NULL,
   `lastName` varchar(30) NOT NULL,
-  `profileImagePath` varchar(1024) DEFAULT NULL,
+  `profileImagePath` varchar(1024) DEFAULT 'profile_default.jpg',
   `schoolId` int(11) NOT NULL,
   `programId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -70,7 +70,8 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`userId`, `firstName`, `lastName`, `profileImagePath`, `schoolId`, `programId`) VALUES
-(4, 'Naorin', 'Khan', NULL, 1, 1);
+(4, 'Naorin', 'Khan', 'profile_default.jpg', 1, 1),
+(2, 'Nai', 'Cat', '5bf4268c7f722.jpg', 53, 107);
 
 -- --------------------------------------------------------
 
@@ -404,6 +405,13 @@ CREATE TABLE `tutor` (
   `rating` double NOT NULL,
   `timesTutored` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tutor`
+--
+
+INSERT INTO `tutor` (`userId`, `description`, `pay`, `rating`, `timesTutored`) VALUES
+(2, 'java, html, css, databases', 10, 4, 0);
 
 -- --------------------------------------------------------
 

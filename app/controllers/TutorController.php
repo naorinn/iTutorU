@@ -32,9 +32,9 @@ class TutorController extends Controller {
 			//var_dump($_GET['searchSubject']);
 			$tutor = $this->model('Tutor');
 			$tutors = $tutor->getTutors();	
-
+				
 			$this->view('Tutor/search', ['tutors'=>$tutors]);
-
+			//var_dump($tutors);
 
 			//$program = $this->model('Program');
 			//$programs = $program->getPrograms();	
