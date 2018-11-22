@@ -21,16 +21,12 @@
 							<label for="program">
 								Program:
 								<select  class="form-control form-control-sm" name="program" >
+									<option value="" selected> -- Any --</option>
 									<?php
 										$programs = $data['programs'];	
 
-										foreach($programs as $program){
-											if($program->programId == $profile->programId) {
-												print("<option value='$program->programId' selected>$program->programName</option>");
-											}
-											else{
-												print("<option value='$program->programId'>$program->programName</option>");
-											}									
+										foreach($programs as $program){											
+											print("<option value='$program->programId'>$program->programName</option>");																			
 										}
 
 									?>

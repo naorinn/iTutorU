@@ -62,12 +62,13 @@ class TutorController extends Controller {
 		{		
 			$subject = $_GET['subject'];
 			$program = $_GET['program'];
-			$price = $_GET['price'];
+			$price_lower = $_GET['price'];
 			$price_upper = $_GET['price_upper'];
 			
 
 			$tutor = $this->model('Tutor');
-			$tutors = $tutor->getTutors($subject, $program, $price, $price_upper);	
+			
+			$tutors = $tutor->getTutorsAdvancedSearch($subject, $program, $price_lower, $price_upper);	
 
 			$program = $this->model('Program');
 			$programs = $program->getPrograms();	
