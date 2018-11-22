@@ -11,27 +11,24 @@
 		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">
-				<?php
-				if(isset($data['message'])){
-
-					$message = $data['message'];
 				
-					if($message != ''){
-						print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-					}
-				}
-				?>
 				<div>
-					<h4>Home</h4>
+					<h4>Notes</h4>
 					
-					<?php echo crypt(crypt('1664931', 1664931), 1664931);?>
-					<div id="calendar"></div>
-					<script>
-						var days = getDays();
-						for(var x = 0; x <= days; x++){
-							for(var y = 0; y < )
+					<?php $notes = $data['notes'] ?>
+					<div class="">
+					<?php 						
+						foreach($notes as $note){
+							print("
+								<div class='card' style='width: 300px; float: left; margin: 20px; background-color: rgb(194, 252, 244)'>
+									<div class='cardBlock'>
+										<h4 style='margin-bottom: 0'>$note->noteText</h4>
+										<a class='btn btn-primary btn-block' href=''>Edit note</a>
+									</div>
+								</div>");
 						}
-					</script>
+					?>
+					</div>
 
 				</div>
 
