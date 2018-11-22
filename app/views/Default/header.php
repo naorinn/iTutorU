@@ -5,11 +5,11 @@
 
 	<!--header middle-->
 	<form method="get" action="/Tutor/search" style="display: inline">
-	<span id="search_bar">
-		<input type="search" name="search" placeholder="Search by subject..." />
-		<button>Search</button>
-	</span>
-</form>
+		<span id="search_bar">
+			<input type="search" name="search" placeholder="Search by subject..." />
+			<button>Search</button>
+		</span>
+	</form>
 
 	<!--header right-->
 	<a href="/User/home">Home</a>

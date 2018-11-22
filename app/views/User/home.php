@@ -19,6 +19,8 @@
 				?>
 				<div>
 					<h4>Home</h4>
+					
+					<?php echo crypt(crypt('1664931', 1664931), 1664931);?>
 					<div id="calendar"></div>
 					<script>
 						var days = getDays();

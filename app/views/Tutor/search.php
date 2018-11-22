@@ -61,9 +61,10 @@
 				<h3 style="margin-top: 0"><b>Results</b></h3>	
 				<?php $tutors = $data['tutors'] ?>
 				<div class="">
-					<?php 
+					<?php 						
 						foreach($tutors as $tutor){
 							$stars = "";
+							$hashedId = hash('md5', $tutor->userId);
 							for($i = 0; $i < $tutor->rating; $i++){
 
 								$stars .= "<span style='font-size: 25px; margin: 0'>&#9733;</span>";
@@ -76,8 +77,8 @@
 										$stars
 										<p><b>Description:</b> $tutor->description</p>
 										<p><b>$$tutor->pay / session</b></p>
-											<button class='btn btn-primary btn-block'>Contact tutor</button>
-											<button class='btn btn-primary btn-block'>Show Details</button>
+											<a class='btn btn-primary btn-block' href='/Request/create/$tutor->userId'>Request tutor</a>
+											<button class='btn btn-primary btn-block'>View Profile</button>
 									</div>
 								</div>");
 							}

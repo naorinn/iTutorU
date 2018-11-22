@@ -17,31 +17,14 @@ class Tutor extends Model
 			$stmt->execute(['userId'=>$this->userId, 'description'=>$this->description, 'pay'=>$this->pay]);			
 	}
 
-	public function find($username) {
-		$sql = "SELECT * FROM User WHERE username LIKE ':username'";
-		$stmt = self::$_connection->prepare($sql);
-		$stmt->execute(['username'=>$username]);
 
-		$stmt->setFetchMode(PDO::FETCH_CLASS, "User");
-		return $stmt->fetch();
-	}
-
-	public function getUserByUsername($username){
-		$sql = "SELECT * FROM User WHERE username=:username";
-        $stmt = self::$_connection->prepare($sql);
-        $stmt->execute(['username'=>$username]);
-
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
-		return $stmt->fetch();
-
-	}
-
-	public function getUserById($userId){
-		$sql = "SELECT * FROM User WHERE userId=:userId";
+	public function getTutorById($userId){
+		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath FROM Tutor t, Profile p
+		WHERE t.userId = p.userId AND t.userId=:userId";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['userId'=>$userId]);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "Tutor");
 		return $stmt->fetch();
 
 	}
