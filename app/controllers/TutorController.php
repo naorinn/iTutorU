@@ -73,6 +73,7 @@ class TutorController extends Controller {
 			$program = $this->model('Program');
 			$programs = $program->getPrograms();	
 		
+			header('location:/Tutor/search');
 			$this->view('Tutor/search', ['tutors'=>$tutors, 'programs'=>$programs]);
 		}
 		else

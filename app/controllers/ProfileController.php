@@ -84,8 +84,9 @@ class ProfileController extends Controller{
 			$profile->programId = $_POST['program'];
 			$profile->update();			
 			//header('location:/User/home');
-			$this->edit("Profile updated successfully!");
-
+			//$this->edit("Profile updated successfully!");
+			$message = "Profile updated successfully!";
+			$this->view('User/home', ['message'=>$message]);
 		}
 		//else{
 		//	$this->view('Profile/create', ['e_profile_create'=>'Please enter all required information.']);
