@@ -10,9 +10,21 @@
 	<body>
 		<?php include_once('app/views/Default/header.php') ?>
 
-			<div class="content_block">					
-				<form action="search" method="get" id="advanced_search">
+			<div class="content_block">		
+				<?php
+					if(isset($data['message'])){
+
+						$message = $data['message'];
+					
+						if($message != ''){
+							print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
+						}
+					}
+				?>			
+				<form action="search" method="get" id="resource_search">
 					<div class="form-row">
+						
+
 						<div class="form-group col-md-2">
 							<label for="subject">
 								Subject: <input  class="form-control form-control-sm" type="text" name="subject" />&nbsp;&nbsp;
@@ -41,8 +53,14 @@
 						
 					</div>		
 				</form>
+
 				<br/>
-				<h3 style="margin-top: 0"><b>Resources</b></h3>	
+				
+				<h3 style="display:inline"><b>Resources</b></h3>	 
+				<div class="form-group col-md-2" style="float: right">
+					<a href="/Resources/create" class="btn btn-success">Add resource</a>
+				</div>
+				<br/><br/>
 				<?php $resources = $data['resources'] ?>
 				<div class="">
 					<?php 						

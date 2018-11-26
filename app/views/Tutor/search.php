@@ -61,10 +61,21 @@
 					<?php 						
 						foreach($tutors as $tutor){
 							$stars = "";
-							$hashedId = hash('md5', $tutor->userId);
-							for($i = 0; $i < $tutor->rating; $i++){
+							$starsFilled= 0;
+							$noRatings = "";
+							if($tutor->rating != 0){						
+								for($i = 0; $i < $tutor->rating; $i++){
 
-								$stars .= "<span style='font-size: 25px; margin: 0'>&#9733;</span>";
+									$stars .= "<span style='font-size: 25px; margin: 0'>&#9733;</span>";
+									$starsFilled++;
+								}
+							}
+							else{
+								$noRatings = "<br/>No ratings yet";
+							}
+							while($starsFilled < 5){
+								$stars .= "<span style='font-size: 25px; margin: 0'>&#9734;</span>";
+								$starsFilled++;
 							}
 							print("
 								<div class='card' style='width: 300px; float: left; margin: 20px;'>
@@ -72,6 +83,7 @@
 									<div class='cardBlock'>
 										<h4 style='margin-bottom: 0'>$tutor->firstName  $tutor->lastName</h4>
 										$stars
+										<small>$noRatings</small>
 										<p><b>Description:</b> $tutor->description</p>
 										<p><b>$$tutor->pay / session</b></p>
 											<a class='btn btn-primary btn-block' href='/Request/create/$tutor->userId'>Request tutor</a>

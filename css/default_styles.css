@@ -63,7 +63,12 @@ header img{
 	color: black;
 }
 
-
+#resource_search {
+	padding: 0.5%;
+	height: 15%;
+	color: white;
+	font-weight: bold;
+}
 
 #sign_in {
 	position: fixed;
@@ -100,13 +105,11 @@ header img{
 
 
 .content_block {
-	position: fixed;
+	position: relative;
 	padding: 25px;
 	background-color: white;
 	border-radius: 20px;
-	width: 90%;
-	height: 90%;
-	
+	width: 90%;	
 	margin: 5%;
 	top: -1%;
 }

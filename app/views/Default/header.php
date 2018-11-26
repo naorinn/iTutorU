@@ -6,7 +6,7 @@
 	<!--header middle-->
 	<form method="get" action="/Tutor/search" style="display: inline">
 		<span id="search_bar">
-			<input type="search" name="search" placeholder="Search by subject..." />
+			<input type="search" name="search" placeholder="Search tutors by subject..." />
 			<button>Search</button>
 		</span>
 	</form>
