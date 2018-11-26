@@ -14,7 +14,10 @@
 			<div class="content_block">
 				
 				<div>
-					<h4>Notes</h4>
+					<h4 style="display: inline-block;">Notes</h4> 
+					<div class="form-group col-md-2" style="float: right;padding-right: 0px;padding-left: 0px;width: fit-content;left: 0%;">
+					<a href="create" class="btn btn-success">Add note</a>
+					</div>
 					
 					<?php $notes = $data['notes'] ?>
 					<div class="">

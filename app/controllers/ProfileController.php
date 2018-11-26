@@ -44,8 +44,7 @@ class ProfileController extends Controller{
 			$profile->programId = $_POST['program'];
 			$profile->insert();
 
-			echo "profile created";
-			header('location:/User/home');
+			
 			$this->view('User/home');
 
 		}
