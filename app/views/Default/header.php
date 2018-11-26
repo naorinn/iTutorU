@@ -29,7 +29,7 @@
 
 			<a href="/Notes/index">My notes</a>
 			<a href="/Session/index">My sessions</a>
-			<a href="/Messages/index">Messages</a>
+			<a href="/Thread/index">Messages</a>
 			<a href="/Resources/index">Resources</a>
 			
 			<a class="" type="submit" href="/User/logout"><strong>Logout</strong></a>

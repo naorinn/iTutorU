@@ -1,5 +1,5 @@
 <?php
-class MessagesController extends Controller {
+class MessageController extends Controller {
 	public function index() {
 		$this->view('Messages/index');
 	}
