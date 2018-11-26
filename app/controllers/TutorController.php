@@ -71,9 +71,8 @@ class TutorController extends Controller {
 			$tutors = $tutor->getTutorsAdvancedSearch($subject, $program, $price_lower, $price_upper);	
 
 			$program = $this->model('Program');
-			$programs = $program->getPrograms();	
-		
-			header('location:/Tutor/search');
+			$programs = $program->getPrograms();			
+			
 			$this->view('Tutor/search', ['tutors'=>$tutors, 'programs'=>$programs]);
 		}
 		else

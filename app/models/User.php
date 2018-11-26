@@ -44,6 +44,12 @@ class User extends Model
 
 	}
 
+	public function isTutor() {
+		$tutor = $this->model('Tutor');
+		$current_tutor = $tutor->getTutorById($_SESSION['userId']);
+		return $current_tutor != NULL;
+	}
+
 }
 
 

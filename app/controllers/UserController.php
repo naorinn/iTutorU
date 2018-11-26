@@ -125,6 +125,8 @@ class UserController extends Controller {
 				$valid = false;
 			}
 			return $valid;
-		}
+	}
+
+	
 }
 ?>

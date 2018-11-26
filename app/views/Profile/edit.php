@@ -11,7 +11,12 @@
 		<?php include_once('app/views/Default/header.php')?>
 		<?php $profile = $data['profile'];?>
 
-			<div class="content_block">			
+			<div class="content_block">		
+				<?php 
+					$user = $this->model('User');
+					$isTutor = $user->isTutor();
+					
+				 ?>	
 				<?php
 					$message = $data['message'];
 					if($message != ''){

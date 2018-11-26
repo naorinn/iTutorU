@@ -1,5 +1,19 @@
 <?php
 class RequestController extends Controller {
+
+	public function index() {
+		$user = $this->model('User');
+		if($user->isTutor()){
+			//get requests sent to me
+			$request = $this->model('Request');
+			$received_requests = $request->getReceivedRequests();
+			//var_dump($received_requests);
+		}
+
+		//get request made by me
+		$this->view('Request/index', ['received_requests'=>$received_requests]);
+	}
+
 	public function create($tutorId) {
 		if($_SESSION['userId'] != null){
 			$tutor = $this->model('Tutor');

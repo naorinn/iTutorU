@@ -17,7 +17,15 @@
 	  	<span class="dropdown-content">
 		    <a href="/User/home">Home</a>
 			<a href="/Profile/edit">Profile</a>
-			<a href="/Tutor/create">Become a tutor</a>
+			<?php 
+				$user = $this->model('User');
+				if(!$user->isTutor()){
+					print("<a href='/Tutor/create'>Become a tutor</a>");
+				}
+			
+				print("<a href='/Request/index'>View requests</a>");
+			
+			?>
 
 			<a href="/Notes/index">My notes</a>
 			<a href="/Session/index">My sessions</a>
