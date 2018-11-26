@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 22 nov. 2018 à 21:04
+-- Généré le :  lun. 26 nov. 2018 à 04:03
 -- Version du serveur :  10.1.28-MariaDB
 -- Version de PHP :  7.1.10
 
@@ -282,9 +282,18 @@ DROP TABLE IF EXISTS `request`;
 CREATE TABLE `request` (
   `tutorId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `details` varchar(500) DEFAULT NULL
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `details` varchar(500) DEFAULT NULL,
+  `request_date` date DEFAULT NULL,
+  `request_time` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `request`
+--
+
+INSERT INTO `request` (`tutorId`, `userId`, `timestamp`, `details`, `request_date`, `request_time`) VALUES
+(2, 2, '2018-11-25 20:24:23', 'help', '2018-11-14', '11:11');
 
 -- --------------------------------------------------------
 
@@ -297,9 +306,19 @@ CREATE TABLE `resource` (
   `resourceId` int(11) NOT NULL,
   `resourceName` varchar(30) NOT NULL,
   `description` varchar(900) NOT NULL,
-  `source` varchar(1024) NOT NULL,
-  `programId` int(11) NOT NULL
+  `source` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `resource`
+--
+
+INSERT INTO `resource` (`resourceId`, `resourceName`, `description`, `source`) VALUES
+(1, 'W3Schools', 'W3Schools is an educational website for learning web technologies online. Content includes tutorials and references relating to HTML, CSS, JavaScript, JSON, PHP, Python, AngularJS, SQL, Bootstrap, Node.js, jQuery, XQuery, AJAX, and XML.', 'https://www.w3schools.com'),
+(2, 'php.net', 'PHP tutorials and documentation', 'http://www.php.net/'),
+(8, 'Bootstrap', 'Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery. ', 'https://getbootstrap.com/'),
+(9, 'Duolingo', 'Duolingo is the world\'s most popular way to learn a language. It\'s 100% free, fun and science-based. Practice online on duolingo.com or on the apps!', 'https://www.duolingo.com/'),
+(11, 'Font Awesome', 'Font Awesome is a font and icon toolkit based on CSS and LESS', 'https://fontawesome.com/');
 
 -- --------------------------------------------------------
 
@@ -309,9 +328,20 @@ CREATE TABLE `resource` (
 
 DROP TABLE IF EXISTS `resourceprogram`;
 CREATE TABLE `resourceprogram` (
-  `userId` int(11) NOT NULL,
+  `programId` int(11) NOT NULL,
   `resourceId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `resourceprogram`
+--
+
+INSERT INTO `resourceprogram` (`programId`, `resourceId`) VALUES
+(104, 8),
+(105, 8),
+(107, 8),
+(121, 9),
+(107, 11);
 
 -- --------------------------------------------------------
 
@@ -564,7 +594,7 @@ ALTER TABLE `resource`
 --
 ALTER TABLE `resourceprogram`
   ADD KEY `resprgrm_resid_fk` (`resourceId`),
-  ADD KEY `resprgrm_userid_fk` (`userId`);
+  ADD KEY `resprgrm_prgrmid_fk` (`programId`) USING BTREE;
 
 --
 -- Index pour la table `school`
@@ -645,7 +675,7 @@ ALTER TABLE `program`
 -- AUTO_INCREMENT pour la table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `resourceId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `resourceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `school`
@@ -701,8 +731,8 @@ ALTER TABLE `request`
 -- Contraintes pour la table `resourceprogram`
 --
 ALTER TABLE `resourceprogram`
-  ADD CONSTRAINT `resprgrm_resid_fk` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`resourceId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `resprgrm_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `resourceprogram_ibfk_1` FOREIGN KEY (`programId`) REFERENCES `program` (`programId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `resprgrm_resid_fk` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`resourceId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `session`
