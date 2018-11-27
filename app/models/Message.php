@@ -10,7 +10,12 @@ class Message extends Model {
 
 	}
 
-	public function getUserMessages($userId){
+	public function getMessages($threadId){
+		$sql = "SELECT * FROM message WHERE threadId = :threadId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['threadId'=>$threadId]);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Message');
+		return $stmt->fetchAll();
 		
 	}
 

@@ -152,3 +152,16 @@ header img{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.usermessage  {	
+	float: right;
+	text-align: right;
+
+}
+
+
+.contactmessage {
+	float: left;
+	text-align: left;
+	
+}
