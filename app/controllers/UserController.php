@@ -38,7 +38,7 @@ class UserController extends Controller {
 		$_SESSION = array();
 
 		session_destroy();
-		header('location:/User/index');
+		header('location:/');
 	}
 
 
