@@ -38,11 +38,14 @@ class NotesController extends Controller{
 			$usernote->userId = $_SESSION['userId'];
 			$usernote->noteId = $nId;				
 			$usernote->insert();
-	}
+			header('location:/Notes/index');
+
+		}
 
 		$message = "Note created successfully!";
 		$this->index($message);
 
+		
 		}
 
 	
