@@ -97,7 +97,7 @@ class ProfileController extends Controller{
 		$tutor = $this->model('Tutor');
 		$selected_tutor = $tutor->getTutorById($tutorId);
 		
-
+		$this->view('Profile/detail', ['tutor'=>$selected_tutor]);
 
 	}
 
