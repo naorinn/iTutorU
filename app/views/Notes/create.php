@@ -25,7 +25,7 @@
 					<br/>
 
 					<input type="submit" value="Add" class="btn btn-primary"/>
-					<!--<a href="Notes/index" class="btn btn-primary">Cancel</a>!-->
+					<a href="index" class="btn btn-primary">Cancel</a>
 				</form>
 				
 			</div>
