@@ -4,8 +4,10 @@ class Thread extends Model {
 	var $secondUserId;
 
 	public function insert() {
-
-
+		$sql = "INSERT INTO thread(firstUserId, secondUserId) 
+				VALUES(:firstUserId, :secondUserId)";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['firstUserId'=>$this->firstUserId, 'secondUserId'=>$this->secondUserId]);
 	}
 
 	public function getUserThreads($userId){
@@ -24,6 +26,14 @@ class Thread extends Model {
 		return $stmt->fetchAll();
 	}
 
+	public function find($userId, $contactUserId) {
+		$sql = "SELECT * FROM thread where (firstUserId = :contactUserId and secondUserId = :userid) or (firstUserId = :userid and secondUserId = :contactUserId)";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['userid'=>$userId, 'contactUserId'=>$contactUserId]);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Thread");
+		return $stmt->fetch();
+
+	}
 }
 /*
 select * from profile p, thread t

@@ -13,6 +13,18 @@ class ThreadController extends Controller{
 		$this->view('Thread/detail', ['messages'=>$messages, 'threadId'=>$threadId]);
 	}
 
+	public function find($contactUserId) {
+		$thread = $this->model('Thread');
+
+		
+		if($selected_thread == null) {	
+			$thread->firstUserId = $_SESSION['userId'];
+			$thread->secondUserId = $contactUserId;
+			$thread->insert();
+		}
+		$selected_thread = $thread->find($_SESSION['userId'], $contactUserId);
+		header("location:/Thread/detail/$selected_thread->threadId");
+	}
 
 }
 

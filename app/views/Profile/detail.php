@@ -18,8 +18,8 @@
 		        	<p><?php $tutor = $data['tutor'];
 			        print("$tutor->firstName $tutor->lastName");?></p>
 			        
-		        	<a class='btn btn-primary' href='/Request/create/$tutor->userId'>Request tutor</a>
-					<a class='btn btn-primary' href='/Thread/findThread/$tutor->userId'>Contact tutor</a>
+		        	<a class='btn btn-primary' href="/Request/create/<?php echo $tutor->userId?>">Request tutor</a>
+					<a class='btn btn-primary' href='/Thread/find/<?php echo $tutor->userId?>'>Contact tutor</a>
 		        </h3>
 
 			        
