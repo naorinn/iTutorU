@@ -177,5 +177,8 @@ header img{
 #messageForm {
 	position: absolute;
 	bottom: 0;
-
+	width: 90%;
+	margin-left: 2%;
+	margin-right: 10%;
+	margin-bottom: 2%;
 }

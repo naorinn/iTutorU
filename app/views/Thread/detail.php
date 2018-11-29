@@ -24,7 +24,7 @@
 					<div class="">
 						<?php 
 							$messages = $data['messages'];
-							//var_dump($messages);
+						
 							foreach($messages as $message){											
 								if($message->senderId = $_SESSION['userId']){
 									print("
@@ -49,7 +49,7 @@
 						<input id="messageInput" class="" type="text" placeholder="Enter a message..." />
 						<input type="submit" value="Send"   />
 					</form>-->
-					<form id="messageForm" class="input-group">
+					<form action="/Message/create" method="post" id="messageForm" class="input-group">
 					   <input type="text" class="form-control">
 					   <span class="input-group-btn">
 					        <input class="btn btn-info" type="submit" value="Send" />
