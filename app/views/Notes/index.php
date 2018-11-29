@@ -24,10 +24,16 @@
 					<?php 						
 						foreach($notes as $note){
 							print("
-								<div class='card' style='width: 300px; float: left; margin: 20px; background-color: rgb(194, 252, 244)'>
+								<div class='card' style='width: 300px; float: left; margin: 20px; background-color: rgb(194, 252, 244); min-height: 25%';'white-space: pre-line'>
 									<div class='cardBlock'>
+									<form method='get' action='edit'>
+									<button type='button' class='btn btn-default' aria-label='Left Align' style='float: right'>
+  										<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>
+									</button>
+									</form>
+
 										<h4 style='margin-bottom: 0'>$note->noteText</h4>
-										<a class='btn btn-primary btn-block' href=''>Edit note</a>
+										</br>
 									</div>
 								</div>");
 						}
