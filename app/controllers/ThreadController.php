@@ -10,7 +10,7 @@ class ThreadController extends Controller{
 	public function detail($threadId) {
 		$message = $this->model('Message');
 		$messages = $message->getMessages($threadId);
-		$this->view('Thread/detail', ['messages'=>$messages]);
+		$this->view('Thread/detail', ['messages'=>$messages, 'threadId'=>$threadId]);
 	}
 
 

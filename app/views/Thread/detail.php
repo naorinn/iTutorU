@@ -49,8 +49,9 @@
 						<input id="messageInput" class="" type="text" placeholder="Enter a message..." />
 						<input type="submit" value="Send"   />
 					</form>-->
-					<form action="/Message/create" method="post" id="messageForm" class="input-group">
-					   <input type="text" class="form-control">
+					<?php $threadId = $data['threadId'] ?>
+					<form action="/Message/_create/<?php echo $threadId ?>" method="post" id="messageForm" class="input-group">
+					   <input type="text" name="message" class="form-control" autocomplete="off">
 					   <span class="input-group-btn">
 					        <input class="btn btn-info" type="submit" value="Send" />
 					   </span>
