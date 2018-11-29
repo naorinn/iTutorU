@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2018 at 05:52 PM
+-- Generation Time: Nov 29, 2018 at 09:50 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -47,7 +47,12 @@ INSERT INTO `message` (`messageId`, `threadId`, `messageText`, `senderId`, `time
 (4, 4, 'Hey are you still interested in being tutored for chem?', 4, '2018-11-27 16:38:28'),
 (5, 5, 'I could also help with .NET if you want', 15, '2018-11-27 16:38:28'),
 (6, 6, 'See you tomorrow!', 2, '2018-11-27 16:38:28'),
-(7, 1, 'Yea, sure', 4, '2018-11-27 16:51:25');
+(7, 1, 'Yea, sure', 4, '2018-11-27 16:51:25'),
+(0, 1, 'hello there!', 2, '2018-11-29 19:54:31'),
+(0, 1, 'hey there', 2, '2018-11-29 19:55:01'),
+(0, 1, 'hola', 2, '2018-11-29 20:02:42'),
+(0, 1, 'i am heer', 2, '2018-11-29 20:02:54'),
+(0, 1, 'jgjasklgmjsfkldg', 2, '2018-11-29 20:03:00');
 
 -- --------------------------------------------------------
 
@@ -67,7 +72,8 @@ CREATE TABLE `note` (
 --
 
 INSERT INTO `note` (`noteId`, `noteText`, `timestamp`) VALUES
-(1, 'This is my first note', '2018-11-27 16:00:42');
+(1, 'This is my first note', '2018-11-27 16:00:42'),
+(2, 'sjgnsjkfgklagkljmsklfsdlgmlasmdgmsfgmsfkdmgksdmgksdmagksmklmaklfsdflasmdfl\r\n\r\n\r\nskfjmsklad\r\nskfal\r\nk\r\n\r\nsfdmkls', '2018-11-29 20:30:45');
 
 -- --------------------------------------------------------
 
@@ -91,7 +97,7 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`userId`, `firstName`, `lastName`, `profileImagePath`, `schoolId`, `programId`) VALUES
 (4, 'Naorin', 'Khan', 'profile_default.jpg', 1, 1),
-(2, 'Nai', 'Cat', '5bf4268c7f722.jpg', 53, 107),
+(2, 'Nai', 'Cat', '5bf30a3b32087.jpg', 53, 107),
 (5, 'Manizeh', 'Ahmed', 'profile_default.jpg', 53, 107),
 (6, 'Abdullah', 'Ayed', 'profile_default.jpg', 53, 107),
 (7, 'Brandon', 'Chaperon', 'profile_default.jpg', 53, 107),
@@ -508,10 +514,10 @@ CREATE TABLE `tutees` (
 DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE `tutor` (
   `userId` int(11) NOT NULL,
-  `description` varchar(900) NOT NULL,
-  `pay` double NOT NULL,
-  `rating` double NOT NULL,
-  `timesTutored` int(11) NOT NULL
+  `description` varchar(900) DEFAULT NULL,
+  `pay` double DEFAULT NULL,
+  `rating` double DEFAULT NULL,
+  `timesTutored` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -519,7 +525,9 @@ CREATE TABLE `tutor` (
 --
 
 INSERT INTO `tutor` (`userId`, `description`, `pay`, `rating`, `timesTutored`) VALUES
-(2, 'java, css, html', 10, 4, 1);
+(2, 'java, css, html', 10, 4, 1),
+(10, 'english, C++, java', 15, 5, 1),
+(5, '.NET, databases', 5, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -593,7 +601,8 @@ CREATE TABLE `usernote` (
 --
 
 INSERT INTO `usernote` (`userId`, `noteId`) VALUES
-(2, 1);
+(2, 1),
+(2, 2);
 
 --
 -- Indexes for dumped tables
@@ -715,7 +724,7 @@ ALTER TABLE `usernote`
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `program`
 --
