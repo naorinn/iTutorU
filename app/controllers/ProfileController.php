@@ -92,6 +92,15 @@ class ProfileController extends Controller{
 		//}		
 	}
 
+
+	public function detail($tutorId) {
+		$tutor = $this->model('Tutor');
+		$selected_tutor = $tutor->getTutorById($tutorId);
+		
+
+
+	}
+
 	public function updateProfileImage() {
 		if($_SESSION['userId'] != null)
 		{

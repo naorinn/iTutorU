@@ -87,7 +87,7 @@
 										<p><b>Description:</b> $tutor->description</p>
 										<p><b>$$tutor->pay / session</b></p>
 											<a class='btn btn-primary btn-block' href='/Request/create/$tutor->userId'>Request tutor</a>
-											<button class='btn btn-primary btn-block'>View Profile</button>
+											<a class='btn btn-primary btn-block' href='/Profile/detail/$tutor->userId'>View Profile</a>
 									</div>
 								</div>");
 							}

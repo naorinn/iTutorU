@@ -19,7 +19,7 @@ class Tutor extends Model
 
 
 	public function getTutorById($userId){
-		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath FROM Tutor t, Profile p
+		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.description, t.pay, t.timesTutored, t.rating FROM Tutor t, Profile p
 		WHERE t.userId = p.userId AND t.userId=:userId";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['userId'=>$userId]);
