@@ -116,6 +116,11 @@ header img{
 	min-height: 80%;
 }
 
+img.tutor {
+	height: 210px;
+    width: 220px;
+}
+
 .note_block {
 	position: relative;
     padding: 25px;

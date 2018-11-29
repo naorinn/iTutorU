@@ -79,7 +79,7 @@
 							}
 							print("
 								<div class='card' style='width: 300px; float: left; margin: 20px;'>
-									<img src='/images/$tutor->profileImagePath' alt='bookCardImgage'/>
+									<img src='/images/$tutor->profileImagePath' alt='bookCardImgage' class='tutor'/>
 									<div class='cardBlock'>
 										<h4 style='margin-bottom: 0'>$tutor->firstName  $tutor->lastName</h4>
 										$stars
