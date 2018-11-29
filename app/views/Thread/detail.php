@@ -1,12 +1,8 @@
 <html>
 	<head>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="../../../css/default_styles.css" type="text/css" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-		<script src="../../../javascript/script.js"></script>
+		<?php include_once('app/views/Default/stylesheet_links.php') ?>
+		
 		<title>iTutorU - Messages</title>
 	</head>
 	<body>
@@ -35,7 +31,7 @@
 										<div class='alert alert-success usermessage' style='text-align: right'>	    
 											<p>$message->messageText</p>	
 											<small>$message->timestamp</small>
-										</div>
+										</div><br/>
 									");
 								}
 								else{
@@ -43,12 +39,22 @@
 										<div class='alert alert-info contactmessage' style='text-align: left'>	    
 											<p>$message->messageText</p>	
 											<small>$message->timestamp</small>
-										</div>
+										</div><br/>
 									");
 								}
 							}
 						?>
 					</div>
+					<!--<form id="messageForm" class="row">
+						<input id="messageInput" class="" type="text" placeholder="Enter a message..." />
+						<input type="submit" value="Send"   />
+					</form>-->
+					<form id="messageForm" class="input-group">
+					   <input type="text" class="form-control">
+					   <span class="input-group-btn">
+					        <input class="btn btn-info" type="submit" value="Send" />
+					   </span>
+					</form>
 				</div>
 
 			</div>

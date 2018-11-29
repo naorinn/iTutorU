@@ -18,8 +18,10 @@ class UserController extends Controller {
 			if($current_user != null){				
 				if(password_verify($password, $current_user->password)){					
 					$_SESSION['username'] = $username;
-					$_SESSION['userId'] = $current_user->userId;					
+					$_SESSION['userId'] = $current_user->userId;
+					$this->view('User/home');					
 					header('location:/User/home');
+
 				}else{
 					$this->view('User/index',['error'=>'Invalid username or password.']);
 				}

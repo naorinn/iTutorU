@@ -165,3 +165,17 @@ header img{
 	text-align: left;
 	
 }
+
+
+#messageInput {
+	
+	display: inline;
+	size: 100;
+
+}
+
+#messageForm {
+	position: absolute;
+	bottom: 0;
+
+}
