@@ -38,10 +38,11 @@ class TutorController extends Controller {
 		if($_SESSION['userId'] != null)
 		{		
 			//var_dump($_GET['searchSubject']);
-			$search_key = $_GET['search'];
+			$subject = $_GET['search'];
 			$tutor = $this->model('Tutor');
-			$tutors = $tutor->getTutors($search_key);	
-
+			//$tutors = $tutor->getTutors($search_key);	
+			//$subject = $search_key;
+			$tutors = $tutor->getTutors($subject);		
 			$program = $this->model('Program');
 			$programs = $program->getPrograms();	
 		
@@ -68,7 +69,7 @@ class TutorController extends Controller {
 
 			$tutor = $this->model('Tutor');
 			
-			$tutors = $tutor->getTutorsAdvancedSearch($subject, $program, $price_lower, $price_upper);	
+			$tutors = $tutor->getTutors($subject, $program, $price_lower, $price_upper);	
 
 			$program = $this->model('Program');
 			$programs = $program->getPrograms();			

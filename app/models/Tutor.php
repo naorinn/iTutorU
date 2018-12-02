@@ -29,7 +29,7 @@ class Tutor extends Model
 
 	}
 
-	public function getTutors($subject){
+	/*public function getTutors($subject){
 		
 		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :subject";
 		$subject = "%$subject%";
@@ -39,9 +39,9 @@ class Tutor extends Model
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Tutor");
 		return $stmt->fetchAll();
 
-	}
+	}*/
 
-	public function getTutorsAdvancedSearch($subject = '', $programId='', $price_lower = 0, $price_upper = 0){
+	public function getTutors($subject = '', $programId='', $price_lower = 0, $price_upper = 0){
 		$subjectSql = "";
 		$programSql = "";
 		$priceSql = "";

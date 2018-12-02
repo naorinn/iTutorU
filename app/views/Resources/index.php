@@ -27,7 +27,8 @@
 
 						<div class="form-group col-md-2">
 							<label for="subject">
-								Subject: <input  class="form-control form-control-sm" type="text" name="subject" />&nbsp;&nbsp;
+								Subject: 
+								<input  class="form-control form-control-sm" type="text" name="subject" />&nbsp;&nbsp;
 							</label>
 						</div>
 						<div class="form-group col-md-4">
@@ -39,7 +40,7 @@
 										$programs = $data['programs'];	
 
 										foreach($programs as $program){											
-											print("<option value='$program->programId'>$program->programName</option>");																			
+											print("<option value='$program->programId'>$program->programName</option>");
 										}
 
 									?>
@@ -48,9 +49,9 @@
 								</select>&nbsp;&nbsp;
 							</label>
 						</div>
-						
+						<div class="form-group col-md-1">
 						<input class="btn btn-light" type="submit" value="Search"/>		
-						
+						</div>
 					</div>		
 				</form>
 

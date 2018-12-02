@@ -4,8 +4,10 @@ class ResourcesController extends Controller {
 	public function index($message = '') {
 		$resource = $this->model('Resource');
 		$resources = $resource->getResources();
+		$program = $this->model('Program');
+		$programs = $program->getPrograms();	
 		//header('location:/Resources/index');
-		$this->view('Resources/index', ['resources'=>$resources, 'message'=>$message]);
+		$this->view('Resources/index', ['resources'=>$resources, 'message'=>$message, 'programs'=>$programs]);
 	}
 
 	public function create(){
@@ -38,6 +40,27 @@ class ResourcesController extends Controller {
 		//header('location:/Resources/index')
 		//$this->view('Resources/index', ['message'=>$message]);
 
+	}
+
+	public function search() {
+		if($_SESSION['userId'] != null)
+		{		
+			$search = $_GET['subject'];
+			$program = $_GET['program'];
+			
+			
+
+			$resource = $this->model('Resource');
+			
+			$resources = $resource->getResources($search, $program);	
+
+			$program = $this->model('Program');
+			$programs = $program->getPrograms();			
+			
+			$this->view('Resources/index', ['resources'=>$resources, 'programs'=>$programs]);
+		}
+		else
+			header('location:/');
 	}
 
 
