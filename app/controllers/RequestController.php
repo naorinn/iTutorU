@@ -1,17 +1,22 @@
 <?php
 class RequestController extends Controller {
 
-	public function index() {
+	public function index($message='') {		
+		$request = $this->model('Request');
 		$user = $this->model('User');
+		$received_requests = [];
 		if($user->isTutor()){
 			//get requests sent to me
-			$request = $this->model('Request');
+			
+			$request->tutorId = $_SESSION['userId'];
 			$received_requests = $request->getReceivedRequests();
 			//var_dump($received_requests);
 		}
+		$request->userId = $_SESSION['userId'];
+		$sent_requests = $request->getSentRequests();
 
 		//get request made by me
-		$this->view('Request/index', ['received_requests'=>$received_requests]);
+		$this->view('Request/index', ['received_requests'=>$received_requests, 'sent_requests'=>$sent_requests, 'message'=>$message]);
 	}
 
 	public function create($tutorId) {
@@ -44,6 +49,46 @@ class RequestController extends Controller {
 
 		}
 		
+	}
+
+
+	public function accept($requestId){
+		if($_SESSION['userId'] != null){
+			$request = $this->model('Request');
+			$request->requestId = $requestId;
+			$request->status = "accepted";
+			$request->updateStatus();		
+			$message = "Request accepted successfully.";
+			$this->index($message);
+		}
+		else
+			header('location:/');
+	}
+
+	public function decline($requestId){
+		if($_SESSION['userId'] != null){
+			$request = $this->model('Request');
+			$request->requestId = $requestId;
+			$request->status = "declined";
+			$request->updateStatus();		
+			$message = "Request declined successfully.";
+			$this->index($message);
+		}	
+		else
+			header('location:/');
+	}
+
+	public function cancel($requestId){
+		if($_SESSION['userId'] != null){
+			$request = $this->model('Request');
+			$request->requestId = $requestId;
+			$request->status = "cancelled";
+			$request->updateStatus();		
+			$message = "Request cancelled successfully.";
+			$this->index($message);
+		}
+		else
+			header('location:/');
 	}
 
 }
