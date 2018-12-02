@@ -30,23 +30,32 @@ class Note extends Model{
 	}
 	
 
-	public function deleteNote($userId){
-
-		$sql = "DELETE FROM note n, usernote u WHERE n.noteId = u.noteId AND u.userId = :userId";
+	public function delete(){
+		$sql = "DELETE FROM note WHERE noteId = :noteId";
 		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['noteId'=>$this->noteId]);
 
-		$stmt->execute();	
+		$sql = "DELETE FROM usernote WHERE noteId = :noteId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['noteId'=>$this->noteId]);
+
 	}
 
+	public function getNoteById($noteId){
+		$sql = "SELECT * FROM note WHERE noteId = :noteId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['noteId'=>$noteId]);	
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Note");
+		return $stmt->fetch();
+
+	}
 
 	public function update(){
-
-		$sql = "UPDATE Note n, usernote u SET noteText = :noteText
-				WHERE u.userId=:userId AND n.noteId = u.noteId";
-
+		$sql = "UPDATE note SET noteText = :noteText
+				WHERE noteId = :noteId";
 		$stmt = self::$_connection->prepare($sql);
 
-		$stmt = execute();
+		$stmt->execute(['noteId'=>$this->noteId, 'noteText'=>$this->noteText]);
 
 	}
 
