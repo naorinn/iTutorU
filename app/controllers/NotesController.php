@@ -115,9 +115,18 @@ class NotesController extends Controller{
 
 
 	public function search() {
+		if($_SESSION['userId'] != null)
+		{
+			$searchWord = $_GET['search'];
+			$note = $this->model('Note');
+			
+			$notes = $note->getNotes($_SESSION['userId'], $searchWord);
+			
+			$this->view('Notes/index', ['notes'=>$notes]);
 
-
-
+		}
+		else
+			header('location:/');
 	}
 
 }

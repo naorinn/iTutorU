@@ -57,7 +57,7 @@
 
 				<br/>
 				
-				<h3 style="display:inline"><b>Resources</b></h3>	 
+				<h4 style="display:inline">Resources</h4>	 
 				<div class="form-group col-md-2" style="float: right">
 					<a href="/Resources/create" class="btn btn-success">Add resource</a>
 				</div>

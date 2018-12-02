@@ -55,7 +55,7 @@
 					</div>		
 				</form>
 				<br/>
-				<h3 style="margin-top: 0"><b>Results</b></h3>	
+				<h4 style="margin-top: 0">Results</h4>	
 				<?php $tutors = $data['tutors'] ?>
 				<div class="">
 					<?php 						

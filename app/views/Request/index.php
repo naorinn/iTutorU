@@ -24,7 +24,7 @@
 					
 				<?php $user = $this->model('User');
 				if($user->isTutor()){ ?>
-					<h3 style="display:inline"><b>Received requests</b></h3>	 		
+					<h4 style="display:inline">Received requests</h4>	 		
 					<br/><br/>
 					<?php $received_requests = $data['received_requests'] ?>
 					<div class="" style="border-bottom: solid 1px black; margin-bottom: 10px">
@@ -32,7 +32,7 @@
 							foreach($received_requests as $request){										
 								print("
 									<div class='card'>
-									  <h4 class=''>$request->firstName $request->lastName</h4>			  
+									  <h5 class=''><b>$request->firstName $request->lastName</b></h5>			  
 									  <div class='card-body'>								    
 									    <p class='card-text'>$request->details</p>
 									    <p class='card-text'>Requested date: $request->request_date $request->request_time</p>
@@ -51,7 +51,7 @@
 				<?php }?>
 				
 
-				<h3 style="display:inline"><b>Sent requests</b></h3>
+				<h4 style="display:inline">Sent requests</h4>
 				<br/><br/>
 				<?php $sent_requests = $data['sent_requests'] ?>
 				<div class="">
@@ -59,7 +59,7 @@
 						foreach($sent_requests as $request){	
 							print("
 									<div class='card'>
-									  <h4 class=''>$request->firstName $request->lastName</h4>			  
+									  <h5 class=''><b>$request->firstName $request->lastName</b></h5>			  
 									  <div class='card-body'>								    
 									    <p class='card-text'>$request->details</p>
 									    <p class='card-text'>Requested date: $request->request_date $request->request_time</p>

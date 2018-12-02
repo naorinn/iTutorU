@@ -17,7 +17,19 @@
 					}
 				}
 				?>
-				<div>
+				<form action="search" method="get" id="resource_search">
+					<div class="form-row">
+						<span class="form-group col-md-2">
+							<label for="search">								
+								<input  class="form-control form-control-sm" type="text" name="search" placeholder="Search notes..." />
+							</label>
+						</span>					
+						<span class="form-group col-md-1">
+							<input class="btn btn-light " type="submit" value="Search"/>		
+						</span>
+					</div>		
+				</form>
+				
 					<h4 style="display: inline-block;">Notes</h4> 
 					<div class="form-group col-md-2" style="float: right;padding-right: 0px;padding-left: 0px;width: fit-content;left: 0%;">
 					<a href="/Notes/create" class="btn btn-success">Add note</a>
@@ -43,7 +55,7 @@
 					?>
 					</div>
 
-				</div>
+				
 
 			</div>
 

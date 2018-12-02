@@ -19,11 +19,25 @@ class Note extends Model{
 		return self::$_connection->lastInsertId();				
 	}
 	
-	public function getNotes($userId){
-		$sql = "SELECT * FROM note n, usernote u WHERE u.userId = :userId AND n.noteId = u.noteId";
+	public function getNotes($userId, $searchWord = ''){
+
+		$execute_array = [];
+		$searchSql = "";
+
+		$execute_array['userId'] = $userId;
+		if($searchWord != '')
+		{
+			$searchSql = " AND n.noteText LIKE :searchWord";
+			$searchWord = "%$searchWord%";
+			$execute_array['searchWord'] = $searchWord;
+			
+			
+		}
+
+		$sql = "SELECT * FROM note n, usernote u WHERE u.userId = :userId AND n.noteId = u.noteId".$searchSql;
 		$stmt = self::$_connection->prepare($sql);
 
-		$stmt->execute(['userId'=>$userId]);
+		$stmt->execute($execute_array);
 
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "Note");
 		return $stmt->fetchAll();

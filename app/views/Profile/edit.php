@@ -23,7 +23,7 @@
 						print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
 					}
 				?>
-				<h3><b>Edit Profile</b></h3>
+				<h4>Edit Profile</h4>
 				<form action="_updateProfileImage" method="post" enctype="multipart/form-data">
 					<img src='<?php echo "/images/". ($profile->profileImagePath == null?'profile_default.jpg':$profile->profileImagePath); ?>' /> <br/>
 					<input type="file" name="profileImagePath" ><br/>
