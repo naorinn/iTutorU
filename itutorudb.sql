@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2018 at 09:50 PM
+-- Generation Time: Dec 03, 2018 at 07:00 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -52,7 +52,10 @@ INSERT INTO `message` (`messageId`, `threadId`, `messageText`, `senderId`, `time
 (0, 1, 'hey there', 2, '2018-11-29 19:55:01'),
 (0, 1, 'hola', 2, '2018-11-29 20:02:42'),
 (0, 1, 'i am heer', 2, '2018-11-29 20:02:54'),
-(0, 1, 'jgjasklgmjsfkldg', 2, '2018-11-29 20:03:00');
+(0, 1, 'jgjasklgmjsfkldg', 2, '2018-11-29 20:03:00'),
+(0, 8, 'hi', 2, '2018-12-03 17:15:34'),
+(0, 1, 'hi', 2, '2018-12-03 17:15:39'),
+(0, 1, '', 2, '2018-12-03 17:15:58');
 
 -- --------------------------------------------------------
 
@@ -304,20 +307,27 @@ INSERT INTO `program` (`programId`, `programName`) VALUES
 
 DROP TABLE IF EXISTS `request`;
 CREATE TABLE `request` (
+  `requestId` int(11) NOT NULL,
   `tutorId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `details` varchar(500) DEFAULT NULL,
   `request_date` date DEFAULT NULL,
-  `request_time` varchar(6) DEFAULT NULL
+  `request_time` varchar(6) DEFAULT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `request`
 --
 
-INSERT INTO `request` (`tutorId`, `userId`, `timestamp`, `details`, `request_date`, `request_time`) VALUES
-(2, 2, '2018-11-25 20:24:23', 'help', '2018-11-14', '11:11');
+INSERT INTO `request` (`requestId`, `tutorId`, `userId`, `timestamp`, `details`, `request_date`, `request_time`, `status`) VALUES
+(1, 2, 10, '2018-12-03 16:35:59', 'help', '2018-11-14', '11:11', 'accepted'),
+(2, 4, 2, '2018-12-03 16:56:55', 'Need help with guitar practice', '2018-12-22', '10:00', 'pending'),
+(3, 12, 2, '2018-12-03 17:02:49', 'Need help with Russian', '2018-12-12', '10:55', 'pending'),
+(4, 12, 2, '2018-12-03 17:04:08', 'Need help with Russian', '2018-12-12', '10:55', 'pending'),
+(5, 12, 2, '2018-12-03 17:04:52', 'Need help with Russian, again', '2018-12-12', '10:55', 'pending'),
+(6, 5, 2, '2018-12-03 17:41:10', 'dbs', '2018-12-21', '12:00', 'pending');
 
 -- --------------------------------------------------------
 
@@ -452,7 +462,7 @@ CREATE TABLE `session` (
   `sessionId` int(11) NOT NULL,
   `tutorId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `session_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -491,7 +501,9 @@ INSERT INTO `thread` (`threadId`, `firstUserId`, `secondUserId`) VALUES
 (4, 4, 8),
 (5, 15, 12),
 (6, 2, 12),
-(7, 19, 2);
+(7, 19, 2),
+(8, 2, 10),
+(9, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -527,7 +539,15 @@ CREATE TABLE `tutor` (
 INSERT INTO `tutor` (`userId`, `description`, `pay`, `rating`, `timesTutored`) VALUES
 (2, 'java, css, html', 10, 4, 1),
 (10, 'english, C++, java', 15, 5, 1),
-(5, '.NET, databases', 5, 3, 3);
+(5, '.NET, databases', 5, 3, 3),
+(4, 'guitar, piano, english', 10, 4, 3),
+(12, 'spanish, french, databases', 15, 4, 3),
+(18, 'html, css', 10, 2, 2),
+(14, 'java, C++, arduino, low-level language programming', 10, 3, 2),
+(7, 'swimming, self-defense, basketball', 10, 4, 2),
+(16, 'piano/keyboard, drawing, graphic design', 15, 3, 3),
+(9, 'illustration, psychology, calculus', 15, 5, 1),
+(11, 'gymnastics, yoga, bagpipes', 10, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -639,6 +659,7 @@ ALTER TABLE `program`
 -- Indexes for table `request`
 --
 ALTER TABLE `request`
+  ADD PRIMARY KEY (`requestId`),
   ADD KEY `request_tutorid_fk` (`tutorId`),
   ADD KEY `request_userid_fk` (`userId`);
 
@@ -731,6 +752,11 @@ ALTER TABLE `note`
 ALTER TABLE `program`
   MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 --
+-- AUTO_INCREMENT for table `request`
+--
+ALTER TABLE `request`
+  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
@@ -744,7 +770,7 @@ ALTER TABLE `school`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `sessionId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sessionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `subject`
 --
@@ -754,7 +780,7 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT for table `thread`
 --
 ALTER TABLE `thread`
-  MODIFY `threadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `threadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --
