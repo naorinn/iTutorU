@@ -36,7 +36,7 @@ class ResourcesController extends Controller {
 		}
 
 		$message = "Resource added successfully!";
-		$this->index($message);
+		$this->view('Default/status', ['message'=>$message]);
 		//header('location:/Resources/index')
 		//$this->view('Resources/index', ['message'=>$message]);
 

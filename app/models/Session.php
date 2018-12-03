@@ -20,6 +20,9 @@ class Session extends Model {
 	}
 
 	public function delete(){
+		$sql ="DELETE FROM session WHERE sessionId = :sessionId AND (userId = :userId OR tutorId = :userId)";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['sessionId'=>$this->sessionId, 'userId'=>$this->userId]);
 
 	}
 

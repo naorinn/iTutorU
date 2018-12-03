@@ -91,7 +91,7 @@ class UserController extends Controller {
 	}
 
 
-	/*public function home() {
+	public function home() {
 		if($_SESSION['userId'] != null)
 		{
 			$session = $this->model('Session');
@@ -112,7 +112,7 @@ class UserController extends Controller {
 		}
 		else
 			header('location:/');
-	}*/
+	}
 
 
 	private function validateInput($username, $pass) {

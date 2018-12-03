@@ -69,7 +69,7 @@ class RequestController extends Controller {
 			$session->insert();
 
 			$message = "Request accepted successfully.";
-			$this->index($message);
+			$this->view('Default/status', ['message'=>$message]);
 		}
 		else
 			header('location:/');
@@ -82,7 +82,7 @@ class RequestController extends Controller {
 			$request->status = "declined";
 			$request->updateStatus();		
 			$message = "Request declined successfully.";
-			$this->index($message);
+			$this->view('Default/status', ['message'=>$message]);
 		}	
 		else
 			header('location:/');
@@ -95,7 +95,7 @@ class RequestController extends Controller {
 			$request->status = "cancelled";
 			$request->updateStatus();		
 			$message = "Request cancelled successfully.";
-			$this->index($message);
+			$this->view('Default/status', ['message'=>$message]);
 		}
 		else
 			header('location:/');

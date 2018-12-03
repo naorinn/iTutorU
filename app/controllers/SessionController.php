@@ -19,6 +19,7 @@ class SessionController extends Controller {
 			$sessions = $session->getSessions();
 
 			$this->view('User/home', ['user_sessions'=>$user_sessions, 'tutor_sessions'=>$tutor_sessions, 'sessions'=>$sessions]);
+
 		}
 		else
 			header('location:/');
@@ -56,8 +57,11 @@ class SessionController extends Controller {
 		
 		$session = $this->model('Session');
 		$session->sessionId =  $_POST['sessionId'];
+		$session->userId = $_SESSION['userId'];
 		$session->delete();
-		$this->view();
+		$message = "Session deleted successfully.";
+		//$this->home($message);
+		header('location:/User/home');
 	}
 
 }

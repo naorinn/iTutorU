@@ -16,7 +16,8 @@
 	  	<button style="" class="dropbtn"><i class="fas fa-bars"></i></button>
 	  	<span class="dropdown-content">
 		    <a href="/User/home">Home</a>
-			<a href="/Profile/edit">Profile</a>
+			<!--<a href="/Profile/edit">Profile</a>-->
+			<a href="/Profile/detail">Profile</a>
 			<?php 
 				$user = $this->model('User');
 				if(!$user->isTutor()){
@@ -28,7 +29,7 @@
 			?>
 
 			<a href="/Notes/index">My notes</a>
-			<a href="/Session/index">My sessions</a>
+			<!--<a href="/Session/hom">My sessions</a>-->
 			<a href="/Thread/index">Messages</a>
 			<a href="/Resources/index">Resources</a>
 			

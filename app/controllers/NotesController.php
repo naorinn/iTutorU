@@ -3,12 +3,12 @@
 class NotesController extends Controller{
 
 
-	public function index($message = '') {
+	public function index() {
 		if($_SESSION['userId'] != null)
 		{
 			$note = $this->model('Note');
 			$notes = $note->getNotes($_SESSION['userId']);
-			$this->view('Notes/index', ['notes'=>$notes, 'message'=>$message]);
+			$this->view('Notes/index', ['notes'=>$notes]);
 
 		}
 		else
@@ -44,7 +44,7 @@ class NotesController extends Controller{
 		}
 
 		$message = "Note created successfully!";
-		$this->index($message);
+		$this->view('Default/status', ['message'=>$message]);
 
 		
 	}
@@ -73,7 +73,7 @@ class NotesController extends Controller{
 			$note->noteId = $noteId;
 			$note->delete();
 			$message = "Note deleted successfully.";
-			$this->index($message);
+			$this->view('Default/status', ['message'=>$message]);
 		}
 		else
 			header('location:/');
@@ -109,7 +109,7 @@ class NotesController extends Controller{
 			$message = "Empty note was deleted";
 		}
 		
-		$this->index($message);
+		$this->view('Default/status', ['message'=>$message]);
 
 	}
 
