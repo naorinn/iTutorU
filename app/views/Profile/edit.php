@@ -16,7 +16,7 @@
 				
 				<h4>Edit Profile</h4>
 				<form action="_updateProfileImage" method="post" enctype="multipart/form-data">
-					<img src='<?php echo "/images/". ($profile->profileImagePath == null?'profile_default.jpg':$profile->profileImagePath); ?>' /> <br/>
+					<img id="profileImageEdit" src='<?php echo "/images/".$profile->profileImagePath ?>' /> <br/>
 					<input type="file" name="profileImagePath" ><br/>
 					<input type="submit" class="btn btn-info mb-2" value="Change profile image"/><br/><br/>
 				</form>

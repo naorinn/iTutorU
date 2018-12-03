@@ -17,8 +17,7 @@
 					}
 				}
 				?>
-				<div>
-					<h4>Home</h4>	
+				<div>					
 					<?php date_default_timezone_set('America/Toronto');
 						  if(isset($_GET['ym'])){
 						  	$ym = $_GET['ym'];
@@ -101,6 +100,22 @@
 						  }
 
 					?>
+					<?php $user = $data['user']; ?>
+	    <div style="background-color: white; padding-bottom: 3%">
+			<div id="profileImageHeader" ></div>
+	        <div id="profileImageIndex" style="background-image: url('/images/<?php echo $user->profileImagePath?>')">
+	        	<h3 style="bottom: -70;position: absolute;text-align:  center;margin: auto;width: 100%;">
+		        	<p><?php print("$user->firstName $user->lastName");?></p>
+		        	<a class='btn btn-primary' href="/Profile/edit">Edit profile</a>					
+		        </h3>
+
+			        
+
+
+	         </div>
+
+	                
+	    </div>
 					<div class="container">
 						<h3><a href="?ym=<?php echo $prevMonth; ?>">&lt; </a><?php echo $html_title; ?><a href="?ym=<?php echo $nextMonth; ?>"> &gt;</a></h3>
 						<br/>
@@ -121,6 +136,11 @@
 								}
 							?>
 						</table>
+					</div>
+
+					<div id="sessions_list">
+
+
 					</div>
 					
 					<?php
