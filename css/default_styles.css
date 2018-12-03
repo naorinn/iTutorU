@@ -228,3 +228,15 @@ img.tutor {
 	background-position:  center; 
 	filter: none;
 }
+
+/*Calendar styles*/
+.container {
+
+}
+.container td {
+	
+}
+
+.container .today {
+	background-color: orange;
+}

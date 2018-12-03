@@ -28,8 +28,6 @@
 					
 					<br/><br/>
 						<small id="error" style="color: red;"><?php if(isset($data['error'])){echo $data['error'];}?></small>
-				
-					
 				</div>
 
 			</form>
