@@ -23,6 +23,18 @@ class Session extends Model {
 
 	}
 
+	public function getSessionById() {		
+		$sql = "SELECT * FROM session s, profile p 
+				WHERE (s.userId = p.userId OR s.tutorId = p.userId)
+				AND p.userId != :userId
+				AND s.sessionId = :sessionId 
+				AND (s.userId = :userId OR s.tutorId = :userId)";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['userId'=>$this->userId, 'sessionId'=>$this->sessionId]);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "Session");
+		return $stmt->fetch();
+	}
+
 	public function getSessions() {
 		$sql = "SELECT * FROM session s, profile p
 				WHERE (s.userId = p.userId OR s.tutorId = p.userId)

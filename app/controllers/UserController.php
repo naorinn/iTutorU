@@ -115,7 +115,7 @@ class UserController extends Controller {
 	}
 
 
-	public function validateInput($username, $pass) {
+	private function validateInput($username, $pass) {
 			//https://regexone.com/references/php
 			//http://php.net/manual/en/function.password-hash.php
 			$usernameRegex = "/^[0-9]{7}$/";

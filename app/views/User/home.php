@@ -128,10 +128,20 @@
 						
 						foreach($sessions as $session){
 							if($session->tutorId == $_SESSION['userId']){
-								print("<p><span class='ts_dot'></span> $session->session_date - You are tutoring $session->firstName $session->lastName</p>");
+								print("<p><span class='ts_dot'></span> 
+										$session->session_date - You are tutoring $session->firstName $session->lastName 
+										&nbsp;&nbsp;&nbsp;
+										<a href='/Session/edit/$session->sessionId'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></a></span>&nbsp;&nbsp;
+										<a href='/Session/delete/$session->sessionId'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+										</p>");
 							}
 							else{
-								print("<p><span class='us_dot'></span> $session->session_date - You are being tutored by $session->firstName $session->lastName</p>");
+								print("<p><span class='us_dot'></span> 
+										$session->session_date - You are being tutored by $session->firstName $session->lastName   
+										&nbsp;&nbsp;&nbsp;
+										<a href='/Session/edit/$session->sessionId'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>&nbsp;&nbsp;
+										<a href='/Session/delete/$session->sessionId'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>
+										</p>");
 							}
 						}
 					?>
