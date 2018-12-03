@@ -17,7 +17,7 @@
 	  	<span class="dropdown-content">
 		    <a href="/User/home">Home</a>
 			<!--<a href="/Profile/edit">Profile</a>-->
-			<a href="/Profile/detail">Profile</a>
+			<a href="/Profile/index">Profile</a>
 			<?php 
 				$user = $this->model('User');
 				if(!$user->isTutor()){

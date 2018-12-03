@@ -1,5 +1,5 @@
 <?php 
-//dos not interact with DB; model does
+
 	class DefaultController extends Controller{
 
 		public function index() {

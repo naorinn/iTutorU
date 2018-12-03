@@ -36,6 +36,8 @@ class User extends Model
 
 	public function getUserById($userId){
 		$sql = "SELECT * FROM User WHERE userId=:userId";
+		$sql = "SELECT u.userId, p.firstName, p.lastName, p.profileImagePath FROM User u, Profile p
+		WHERE u.userId = p.userId AND u.userId=:userId";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['userId'=>$userId]);
 
@@ -44,10 +46,11 @@ class User extends Model
 
 	}
 
-	public function isTutor() {
+	public function isTutor() {		
 		$tutor = $this->model('Tutor');
 		$current_tutor = $tutor->getTutorById($_SESSION['userId']);
 		return $current_tutor != NULL;
+
 	}
 
 }

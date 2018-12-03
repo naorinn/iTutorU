@@ -19,7 +19,7 @@ class UserController extends Controller {
 				if(password_verify($password, $current_user->password)){					
 					$_SESSION['username'] = $username;
 					$_SESSION['userId'] = $current_user->userId;
-					//$this->view('User/home');					
+								
 					header('location:/Session/home');
 
 				}else{

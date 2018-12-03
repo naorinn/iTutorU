@@ -7,16 +7,7 @@
 		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">
-				<?php
-				if(isset($data['message'])){
-
-					$message = $data['message'];
-				
-					if($message != ''){
-						print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-					}
-				}
-				?>
+			
 				<form action="search" method="get" id="resource_search">
 					<div class="form-row">
 						<span class="form-group col-md-2">

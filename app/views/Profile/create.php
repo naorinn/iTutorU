@@ -7,13 +7,7 @@
 		<header class="main"></header>	
 			<div class="content_block">			
 				<h3><b>Create Profile</b></h3>
-				<!--<form action="" method="post" enctype="multipart/form-data">
-					<img src='<?php echo ($data['profileImage']); ?>' /> <br/><br/>
-					<input type="file" name="profileImagePath" >
-					<input type="submit" class="btn btn-info mb-2" name="action"/>
-				</form>
-			-->
-
+				
 				<form method="post" action="_create">
 					<div id="profile_create" class="form-group">
 					

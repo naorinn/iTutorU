@@ -13,12 +13,7 @@
 					$isTutor = $user->isTutor();
 					
 				 ?>	
-				<?php
-					$message = $data['message'];
-					if($message != ''){
-						print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-					}
-				?>
+				
 				<h4>Edit Profile</h4>
 				<form action="_updateProfileImage" method="post" enctype="multipart/form-data">
 					<img src='<?php echo "/images/". ($profile->profileImagePath == null?'profile_default.jpg':$profile->profileImagePath); ?>' /> <br/>

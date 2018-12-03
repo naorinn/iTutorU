@@ -4,8 +4,7 @@ class NotesController extends Controller{
 
 
 	public function index() {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$note = $this->model('Note');
 			$notes = $note->getNotes($_SESSION['userId']);
 			$this->view('Notes/index', ['notes'=>$notes]);
@@ -17,8 +16,7 @@ class NotesController extends Controller{
 
 	
 	public function create() {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$this->view('Notes/create');
 		}
 		else
@@ -27,24 +25,28 @@ class NotesController extends Controller{
 
 
 	public function _create() {
-		if(isset($_POST['noteText'])){
-			$note = $this->model('Note');
-			$note->noteText = $_POST['noteText'];
+		if(isset($_SESSION['userId'])){
+			if(isset($_POST['noteText'])){
+				$note = $this->model('Note');
+				$note->noteText = $_POST['noteText'];
 
-			$nId = $note->insert();
-			
-			
-			$usernote = $this->model('Usernote');
-			
-			$usernote->userId = $_SESSION['userId'];
-			$usernote->noteId = $nId;				
-			$usernote->insert();
-			header('location:/Notes/index');
+				$nId = $note->insert();
+				
+				
+				$usernote = $this->model('Usernote');
+				
+				$usernote->userId = $_SESSION['userId'];
+				$usernote->noteId = $nId;				
+				$usernote->insert();
+				header('location:/Notes/index');
 
+			}
+
+			$message = "Note created successfully!";
+			$this->view('Default/status', ['message'=>$message]);
 		}
-
-		$message = "Note created successfully!";
-		$this->view('Default/status', ['message'=>$message]);
+		else
+			header('location:/');
 
 		
 	}
@@ -53,8 +55,7 @@ class NotesController extends Controller{
 
 
 	public function delete($noteId) {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])) {
 			$note = $this->model('Note');
 			$selected_note = $note->getNoteById($noteId);
 
@@ -67,8 +68,7 @@ class NotesController extends Controller{
 
 
 	public function _delete($noteId) {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$note = $this->model('Note');
 			$note->noteId = $noteId;
 			$note->delete();
@@ -82,8 +82,7 @@ class NotesController extends Controller{
 
 
 	public function edit($noteId) {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$note = $this->model('Note');
 			$selected_note = $note->getNoteById($noteId);
 			$this->view('Notes/edit', ['note'=>$selected_note]);
@@ -94,29 +93,32 @@ class NotesController extends Controller{
 	}
 
 	public function _edit($noteId) {
-		if(isset($_POST['noteText'])){
-			$note = $this->model('Note');
-			$note->noteId = $noteId;
-			$note->noteText = $_POST['noteText'];
+		if(isset($_SESSION['userId'])){
+			if(isset($_POST['noteText'])){
+				$note = $this->model('Note');
+				$note->noteId = $noteId;
+				$note->noteText = $_POST['noteText'];
 
-			$note->update();
-			//header('location:/Notes/index');
-			$message = "Note updated successfully!";
+				$note->update();
+				//header('location:/Notes/index');
+				$message = "Note updated successfully!";
 
+			}
+			else{
+				$this->_delete($noteId);
+				$message = "Empty note was deleted";
+			}
+			
+			$this->view('Default/status', ['message'=>$message]);
 		}
-		else{
-			$this->_delete($noteId);
-			$message = "Empty note was deleted";
-		}
-		
-		$this->view('Default/status', ['message'=>$message]);
+		else
+			header('location:/');
 
 	}
 
 
 	public function search() {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$searchWord = $_GET['search'];
 			$note = $this->model('Note');
 			

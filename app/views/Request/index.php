@@ -7,17 +7,6 @@
 		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">		
-				<?php
-					if(isset($data['message'])){
-
-						$message = $data['message'];
-					
-						if($message != ''){
-							print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-						}
-					}
-				?>		
-					
 				<?php $user = $this->model('User');
 				if($user->isTutor()){ ?>
 					<h4 style="display:inline">Received requests</h4>	 		

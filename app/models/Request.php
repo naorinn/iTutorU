@@ -38,7 +38,7 @@ class Request extends Model
 	}
 
 	public function getSentRequests() {
-		$sql = "SELECT * FROM request r, profile p WHERE r.userId = p.userId
+		$sql = "SELECT * FROM request r, profile p WHERE r.tutorId = p.userId
 				AND r.userId = :userId AND status = 'pending'";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['userId'=>$this->userId]);

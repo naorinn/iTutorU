@@ -9,16 +9,6 @@
 		<?php include_once('app/views/Default/header.php') ?>
 
 			<div class="content_block">				
-				<?php
-					if(isset($data['message'])){
-
-						$message = $data['message'];
-					
-						if($message != ''){
-							print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-						}
-					}
-				?>
 				<div>
 					<h4>Message from...</h4>	
 					<div class="">

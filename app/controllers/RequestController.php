@@ -1,27 +1,30 @@
 <?php
 class RequestController extends Controller {
 
-	public function index($message='') {		
-		$request = $this->model('Request');
-		$received_requests = [];
+	public function index() {		
+		if(isset($_SESSION['userId'])){
+			$request = $this->model('Request');
+			$received_requests = [];
 
-		$user = $this->model('User');
-		if($user->isTutor()){
-			//get requests sent to me
-			
-			$request->tutorId = $_SESSION['userId'];
-			$received_requests = $request->getReceivedRequests();
-			//var_dump($received_requests);
+			$user = $this->model('User');
+			if($user->isTutor()){
+				//get requests sent to me
+				
+				$request->tutorId = $_SESSION['userId'];
+				$received_requests = $request->getReceivedRequests();
+				//var_dump($received_requests);
+			}
+			$request->userId = $_SESSION['userId'];
+			$sent_requests = $request->getSentRequests();
+
+			//get request made by me
+			$this->view('Request/index', ['received_requests'=>$received_requests, 'sent_requests'=>$sent_requests]);
 		}
-		$request->userId = $_SESSION['userId'];
-		$sent_requests = $request->getSentRequests();
-
-		//get request made by me
-		$this->view('Request/index', ['received_requests'=>$received_requests, 'sent_requests'=>$sent_requests, 'message'=>$message]);
+		header('location:/');
 	}
 
 	public function create($tutorId) {
-		if($_SESSION['userId'] != null){
+		if(isset($_SESSION['userId'])){
 			$tutor = $this->model('Tutor');
 			$selected_tutor = $tutor->getTutorById($tutorId);
 			$this->view('Request/create', ['tutor'=>$selected_tutor]);
@@ -33,18 +36,22 @@ class RequestController extends Controller {
 	public function _create() {
 		//$val = $_POST['tutorId'];
 		try{
-			$request = $this->model('Request');
-			$request->userId = $_SESSION['userId'];
-			$request->tutorId = $_POST['tutorId'];
-			$request->request_date = $_POST['date'];
-			$request->request_time = $_POST['time'];
-			$request->details = $_POST['details'];
+			if(isset($_SESSION['userId'])){
+				$request = $this->model('Request');
+				$request->userId = $_SESSION['userId'];
+				$request->tutorId = $_POST['tutorId'];
+				$request->request_date = $_POST['date'];
+				$request->request_time = $_POST['time'];
+				$request->details = $_POST['details'];
 
-			$request->insert();
+				$request->insert();
 
-			$message = "Tutoring request sent successfully!";	
-			header('location:/User/home');	//message does not display when url is rebased
-			$this->view('User/home', ['message'=>$message]);
+				$message = "Tutoring request sent successfully!";	
+				//header('location:/User/home');	//message does not display when url is rebased
+				$this->view('Default/status', ['message'=>$message]);
+			}
+			else
+				header('location:/');
 		}
 		catch(Exception $e) {
 
@@ -54,7 +61,7 @@ class RequestController extends Controller {
 
 
 	public function accept($requestId){
-		if($_SESSION['userId'] != null){
+		if(isset($_SESSION['userId'])){
 			$request = $this->model('Request');
 			$request->requestId = $requestId;
 			$request->status = "accepted";
@@ -76,7 +83,7 @@ class RequestController extends Controller {
 	}
 
 	public function decline($requestId){
-		if($_SESSION['userId'] != null){
+		if(isset($_SESSION['userId'])){
 			$request = $this->model('Request');
 			$request->requestId = $requestId;
 			$request->status = "declined";
@@ -89,7 +96,7 @@ class RequestController extends Controller {
 	}
 
 	public function cancel($requestId){
-		if($_SESSION['userId'] != null){
+		if(isset($_SESSION['userId'])){
 			$request = $this->model('Request');
 			$request->requestId = $requestId;
 			$request->status = "cancelled";

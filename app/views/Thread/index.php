@@ -7,17 +7,7 @@
 	<body>
 		<?php include_once('app/views/Default/header.php') ?>
 
-			<div class="content_block">				
-				<?php
-					if(isset($data['message'])){
-
-						$message = $data['message'];
-					
-						if($message != ''){
-							print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
-						}
-					}
-				?>
+			<div class="content_block">								
 				<div>
 					<h4>Threads</h4>	
 					<div class="">

@@ -2,8 +2,7 @@
 class SessionController extends Controller {
 
 	public function home() {
-		if($_SESSION['userId'] != null)
-		{
+		if(isset($_SESSION['userId'])){
 			$session = $this->model('Session');
 			$session->userId = $_SESSION['userId'];
 			$session->tutorId = $_SESSION['userId'];
@@ -54,14 +53,17 @@ class SessionController extends Controller {
 	}
 
 	public function _delete() {
-		
-		$session = $this->model('Session');
-		$session->sessionId =  $_POST['sessionId'];
-		$session->userId = $_SESSION['userId'];
-		$session->delete();
-		$message = "Session deleted successfully.";
-		//$this->home($message);
-		header('location:/User/home');
+		if(isset($_SESSION['userId'])){
+			$session = $this->model('Session');
+			$session->sessionId =  $_POST['sessionId'];
+			$session->userId = $_SESSION['userId'];
+			$session->delete();
+			$message = "Session deleted successfully.";
+			
+			header('location:/User/home');
+		}
+		else 
+			header('location:/');
 	}
 
 }
