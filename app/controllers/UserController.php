@@ -94,7 +94,21 @@ class UserController extends Controller {
 	public function home() {
 		if($_SESSION['userId'] != null)
 		{
-			$this->view('User/home');
+			$session = $this->model('Session');
+			$session->userId = $_SESSION['userId'];
+			$session->tutorId = $_SESSION['userId'];
+			$user_sessions = $session->getUserSessions();
+
+			$tutor_sessions = [];
+
+			$user = $this->model('User');
+			if($user->isTutor()){
+				$tutor_sessions = $session->getTutorSessions();
+			}
+
+			$sessions = $session->getSessions();
+
+			$this->view('User/home', ['user_sessions'=>$user_sessions, 'tutor_sessions'=>$tutor_sessions, 'sessions'=>$sessions]);
 		}
 		else
 			header('location:/');

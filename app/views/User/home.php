@@ -23,9 +23,8 @@
 						  if(isset($_GET['ym'])){
 						  	$ym = $_GET['ym'];
 						  }
-						  else{
-						  	//$ym = date('Y-m');
-						  	 $ym = date('Y-m-d', time());
+						  else{						  	
+						  	 $ym = date('Y-m', time());
 						  }
 
 						  $timestamp = strtotime($ym, "-01");
@@ -66,6 +65,26 @@
 						  	else{
 						  		$week .= '<td>'.$day;
 						  	}
+						  	
+						  	//add dots here
+						  	$tutor_sessions = $data['tutor_sessions'];
+
+						  	foreach($tutor_sessions as $session){
+						  		$date_formatted = date_create($session->session_date);
+						  		$session_date = date_format($date_formatted, 'Y-m-d');
+						  		if($session_date == $date){
+						  			$week .= '<span class="ts_dot"></span>';
+						  		}
+						  	}
+
+						  	$user_sessions = $data['user_sessions'];
+						  	foreach($user_sessions as $session){
+						  		$date_formatted = date_create($session->session_date);
+						  		$session_date = date_format($date_formatted, 'Y-m-d');
+						  		if($session_date == $date){
+						  			$week .= '<span class="us_dot"></span>';
+						  		}
+						  	}
 						  	$week .= '</td>';
 
 						  	if($str % 7 == 6 || $day == $day_count){
@@ -102,32 +121,23 @@
 								}
 							?>
 						</table>
-
-
-
-
-
 					</div>
 					
-
-
-
-
-
-
-
-
-
-					<script>
-						var days = getDays();
-						for(var x = 0; x <= days; x++){
-							for(var y = 0; y < )
+					<?php
+						$sessions = $data['sessions'];
+						
+						foreach($sessions as $session){
+							if($session->tutorId == $_SESSION['userId']){
+								print("<p><span class='ts_dot'></span> $session->session_date - You are tutoring $session->firstName $session->lastName</p>");
+							}
+							else{
+								print("<p><span class='us_dot'></span> $session->session_date - You are being tutored by $session->firstName $session->lastName</p>");
+							}
 						}
-					</script>
+					?>
 
+					
 				</div>
-
 			</div>
-
 	</body>
 </html>

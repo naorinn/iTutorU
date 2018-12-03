@@ -3,8 +3,9 @@ class RequestController extends Controller {
 
 	public function index($message='') {		
 		$request = $this->model('Request');
-		$user = $this->model('User');
 		$received_requests = [];
+
+		$user = $this->model('User');
 		if($user->isTutor()){
 			//get requests sent to me
 			
@@ -58,6 +59,15 @@ class RequestController extends Controller {
 			$request->requestId = $requestId;
 			$request->status = "accepted";
 			$request->updateStatus();		
+
+			//Create a session
+			$selected_request = $request->getRequest();
+			$session = $this->model('Session');
+			$session->userId = $selected_request->userId;
+			$session->tutorId = $selected_request->tutorId;
+			$session->session_date = $selected_request->request_date;
+			$session->insert();
+
 			$message = "Request accepted successfully.";
 			$this->index($message);
 		}
