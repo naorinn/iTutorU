@@ -41,8 +41,7 @@ class ProfileController extends Controller{
 				$profile->schoolId = $_POST['school'];
 				$profile->programId = $_POST['program'];
 				$profile->insert();
-				
-				$this->view('User/home');
+				header('location:/User/home');
 			}
 			else{
 				$this->view('Profile/create', ['e_profile_create'=>'Please enter all required information.']);

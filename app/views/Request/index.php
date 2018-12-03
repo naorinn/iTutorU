@@ -23,7 +23,7 @@
 									    <p class='card-text'>Requested date: $request->request_date $request->request_time</p>
 									    <small>Request made on $request->timestamp</small><br/>
 									    <a href='/Request/accept/$request->requestId' class='btn btn-primary'>Accept</a>
-									    <a href='' class='btn btn-danger'>Decline</a>
+									    <a href='/Request/decline/$request->requestId' class='btn btn-danger'>Decline</a>
 									  </div>
 									</div><hr/>");									
 								}
@@ -54,6 +54,7 @@
 									</div><hr/>");
 								
 						}
+
 						if(count($sent_requests) == 0){
 							print("<h4>No requests sent</h4>");
 						}

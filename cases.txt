@@ -1,0 +1,33 @@
+-a user can register by creating an account-----------------------------------------x
+-a user can log in using their credentials------------------------------------------x
+-a user can end their session using the “logout” button-----------------------------x
+-a user can create a profile--------------------------------------------------------x
+-a user can modify his/her profile--------------------------------------------------x
+-a user can search for a tutor by program-------------------------------------------x
+-a user can search for a tutor by cost----------------------------------------------x
+-a user can search for a tutor by subject description-------------------------------x
+-a user/tutor can message eachother-------------------------------------------------x
+-a user can become a tutor----------------------------------------------------------x
+-a user can request a tutor---------------------------------------------------------x
+-a tutor can view a list of requests from other users-------------------------------x
+-a user can add notes to their note log---------------------------------------------x
+-a user can remove notes------------------------------------------------------------x
+-a user can search their notes------------------------------------------------------x
+-a user can edit their notes--------------------------------------------------------x
+-a user/tutor can schedule tutoring sessions-------------------------------------------------
+-a user/tutor can view sessions-----------------------------------------------------x
+-a user/tutor can delete sessions------------------------------------------------------------
+-a user can view a list of their messages (inbox)-----------------------------------x
+-a user can view a list of all the programs-----------------------------------------x
+-a user can add resources-----------------------------------------------------------x
+
+-a user can view their notes--------------------------------------------------------x
+-a tutor can decline a tutoring request---------------------------------------------x
+-a user can view their profile------------------------------------------------------x
+-a user can view a tutor's profile--------------------------------------------------x
+-a user can view a requests that they sent------------------------------------------x
+-a tutor can accept a tutoring request----------------------------------------------x
+-a user can cancel a tutoring request-----------------------------------------------x
+-a user can view resources----------------------------------------------------------x
+-a user can search resources--------------------------------------------------------x
+-a user can view a list of tutors---------------------------------------------------x
