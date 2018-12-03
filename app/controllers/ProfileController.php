@@ -8,7 +8,10 @@ class ProfileController extends Controller{
 	public function index() {
 		if($_SESSION['userId'] != null)
 		{
-			$this->view('Profile/index');
+			$user = $this->model('User');
+			$selected_user = $user->getUserById($_SESSION['userId']);
+		
+			$this->view('Profile/index', ['user'=>$selected_tutor]);
 		}
 		else
 			header('location:/');
