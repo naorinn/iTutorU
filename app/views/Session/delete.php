@@ -10,14 +10,15 @@
 				<h3><b>Delete session</b></h3>
 				<?php $session = $data['session'];?>
 
-					
-				<div>Delete session?</div><br/>
-				<div>Session:</div>
-				<div>With: <?php print("$session->firstName $session->lastName"); ?></div>
-				<div>Date: <?php echo $session->session_date; ?></div><br/>
-				<a href="" class="btn btn-primary">Delete</a>
-				<a href="/User/home" class="btn btn-primary">Cancel</a>
-				
+				<form action="/Session/_delete" method="post">	
+					<div>Delete session?</div><br/>
+					<div>Session:</div>
+					<div>With: <?php print("$session->firstName $session->lastName"); ?></div>
+					<input name="sessionId" hidden value='<?php echo $session->sessionId; ?>'/>
+					<div>Date: <?php echo $session->session_date; ?></div><br/>
+					<input type="submit" class="btn btn-primary" value="Delete"/>
+					<a href="/User/home" class="btn btn-primary">Cancel</a>
+				</form>
 				
 			</div>
 

@@ -19,8 +19,8 @@ class UserController extends Controller {
 				if(password_verify($password, $current_user->password)){					
 					$_SESSION['username'] = $username;
 					$_SESSION['userId'] = $current_user->userId;
-					$this->view('User/home');					
-					header('location:/User/home');
+					//$this->view('User/home');					
+					header('location:/Session/home');
 
 				}else{
 					$this->view('User/index',['error'=>'Invalid username or password.']);
@@ -91,7 +91,7 @@ class UserController extends Controller {
 	}
 
 
-	public function home() {
+	/*public function home() {
 		if($_SESSION['userId'] != null)
 		{
 			$session = $this->model('Session');
@@ -112,7 +112,7 @@ class UserController extends Controller {
 		}
 		else
 			header('location:/');
-	}
+	}*/
 
 
 	private function validateInput($username, $pass) {

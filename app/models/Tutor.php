@@ -47,6 +47,7 @@ class Tutor extends Model
 		$priceSql = "";
 
 		$execute_array = [];
+		$execute_array['userId'] = $_SESSION['userId'];
 
 		if($subject != ''){
 			$subjectSql = " AND t.description LIKE :subject";
@@ -66,7 +67,7 @@ class Tutor extends Model
 		}	
 
 		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p 
-				WHERE t.userId=p.userId".$subjectSql.$programSql.$priceSql;
+				WHERE t.userId=p.userId AND t.userId != :userId".$subjectSql.$programSql.$priceSql;
 
 		$stmt = self::$_connection->prepare($sql);
     

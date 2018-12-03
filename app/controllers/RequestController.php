@@ -43,7 +43,7 @@ class RequestController extends Controller {
 			$request->insert();
 
 			$message = "Tutoring request sent successfully!";	
-			//header('location:/User/home');	//message does not display when url is rebased
+			header('location:/User/home');	//message does not display when url is rebased
 			$this->view('User/home', ['message'=>$message]);
 		}
 		catch(Exception $e) {
