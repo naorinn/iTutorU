@@ -9,7 +9,7 @@
 		<?php $user = $data['user']; ?>
 	    <div style="background-color: white; padding-bottom: 3%">
 			<div id="profileImageHeader" ></div>
-	        <div id="profileImage" style="background-image: url('/images/<?php echo $user->profileImagePath?>')">
+	        <div id="profileImageIndex" style="background-image: url('/images/<?php echo $user->profileImagePath?>')">
 	        	<h3 style="bottom: -70;position: absolute;text-align:  center;margin: auto;width: 100%;">
 		        	<p><?php print("$user->firstName $user->lastName");?></p>
 			        

@@ -20,7 +20,8 @@ class RequestController extends Controller {
 			//get request made by me
 			$this->view('Request/index', ['received_requests'=>$received_requests, 'sent_requests'=>$sent_requests]);
 		}
-		header('location:/');
+		else
+			header('location:/');
 	}
 
 	public function create($tutorId) {
