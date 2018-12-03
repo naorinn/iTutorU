@@ -35,9 +35,12 @@ class User extends Model
 	}
 
 	public function getUserById($userId){
-		$sql = "SELECT * FROM User WHERE userId=:userId";
-		$sql = "SELECT u.userId, p.firstName, p.lastName, p.profileImagePath FROM User u, Profile p
-		WHERE u.userId = p.userId AND u.userId=:userId";
+		//$sql = "SELECT * FROM User WHERE userId=:userId";
+		$sql = "SELECT u.userId, p.firstName, p.lastName, p.profileImagePath, pg.programName, s.schoolName
+				FROM User u, Profile p, School s, Program pg
+				WHERE s.schoolId = p.schoolId
+                AND pg.programId = p.programId
+				AND u.userId = p.userId AND u.userId= :userId";
         $stmt = self::$_connection->prepare($sql);
         $stmt->execute(['userId'=>$userId]);
 

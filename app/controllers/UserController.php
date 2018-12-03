@@ -20,7 +20,7 @@ class UserController extends Controller {
 					$_SESSION['username'] = $username;
 					$_SESSION['userId'] = $current_user->userId;
 								
-					header('location:/Session/home');
+					header('location:/User/home');
 
 				}else{
 					$this->view('User/index',['error'=>'Invalid username or password.']);
@@ -94,6 +94,10 @@ class UserController extends Controller {
 	public function home() {
 		if($_SESSION['userId'] != null)
 		{
+			$user = $this->model('User');
+			$selected_user = $user->getUserById($_SESSION['userId']);
+
+
 			$session = $this->model('Session');
 			$session->userId = $_SESSION['userId'];
 			$session->tutorId = $_SESSION['userId'];
@@ -101,14 +105,14 @@ class UserController extends Controller {
 
 			$tutor_sessions = [];
 
-			$user = $this->model('User');
+			
 			if($user->isTutor()){
 				$tutor_sessions = $session->getTutorSessions();
 			}
 
 			$sessions = $session->getSessions();
 
-			$this->view('User/home', ['user_sessions'=>$user_sessions, 'tutor_sessions'=>$tutor_sessions, 'sessions'=>$sessions]);
+			$this->view('User/home', ['user_sessions'=>$user_sessions, 'tutor_sessions'=>$tutor_sessions, 'sessions'=>$sessions, 'user'=>$selected_user]);
 		}
 		else
 			header('location:/');

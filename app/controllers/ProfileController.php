@@ -3,10 +3,10 @@
 class ProfileController extends Controller{
 	public function index() {
 		if(isset($_SESSION['userId'])){
-			$user = $this->model('User');
-			$selected_user = $user->getUserById($_SESSION['userId']);
+			//$user = $this->model('User');
+			//$selected_user = $user->getUserById($_SESSION['userId']);
 		
-			$this->view('Profile/index', ['user'=>$selected_user]);
+			header('location:/User/home');
 		}
 		else
 			header('location:/');
