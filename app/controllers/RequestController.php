@@ -60,6 +60,19 @@ class RequestController extends Controller {
 		
 	}
 
+	public function _delete() {
+		if(isset($_SESSION['userId'])){
+			if(isset($_POST['requestId'])){
+				$request = $this->model('Request');
+				$request->requestId = $_POST['requestId'];
+				$request->delete();
+				header('location:/Request/index');
+			}
+		}
+		else
+			header('location:/');
+	}
+
 
 	public function accept($requestId){
 		if(isset($_SESSION['userId'])){
@@ -96,14 +109,16 @@ class RequestController extends Controller {
 			header('location:/');
 	}
 
-	public function cancel($requestId){
+	public function cancel(){
 		if(isset($_SESSION['userId'])){
-			$request = $this->model('Request');
-			$request->requestId = $requestId;
-			$request->status = "cancelled";
-			$request->updateStatus();		
-			$message = "Request cancelled successfully.";
-			$this->view('Default/status', ['message'=>$message]);
+			if(isset($_POST['requestId'])){
+				$request = $this->model('Request');
+				$request->requestId =$_POST['requestId'];
+				$request->status = "cancelled";
+				$request->updateStatus();		
+				$message = "Request cancelled successfully.";
+				$this->view('Default/status', ['message'=>$message]);
+			}
 		}
 		else
 			header('location:/');

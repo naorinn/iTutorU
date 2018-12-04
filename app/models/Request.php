@@ -30,7 +30,7 @@ class Request extends Model
 
 	public function getReceivedRequests() {
 		$sql = "SELECT * FROM request, profile WHERE request.userId = profile.userId
-				AND tutorId = :tutorId AND status = 'pending'";
+				AND tutorId = :tutorId AND (status = 'pending' OR status = 'cancelled')";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['tutorId'=>$this->tutorId]);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Request');
@@ -39,7 +39,7 @@ class Request extends Model
 
 	public function getSentRequests() {
 		$sql = "SELECT * FROM request r, profile p WHERE r.tutorId = p.userId
-				AND r.userId = :userId AND status = 'pending'";
+				AND r.userId = :userId AND (status = 'pending' OR status = 'declined')";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['userId'=>$this->userId]);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Request');
@@ -47,7 +47,9 @@ class Request extends Model
 	}
 
 	public function delete() {
-
+		$sql = "DELETE FROM request WHERE requestId = :requestId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['requestId'=>$this->requestId]);
 	}
 
 	public function updateStatus() {
