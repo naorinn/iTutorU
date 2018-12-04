@@ -170,6 +170,10 @@ img.tutor {
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
+.messages {
+	margin-bottom: 3%;
+}
+
 .usermessage  {	
 	float: right;
 	text-align: right;

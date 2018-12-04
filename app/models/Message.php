@@ -13,10 +13,17 @@ class Message extends Model {
 		$stmt->execute(['threadId'=>$this->threadId, 'senderId'=>$this->senderId, 'messageText'=>$this->messageText]);
 	}
 
-	public function getMessages($threadId){
-		$sql = "SELECT * FROM message WHERE threadId = :threadId";
+	public function getMessages(){
+
+		$sql = "SELECT * FROM message m, thread t, profile p 
+				WHERE m.threadId = t.threadId
+				AND (p.userId = t.firstUserId OR p.userId = t.secondUserId)
+				AND p.userId != :userId AND m.threadId = :threadId";
+		/*$sql = "SELECT * FROM message m, profile p 
+				WHERE (m.firstUserId = p.userId OR m.secondUser
+				AND m.threadId = :threadId";*/
 		$stmt = self::$_connection->prepare($sql);
-		$stmt->execute(['threadId'=>$threadId]);
+		$stmt->execute(['threadId'=>$this->threadId, 'userId'=>$this->senderId]);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Message');
 		return $stmt->fetchAll();
 		

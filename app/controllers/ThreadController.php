@@ -14,7 +14,9 @@ class ThreadController extends Controller{
 	public function detail($threadId) {
 		if(isset($_SESSION['userId'])){
 			$message = $this->model('Message');
-			$messages = $message->getMessages($threadId);
+			$message->senderId = $_SESSION['userId'];
+			$message->threadId = $threadId;
+			$messages = $message->getMessages();
 			$this->view('Thread/detail', ['messages'=>$messages, 'threadId'=>$threadId]);
 		}
 		else 

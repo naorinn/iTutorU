@@ -19,7 +19,7 @@ class MessageController extends Controller {
 				$message->insert();
 
 			}
-			header('location: /Thread/detail/1');
+			header("location: /Thread/detail/$threadId");
 		}
 		else
 			header('location:/');
