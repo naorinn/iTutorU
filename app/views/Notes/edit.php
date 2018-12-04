@@ -20,7 +20,7 @@
 					<br/>
 
 					<input type="submit" value="Save" class="btn btn-primary"/>
-					<a href="index" class="btn btn-primary">Cancel</a>
+					<a href="/Notes/index" class="btn btn-primary">Cancel</a>
 				</form>
 				
 			</div>

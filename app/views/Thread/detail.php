@@ -12,7 +12,7 @@
 
 			<div class="content_block">				
 				<div>
-					<h4>Message from <?php echo $messages[0]->firstName; ?></h4>	
+					<h4>Message from <?php if(isset($messages[0])){echo $messages[0]->firstName;} ?></h4>	
 					<div class="messages">
 						<?php 
 							foreach($messages as $message){											
