@@ -11,6 +11,9 @@
 		</span>
 	</form>
 
+
+	<a href='/Tutor/create' class="btn btn-info" style="text-align: center; margin-right: 20%;">Become a tutor</a>
+
 	<!--W3Schools drop down-->
 	<span class="dropdown">
 	  	<button style="" class="dropbtn"><i class="fas fa-bars"></i></button>
