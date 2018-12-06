@@ -12,7 +12,7 @@
 					
 					<label for="username">
 						Username:
-						<input name="username" required="required" pattern="^[0-9]{7}$" title="Your username is your school ID" type="text" class="form-control form-control-sm"/>
+						<input name="username" required pattern="^[0-9]{7}$" title="Your username is your school ID" type="text" class="form-control form-control-sm"/>
 					</label>
 					<br/><br/>
 					<label for="password">

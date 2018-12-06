@@ -51,9 +51,19 @@ class User extends Model
 
 	public function isTutor() {		
 		$tutor = $this->model('Tutor');
-		$current_tutor = $tutor->getTutorById($_SESSION['userId']);
+		$current_tutor = $tutor->getTutorById($this->userId);
 		return $current_tutor != NULL;
 
+	}
+
+	public function hasProfile() {
+		$sql = "SELECT firstName FROM profile p, user u
+				WHERE p.userId = u.userId
+				AND u.username = :userId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['userId'=>$this->userId]);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+		return $stmt->fetch() != NULL;
 	}
 
 }
