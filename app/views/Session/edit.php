@@ -2,6 +2,7 @@
 	<head>
 
 		<?php include_once('app/views/Default/stylesheet_links.php'); ?>
+		<title>iTutorU - Edit session</title>
 	</head>
 	<body>
 		<?php 

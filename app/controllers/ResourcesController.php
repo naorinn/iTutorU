@@ -25,30 +25,35 @@ class ResourcesController extends Controller {
 	}
 
 	public function _create(){
-		if(isset($_SESSION['userId'])){
-			$resource = $this->model('Resource');
-			$resource->resourceName = $_POST['name'];
-			$resource->description = $_POST['description'];
-			$resource->source = $_POST['source'];
+		try {
+			if(isset($_SESSION['userId'])){
+				$resource = $this->model('Resource');
+				$resource->resourceName = $_POST['name'];
+				$resource->description = $_POST['description'];
+				$resource->source = $_POST['source'];
 
-			$resId = $resource->insert();
-			
-			
-			$resourceProgram = $this->model('ResourceProgram');
-			$programs = $_POST['programs'];
-			if(count($programs) > 0){
-				foreach($_POST['programs'] as $program){	
-					$resourceProgram->programId = $program;
-					$resourceProgram->resourceId = $resId;				
-					$resourceProgram->insert();
+				$resId = $resource->insert();
+				
+				
+				$resourceProgram = $this->model('ResourceProgram');
+				$programs = $_POST['programs'];
+				if(count($_POST['programs']) > 0){
+					foreach($_POST['programs'] as $program){	
+						$resourceProgram->programId = $program;
+						$resourceProgram->resourceId = $resId;				
+						$resourceProgram->insert();
+					}
 				}
-			}
 
-			$message = "Resource added successfully!";
-			$this->view('Default/status', ['message'=>$message]);
+				$message = "Resource added successfully!";
+				$this->view('Default/status', ['message'=>$message]);
+			}
+			else
+				header('location:/');
 		}
-		else
-			header('location:/');
+		catch(Exceptin $e){
+
+		}
 			
 
 	}

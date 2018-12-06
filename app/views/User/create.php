@@ -2,6 +2,7 @@
 	<head>
 
 		<?php include_once('app/views/Default/stylesheet_links.php') ?>
+		<title>iTutorU - Sign up</title>
 	</head>
 	<body>
 		<header class="main"></header>	

@@ -2,6 +2,7 @@
 	<head>
 
 		<?php include_once('app/views/Default/stylesheet_links.php') ?>
+		<title>iTutorU - Add resource</title>
 	</head>
 	<body>
 		<?php include_once('app/views/Default/header.php') ?>

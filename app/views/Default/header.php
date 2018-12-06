@@ -17,9 +17,8 @@
 	<?php 
 		$user = $this->model('User');
 		$user->userId = $_SESSION['userId'];
-		if(!$user->hasProfile()){					
-		echo "no profile";	
-			//header('location:/Profile/create');
+		if(!$user->hasProfile()){
+			header('location:/Profile/create');
 		}
 
 		if(!$user->isTutor()){

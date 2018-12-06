@@ -4,30 +4,7 @@ class SessionController extends Controller {
 	public function index() {
 		header('location: /User/home');
 	}
-
-	public function home() {
-		if(isset($_SESSION['userId'])){
-			$session = $this->model('Session');
-			$session->userId = $_SESSION['userId'];
-			$session->tutorId = $_SESSION['userId'];
-			$user_sessions = $session->getUserSessions();
-
-			$tutor_sessions = [];
-
-			$user = $this->model('User');
-			$user->userId = $_SESSION['userId'];
-			if($user->isTutor()){
-				$tutor_sessions = $session->getTutorSessions();
-			}
-
-			$sessions = $session->getSessions();
-
-			$this->view('User/home', ['user_sessions'=>$user_sessions, 'tutor_sessions'=>$tutor_sessions, 'sessions'=>$sessions]);
-
-		}
-		else
-			header('location:/');
-	}
+	
 
 	public function edit($sessionId) {
 		if(isset($_SESSION['userId'])){

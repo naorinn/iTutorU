@@ -2,6 +2,7 @@
 	<head>
 
 		<?php include_once('app/views/Default/stylesheet_links.php') ?>
+		<title>iTutorU - Search</title>
 	</head>
 	<body>
 		<?php include_once('app/views/Default/header.php') ?>
@@ -41,12 +42,11 @@
 							<label for="price_upper">
 								&nbsp;<input class="form-control form-control-sm" type="number" name="price_upper" placeholder="$$" min="0" max="30" />&nbsp;&nbsp;
 							</label>
-						</div>
-							<!--<label for="rating">
-								Rating: <input type="number" name="rating" placeholder="" min="0" max="5" />
-							</label>-->	
-					
-						<input class="btn btn-light" type="submit" value="Search"/>		
+						</div>							
+						
+						<br/>
+						<input class="btn btn-light" type="submit" value="Search"/>
+							
 						
 					</div>		
 				</form>
@@ -82,8 +82,8 @@
 										<small>$noRatings</small>
 										<p><b>Description:</b> $tutor->description</p>
 										<p><b>$$tutor->pay / session</b></p>
-											<a class='btn btn-primary btn-block' href='/Request/create/$tutor->userId'>Request tutor</a>
-											<a class='btn btn-primary btn-block' href='/Profile/detail/$tutor->userId'>View Profile</a>
+											<a class='btn btn-primary btn-block' style='width: 73%' href='/Request/create/$tutor->userId'>Request tutor</a>
+											<a class='btn btn-primary btn-block' style='width: 73%' href='/Profile/detail/$tutor->userId'>View Profile</a>
 									</div>
 								</div>");
 							}

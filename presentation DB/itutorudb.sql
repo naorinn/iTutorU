@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  jeu. 06 déc. 2018 à 08:15
--- Version du serveur :  10.1.28-MariaDB
--- Version de PHP :  7.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Dec 06, 2018 at 05:27 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `itutorudb`
+-- Database: `itutorudb`
 --
 CREATE DATABASE IF NOT EXISTS `itutorudb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `itutorudb`;
@@ -27,7 +25,7 @@ USE `itutorudb`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `message`
+-- Table structure for table `message`
 --
 
 DROP TABLE IF EXISTS `message`;
@@ -40,7 +38,7 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `message`
+-- Dumping data for table `message`
 --
 
 INSERT INTO `message` (`messageId`, `threadId`, `messageText`, `senderId`, `timestamp`) VALUES
@@ -69,7 +67,7 @@ INSERT INTO `message` (`messageId`, `threadId`, `messageText`, `senderId`, `time
 -- --------------------------------------------------------
 
 --
--- Structure de la table `note`
+-- Table structure for table `note`
 --
 
 DROP TABLE IF EXISTS `note`;
@@ -80,17 +78,17 @@ CREATE TABLE `note` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `note`
+-- Dumping data for table `note`
 --
 
 INSERT INTO `note` (`noteId`, `noteText`, `timestamp`) VALUES
 (1, 'This is my first note', '2018-11-27 16:00:42'),
-(5, 'This is my second note, again', '2018-12-02 18:25:39');
+(5, 'a2 – b2 = (a – b)(a + b)\r\n(a+b)2 = a2 + 2ab + b2\r\na2 + b2 = (a – b)2 + 2ab\r\n(a – b)2 = a2 – 2ab + b2', '2018-12-06 15:54:05');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `profile`
+-- Table structure for table `profile`
 --
 
 DROP TABLE IF EXISTS `profile`;
@@ -104,24 +102,24 @@ CREATE TABLE `profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `profile`
+-- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`userId`, `firstName`, `lastName`, `profileImagePath`, `schoolId`, `programId`) VALUES
-(4, 'Naorin', 'Khan', 'profile_default.jpg', 1, 1),
+(4, 'Naorin', 'Khan', '5bf311186ebd1.jpg', 1, 1),
 (2, 'Nai', 'Cat', '5bf30a68b4edb.jpg', 53, 107),
 (5, 'Manizeh', 'Ahmed', 'profile_default.jpg', 53, 107),
 (6, 'Abdullah', 'Ayed', 'profile_default.jpg', 53, 107),
 (7, 'Brandon', 'Chaperon', 'profile_default.jpg', 53, 107),
-(8, 'Andy', 'Delly', 'profile_default.jpg', 53, 107),
+(8, 'Andy', 'Delly', '5c09492ff3cfa.jpg', 53, 107),
 (9, 'Steve', 'Gagné', 'profile_default.jpg', 53, 107),
-(10, 'Matei', 'Garila', 'profile_default.jpg', 53, 107),
+(10, 'Matei', 'Garila', '5c094712cf982.jpg', 53, 107),
 (11, 'Eluntz Ashley', 'Joseph', 'profile_default.jpg', 53, 107),
-(12, 'Irina', 'Kim', 'profile_default.jpg', 53, 107),
+(12, 'Irina', 'Kim', '5c094810a1ae6.jpg', 53, 107),
 (13, 'Sarah-Noémie', 'Laurin', 'profile_default.jpg', 53, 107),
-(14, 'Harry', 'Mangipas', 'profile_default.jpg', 53, 107),
+(14, 'Harry', 'Mangipas', '5c0948505543d.jpg', 53, 107),
 (15, 'Nicholas', 'Molino', 'profile_default.jpg', 53, 107),
-(16, 'Derek ', 'Murphy', 'profile_default.jpg', 53, 107),
+(16, 'Derek ', 'Murphy', '5c0948781d277.jpg', 53, 107),
 (17, 'Thi Quynh Nhu', 'Nguyen', 'profile_default.jpg', 53, 107),
 (18, 'Louie', 'Parale', 'profile_default.jpg', 53, 107),
 (19, 'Daniel', 'Samaniego', 'profile_default.jpg', 53, 107),
@@ -133,7 +131,7 @@ INSERT INTO `profile` (`userId`, `firstName`, `lastName`, `profileImagePath`, `s
 -- --------------------------------------------------------
 
 --
--- Structure de la table `program`
+-- Table structure for table `program`
 --
 
 DROP TABLE IF EXISTS `program`;
@@ -143,7 +141,7 @@ CREATE TABLE `program` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `program`
+-- Dumping data for table `program`
 --
 
 INSERT INTO `program` (`programId`, `programName`) VALUES
@@ -311,7 +309,7 @@ INSERT INTO `program` (`programId`, `programName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `request`
+-- Table structure for table `request`
 --
 
 DROP TABLE IF EXISTS `request`;
@@ -327,16 +325,18 @@ CREATE TABLE `request` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `request`
+-- Dumping data for table `request`
 --
 
 INSERT INTO `request` (`requestId`, `tutorId`, `userId`, `timestamp`, `details`, `request_date`, `request_time`, `status`) VALUES
-(4, 2, 14, '2018-12-06 07:13:22', 'Hey, I have a project proposal.', '2018-12-14', '10:30', 'accepted');
+(4, 2, 14, '2018-12-06 07:13:22', 'Hey, I have a project proposal.', '2018-12-14', '10:30', 'accepted'),
+(5, 14, 2, '2018-12-06 16:13:49', 'Hey, I have a project proposal.', '2018-12-11', '12:30', 'pending'),
+(6, 12, 2, '2018-12-06 16:15:17', 'Привет!!', '2018-12-08', '11:45', 'pending');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `resource`
+-- Table structure for table `resource`
 --
 
 DROP TABLE IF EXISTS `resource`;
@@ -348,7 +348,7 @@ CREATE TABLE `resource` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `resource`
+-- Dumping data for table `resource`
 --
 
 INSERT INTO `resource` (`resourceId`, `resourceName`, `description`, `source`) VALUES
@@ -356,12 +356,16 @@ INSERT INTO `resource` (`resourceId`, `resourceName`, `description`, `source`) V
 (2, 'php.net', 'PHP tutorials and documentation', 'http://www.php.net/'),
 (8, 'Bootstrap', 'Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery. ', 'https://getbootstrap.com/'),
 (9, 'Duolingo', 'Duolingo is the world\'s most popular way to learn a language. It\'s 100% free, fun and science-based. Practice online on duolingo.com or on the apps!', 'https://www.duolingo.com/'),
-(11, 'Font Awesome', 'Font Awesome is a font and icon toolkit based on CSS and LESS', 'https://fontawesome.com/');
+(11, 'Font Awesome', 'Font Awesome is a font and icon toolkit based on CSS and LESS', 'https://fontawesome.com/'),
+(12, 'Stack Overflow', 'Stack Overflow is a privately held website, the flagship site of the Stack Exchange Network, created in 2008 by Jeff Atwood and Joel Spolsky. It features questions and answers on a wide range of topics in computer programming', 'https://stackoverflow.com/'),
+(13, 'Coursera', 'Coursera is an online learning platform founded by Stanford professors Andrew Ng and Daphne Koller that offers courses, specializations, and degrees', 'https://www.coursera.org/'),
+(14, 'Codecademy', 'Codecademy is an online interactive platform that offers free coding classes in 12 different programming languages including Python, Java, JavaScript, Ruby, SQL, and Sass, as well as markup languages HTML and CSS.', 'https://www.codecademy.com/'),
+(15, 'Hacker Rank', 'Join over 5 million developers.\r\nPractice coding, prepare for interviews, and get hired.', 'https://www.hackerrank.com/');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `resourceprogram`
+-- Table structure for table `resourceprogram`
 --
 
 DROP TABLE IF EXISTS `resourceprogram`;
@@ -371,7 +375,7 @@ CREATE TABLE `resourceprogram` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `resourceprogram`
+-- Dumping data for table `resourceprogram`
 --
 
 INSERT INTO `resourceprogram` (`programId`, `resourceId`) VALUES
@@ -379,12 +383,14 @@ INSERT INTO `resourceprogram` (`programId`, `resourceId`) VALUES
 (105, 8),
 (107, 8),
 (121, 9),
-(107, 11);
+(107, 11),
+(107, 12),
+(108, 12);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `school`
+-- Table structure for table `school`
 --
 
 DROP TABLE IF EXISTS `school`;
@@ -394,7 +400,7 @@ CREATE TABLE `school` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `school`
+-- Dumping data for table `school`
 --
 
 INSERT INTO `school` (`schoolId`, `schoolName`) VALUES
@@ -458,7 +464,7 @@ INSERT INTO `school` (`schoolId`, `schoolName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `session`
+-- Table structure for table `session`
 --
 
 DROP TABLE IF EXISTS `session`;
@@ -470,7 +476,7 @@ CREATE TABLE `session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `session`
+-- Dumping data for table `session`
 --
 
 INSERT INTO `session` (`sessionId`, `tutorId`, `userId`, `session_date`) VALUES
@@ -480,7 +486,7 @@ INSERT INTO `session` (`sessionId`, `tutorId`, `userId`, `session_date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `subject`
+-- Table structure for table `subject`
 --
 
 DROP TABLE IF EXISTS `subject`;
@@ -492,7 +498,7 @@ CREATE TABLE `subject` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `thread`
+-- Table structure for table `thread`
 --
 
 DROP TABLE IF EXISTS `thread`;
@@ -503,7 +509,7 @@ CREATE TABLE `thread` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `thread`
+-- Dumping data for table `thread`
 --
 
 INSERT INTO `thread` (`threadId`, `firstUserId`, `secondUserId`) VALUES
@@ -519,7 +525,7 @@ INSERT INTO `thread` (`threadId`, `firstUserId`, `secondUserId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tutees`
+-- Table structure for table `tutees`
 --
 
 DROP TABLE IF EXISTS `tutees`;
@@ -531,7 +537,7 @@ CREATE TABLE `tutees` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tutor`
+-- Table structure for table `tutor`
 --
 
 DROP TABLE IF EXISTS `tutor`;
@@ -545,18 +551,24 @@ CREATE TABLE `tutor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tutor`
+-- Dumping data for table `tutor`
 --
 
 INSERT INTO `tutor` (`userId`, `description`, `pay`, `rating`, `timesTutored`, `about`) VALUES
 (2, 'java, css, html', 10, 4, 1, 'This is a bit about me...'),
 (10, 'english, C++, java', 15, 5, 1, ''),
-(5, '.NET, databases', 5, 3, 3, '');
+(5, '.NET, databases, spanish, physics', 5, 3, 3, ''),
+(4, '.NET, databases', 5, 4, 2, ''),
+(8, 'android, spanish, calculus', 10, 4, 3, 'Been tutoring for 2 years'),
+(19, 'networks, databases, java', 5, 4, 2, 'I only meet at school'),
+(14, 'java, javascript, html, css', 15, 4, 7, 'I am a person'),
+(16, 'android, html/css, business for comp sci', 7, 3, 6, 'Love learning'),
+(12, 'russian, english, business for CST', 10, 4, 5, 'Love learning!!!');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tutorsubject`
+-- Table structure for table `tutorsubject`
 --
 
 DROP TABLE IF EXISTS `tutorsubject`;
@@ -568,7 +580,7 @@ CREATE TABLE `tutorsubject` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -579,7 +591,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`userId`, `username`, `password`) VALUES
@@ -612,7 +624,7 @@ INSERT INTO `user` (`userId`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `usernote`
+-- Table structure for table `usernote`
 --
 
 DROP TABLE IF EXISTS `usernote`;
@@ -622,7 +634,7 @@ CREATE TABLE `usernote` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `usernote`
+-- Dumping data for table `usernote`
 --
 
 INSERT INTO `usernote` (`userId`, `noteId`) VALUES
@@ -630,24 +642,24 @@ INSERT INTO `usernote` (`userId`, `noteId`) VALUES
 (2, 5);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `message`
+-- Indexes for table `message`
 --
 ALTER TABLE `message`
   ADD KEY `message_threadid_fk` (`threadId`),
   ADD KEY `message_senderid_fk` (`senderId`);
 
 --
--- Index pour la table `note`
+-- Indexes for table `note`
 --
 ALTER TABLE `note`
   ADD PRIMARY KEY (`noteId`);
 
 --
--- Index pour la table `profile`
+-- Indexes for table `profile`
 --
 ALTER TABLE `profile`
   ADD KEY `profile_userid_fk` (`userId`),
@@ -655,13 +667,13 @@ ALTER TABLE `profile`
   ADD KEY `profile_prgmid_fk` (`programId`);
 
 --
--- Index pour la table `program`
+-- Indexes for table `program`
 --
 ALTER TABLE `program`
   ADD PRIMARY KEY (`programId`);
 
 --
--- Index pour la table `request`
+-- Indexes for table `request`
 --
 ALTER TABLE `request`
   ADD PRIMARY KEY (`requestId`),
@@ -669,26 +681,26 @@ ALTER TABLE `request`
   ADD KEY `request_userid_fk` (`userId`);
 
 --
--- Index pour la table `resource`
+-- Indexes for table `resource`
 --
 ALTER TABLE `resource`
   ADD PRIMARY KEY (`resourceId`);
 
 --
--- Index pour la table `resourceprogram`
+-- Indexes for table `resourceprogram`
 --
 ALTER TABLE `resourceprogram`
   ADD KEY `resprgrm_resid_fk` (`resourceId`),
   ADD KEY `resprgrm_prgrmid_fk` (`programId`) USING BTREE;
 
 --
--- Index pour la table `school`
+-- Indexes for table `school`
 --
 ALTER TABLE `school`
   ADD PRIMARY KEY (`schoolId`);
 
 --
--- Index pour la table `session`
+-- Indexes for table `session`
 --
 ALTER TABLE `session`
   ADD PRIMARY KEY (`sessionId`),
@@ -696,13 +708,13 @@ ALTER TABLE `session`
   ADD KEY `session_userid_fk` (`userId`);
 
 --
--- Index pour la table `subject`
+-- Indexes for table `subject`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`subjectId`);
 
 --
--- Index pour la table `thread`
+-- Indexes for table `thread`
 --
 ALTER TABLE `thread`
   ADD PRIMARY KEY (`threadId`),
@@ -710,109 +722,100 @@ ALTER TABLE `thread`
   ADD KEY `thread_suserid_fk` (`secondUserId`);
 
 --
--- Index pour la table `tutees`
+-- Indexes for table `tutees`
 --
 ALTER TABLE `tutees`
   ADD KEY `tutees_tutorid_fk` (`tutorId`),
   ADD KEY `tutees_userid_fk` (`userId`);
 
 --
--- Index pour la table `tutor`
+-- Indexes for table `tutor`
 --
 ALTER TABLE `tutor`
   ADD KEY `tutor_userid_fk` (`userId`);
 
 --
--- Index pour la table `tutorsubject`
+-- Indexes for table `tutorsubject`
 --
 ALTER TABLE `tutorsubject`
   ADD PRIMARY KEY (`subjectId`,`tutorId`),
   ADD KEY `tutorsubject_tId_fk` (`tutorId`) USING BTREE;
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`);
 
 --
--- Index pour la table `usernote`
+-- Indexes for table `usernote`
 --
 ALTER TABLE `usernote`
   ADD KEY `usrnote_noteid_fk` (`noteId`),
   ADD KEY `usrnote_userid_fk` (`userId`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `note`
+-- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
   MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT pour la table `program`
+-- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
   MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
-
 --
--- AUTO_INCREMENT pour la table `request`
+-- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `requestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT pour la table `resource`
+-- AUTO_INCREMENT for table `resource`
 --
 ALTER TABLE `resource`
-  MODIFY `resourceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `resourceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `school`
+-- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
   MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
-
 --
--- AUTO_INCREMENT pour la table `session`
+-- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
   MODIFY `sessionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT pour la table `subject`
+-- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
   MODIFY `subjectId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT pour la table `thread`
+-- AUTO_INCREMENT for table `thread`
 --
 ALTER TABLE `thread`
   MODIFY `threadId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- Constraints for dumped tables
+--
 
 --
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `message`
+-- Constraints for table `message`
 --
 ALTER TABLE `message`
   ADD CONSTRAINT `message_senderid_fk` FOREIGN KEY (`senderId`) REFERENCES `user` (`userId`),
   ADD CONSTRAINT `message_threadid_fk` FOREIGN KEY (`threadId`) REFERENCES `thread` (`threadId`);
 
 --
--- Contraintes pour la table `profile`
+-- Constraints for table `profile`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_prgmid_fk` FOREIGN KEY (`programId`) REFERENCES `program` (`programId`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -820,60 +823,59 @@ ALTER TABLE `profile`
   ADD CONSTRAINT `profile_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `request`
+-- Constraints for table `request`
 --
 ALTER TABLE `request`
   ADD CONSTRAINT `request_tutorid_fk` FOREIGN KEY (`tutorId`) REFERENCES `tutor` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `request_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `resourceprogram`
+-- Constraints for table `resourceprogram`
 --
 ALTER TABLE `resourceprogram`
   ADD CONSTRAINT `resourceprogram_ibfk_1` FOREIGN KEY (`programId`) REFERENCES `program` (`programId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `resprgrm_resid_fk` FOREIGN KEY (`resourceId`) REFERENCES `resource` (`resourceId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `session`
+-- Constraints for table `session`
 --
 ALTER TABLE `session`
   ADD CONSTRAINT `session_tutorid_fk` FOREIGN KEY (`tutorId`) REFERENCES `tutor` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `session_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `thread`
+-- Constraints for table `thread`
 --
 ALTER TABLE `thread`
   ADD CONSTRAINT `thread_fuserid_fk` FOREIGN KEY (`firstUserId`) REFERENCES `user` (`userId`),
   ADD CONSTRAINT `thread_suserid_fk` FOREIGN KEY (`secondUserId`) REFERENCES `user` (`userId`);
 
 --
--- Contraintes pour la table `tutees`
+-- Constraints for table `tutees`
 --
 ALTER TABLE `tutees`
   ADD CONSTRAINT `tutees_tutorid_fk` FOREIGN KEY (`tutorId`) REFERENCES `tutor` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tutees_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `tutor`
+-- Constraints for table `tutor`
 --
 ALTER TABLE `tutor`
   ADD CONSTRAINT `tutor_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `tutorsubject`
+-- Constraints for table `tutorsubject`
 --
 ALTER TABLE `tutorsubject`
   ADD CONSTRAINT `tutorsubject_sid_fk` FOREIGN KEY (`subjectId`) REFERENCES `subject` (`subjectId`),
   ADD CONSTRAINT `tutorsubject_tid_fk` FOREIGN KEY (`tutorId`) REFERENCES `tutor` (`userId`);
 
 --
--- Contraintes pour la table `usernote`
+-- Constraints for table `usernote`
 --
 ALTER TABLE `usernote`
   ADD CONSTRAINT `usrnote_noteid_fk` FOREIGN KEY (`noteId`) REFERENCES `note` (`noteId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usrnote_userid_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

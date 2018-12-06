@@ -14,14 +14,21 @@ class ProfileController extends Controller{
 
 	public function create() {
 		if(isset($_SESSION['userId'])){
-			$school = $this->model('School');
-			$schools = $school->getSchools();	
+			$user = $this->model('User');
+			$user->userId = $_SESSION['userId'];
+			if(!$user->hasProfile()){
+			
+				$school = $this->model('School');
+				$schools = $school->getSchools();	
 
-			$program = $this->model('Program');
-			$programs = $program->getPrograms();
-			$profile = $this->model('Profile');
-				
-			$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+				$program = $this->model('Program');
+				$programs = $program->getPrograms();
+				$profile = $this->model('Profile');
+					
+				$this->view('Profile/create', ['profileImage'=>'/images/profile_default.jpg', 'schools'=>$schools, 'programs'=>$programs]);
+			}
+			else
+				header('location:/Profile/edit');
 		}
 		else
 			header('location:/');

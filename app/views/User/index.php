@@ -2,7 +2,7 @@
 	<head>
 
 		<?php include_once('app/views/Default/stylesheet_links.php') ?>
-		<title>iTutorU</title>
+		<title>iTutorU - Login</title>
 	</head>
 	<body>
 		

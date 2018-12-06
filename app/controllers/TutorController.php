@@ -13,7 +13,13 @@ class TutorController extends Controller {
 	
 	public function create() {
 		if(isset($_SESSION['userId'])){
-			$this->view('Tutor/create');
+			$user = $this->model('User');
+			$user->userId = $_SESSION['userId'];
+			if(!$user->isTutor()){
+				$this->view('Tutor/create');
+			}
+			else
+				header('location:/Tutor/edit');
 		}
 		else
 			header('location:/');
