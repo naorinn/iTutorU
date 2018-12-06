@@ -4,7 +4,7 @@
 		<?php include_once('app/views/Default/stylesheet_links.php') ?>
 	</head>
 	<body>
-		<header class="main"></header>	
+		<header class="main"><a class="btn btn-info" style="float: right; margin: 1%" type="submit" href="/User/logout"><strong>Logout</strong></a></header>	
 			<div class="content_block">			
 				<h3><b>Create Profile</b></h3>
 				

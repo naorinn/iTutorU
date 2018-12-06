@@ -26,9 +26,9 @@ class TutorController extends Controller {
 				$tutor->userId = $_SESSION['userId'];
 				$tutor->description = $_POST['description'];
 				$tutor->pay = $_POST['pay'];
-				//$tutor->about = $_POST['about'];
+				$tutor->about = $_POST['about'];
 				$tutor->insert();
-				$this->view('User/home', ['message'=>"Your tutor profile was created successfully! Congratulations!"]);
+				$this->view('Default/status', ['message'=>"Your tutor profile was created successfully! Congratulations!"]);
 			}
 		}
 		else
@@ -36,13 +36,33 @@ class TutorController extends Controller {
 	}
 
 
-	//Deletes tutor account/profile info
-	public function delete() {
+	
+	public function edit() {
+		if(isset($_SESSION['userId'])){
+			$tutor = $this->model('Tutor');
+			$selected_tutor = $tutor->getTutorById($_SESSION['userId']);
+
+			$this->view('Tutor/edit', ['tutor'=>$selected_tutor]);
+		}
+		else
+			header('location:/');
 
 	}
 
-	public function _delete() {
-		
+	public function _edit() {
+		if(isset($_SESSION['userId'])){
+			if(isset($_POST['description']) && isset($_POST['about']) && isset($_POST['pay'])){
+				$tutor = $this->model('Tutor');
+				$tutor->userId = $_SESSION['userId'];
+				$tutor->description = $_POST['description'];
+				$tutor->pay = $_POST['pay'];
+				$tutor->about = $_POST['about'];
+				$tutor->update();
+				$this->view('Default/status', ['message'=>"Your tutor profile has been updated"]);
+			}
+		}
+		else
+			header('location:/');
 	}
 
 	public function search() {

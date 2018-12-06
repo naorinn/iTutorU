@@ -7,12 +7,13 @@ class RequestController extends Controller {
 			$received_requests = [];
 
 			$user = $this->model('User');
+			$user->userId = $_SESSION['userId'];
 			if($user->isTutor()){
 				//get requests sent to me
 				
 				$request->tutorId = $_SESSION['userId'];
 				$received_requests = $request->getReceivedRequests();
-				//var_dump($received_requests);
+				
 			}
 			$request->userId = $_SESSION['userId'];
 			$sent_requests = $request->getSentRequests();
@@ -86,7 +87,7 @@ class RequestController extends Controller {
 			$session = $this->model('Session');
 			$session->userId = $selected_request->userId;
 			$session->tutorId = $selected_request->tutorId;
-			$session->session_date = $selected_request->request_date;
+			$session->session_date = $selected_request->request_date.' '.$selected_request->request_time;
 			$session->insert();
 
 			$message = "Request accepted successfully.";

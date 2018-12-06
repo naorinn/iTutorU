@@ -59,7 +59,7 @@ class User extends Model
 	public function hasProfile() {
 		$sql = "SELECT firstName FROM profile p, user u
 				WHERE p.userId = u.userId
-				AND u.username = :userId";
+				AND u.userId = :userId";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['userId'=>$this->userId]);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, "User");

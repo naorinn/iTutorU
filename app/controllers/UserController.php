@@ -19,13 +19,8 @@ class UserController extends Controller {
 				if(password_verify($password, $current_user->password)){					
 					$_SESSION['username'] = $username;
 					$_SESSION['userId'] = $current_user->userId;
-								
-					if($user->hasProfile()){
-						header('location:/User/home');
-					}
-					else{
-						header('location:/Profile/create');
-					}
+					
+					header('location:/User/home');
 
 				}else{
 					$this->view('User/index',['error'=>'Invalid username or password.']);
@@ -45,7 +40,8 @@ class UserController extends Controller {
 		$_SESSION = array();
 
 		session_destroy();
-		header('location:/');
+		$message = "You have been logged out successfully.";
+		$this->view('User/index', ['message'=>$message]);
 	}
 
 
@@ -115,10 +111,9 @@ class UserController extends Controller {
 			$session->userId = $_SESSION['userId'];
 			$session->tutorId = $_SESSION['userId'];
 			$user_sessions = $session->getUserSessions();
-
 			$tutor_sessions = [];
 
-			
+			$user->userId = $_SESSION['userId'];
 			if($user->isTutor()){
 				$tutor_sessions = $session->getTutorSessions();
 			}

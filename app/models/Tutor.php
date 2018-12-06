@@ -6,20 +6,28 @@ class Tutor extends Model
 	var $pay;
 	var $rating;
 	var $timesTutored;
+	var $about;
 
 	public function __construct() {
 		parent::__construct();
 	}
 
 	public function insert(){
-		$sql= "INSERT INTO Tutor (userId, description, pay) VALUES (:userId, :description, :pay)";
+		$sql= "INSERT INTO Tutor (userId, description, pay, about) VALUES (:userId, :description, :pay, :about)";
 			$stmt = self::$_connection->prepare($sql);
-			$stmt->execute(['userId'=>$this->userId, 'description'=>$this->description, 'pay'=>$this->pay]);			
+			$stmt->execute(['userId'=>$this->userId, 'description'=>$this->description, 'pay'=>$this->pay, 'about'=>$this->about]);			
+	}
+
+	public function update(){
+		$sql= "UPDATE tutor SET description = :description, pay = :pay, about = :about
+				WHERE userId = :userId";
+			$stmt = self::$_connection->prepare($sql);
+			$stmt->execute(['userId'=>$this->userId, 'description'=>$this->description, 'pay'=>$this->pay, 'about'=>$this->about]);			
 	}
 
 
 	public function getTutorById($userId){
-		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.description, t.pay, t.timesTutored, t.rating, s.schoolName, pg.programName
+		$sql = "SELECT t.userId, t.about, p.firstName, p.lastName, p.profileImagePath, t.description, t.pay, t.timesTutored, t.rating, s.schoolName, pg.programName
 				FROM Tutor t, Profile p, School s, Program pg
 				WHERE p.schoolId = s.schoolId
 				AND p.programId = pg.programId

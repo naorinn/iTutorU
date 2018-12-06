@@ -9,6 +9,7 @@
 			<div class="content_block">		
 					
 				<?php $user = $this->model('User');
+				$user->userId = $_SESSION['userId'];
 				if($user->isTutor()){ ?>
 					<h4 style="display:inline">Received requests</h4>	 		
 					<br/><br/>

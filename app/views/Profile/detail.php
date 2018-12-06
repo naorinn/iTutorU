@@ -23,7 +23,8 @@
 
 
 		      		<p><?php print("$tutor->schoolName");?></p><br/>
-			        <p><?php print("$tutor->programName");?></p>
+			        <p><?php print("$tutor->programName");?></p><br/>
+			        <p><?php print("$tutor->about");?></p>
 
 		      </h3>  
 	    </div>

@@ -1,6 +1,10 @@
 <?php
 class SessionController extends Controller {
 
+	public function index() {
+		header('location: /User/home');
+	}
+
 	public function home() {
 		if(isset($_SESSION['userId'])){
 			$session = $this->model('Session');
@@ -11,6 +15,7 @@ class SessionController extends Controller {
 			$tutor_sessions = [];
 
 			$user = $this->model('User');
+			$user->userId = $_SESSION['userId'];
 			if($user->isTutor()){
 				$tutor_sessions = $session->getTutorSessions();
 			}
@@ -28,7 +33,8 @@ class SessionController extends Controller {
 		if(isset($_SESSION['userId'])){
 			$session = $this->model('Session');
 			$session->userId = $_SESSION['userId'];
-			$selected_session = $session->getSessionById();
+			$session->sessionId = $sessionId;
+			$selected_session = $session->getSessionById();			
 			$this->view('Session/edit', ['session'=>$selected_session]);
 		}
 		else

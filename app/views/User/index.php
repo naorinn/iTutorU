@@ -8,6 +8,19 @@
 		
 			<header class="main"></header>	
 			
+			<?php
+					if(isset($data['message'])){
+
+						$message = $data['message'];
+					
+						if($message != ''){
+							print("<div class='alert alert-success' role='alert'><strong>$message</strong></div>");
+						}
+						header("refresh:3;url='/User/home'");
+					}
+
+					
+				?>
 			<form method="post" action="/User/login">
 				<div id="sign_in" class="form-group">
 					<h4><b><u>Sign in</u></b></h4>
