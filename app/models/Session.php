@@ -15,7 +15,10 @@ class Session extends Model {
 		$stmt->execute(['tutorId'=>$this->tutorId, 'userId'=>$this->userId, 'session_date'=>$this->session_date]);
 	}
 
-	public function edit(){
+	public function update(){
+		$sql = "UPDATE session set session_date = :session_date WHERE sessionId = :sessionId";
+		$stmt = self::$_connection->prepare($sql);
+		$stmt->execute(['session_date'=>$this->session_date, 'sessionId'=>$this->sessionId]);
 
 	}
 

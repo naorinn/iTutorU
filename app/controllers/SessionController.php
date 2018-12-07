@@ -19,7 +19,21 @@ class SessionController extends Controller {
 	}
 
 	public function _edit() {
+		if(isset($_SESSION['userId'])){
+			if(isset($_POST['date']) && isset($_POST['time']) && isset($_POST['sessionId'])){
+				$session = $this->model('Session');	
+				$session->sessionId = $_POST['sessionId'];		
+				$session->session_date = $_POST['date'].' '.$_POST['time'];
+				$session->update();
 
+				$message = "Request updated successfully.";
+				$this->view('Default/status', ['message'=>$message]);
+			}
+			else
+				$this->edit();
+		}
+		else
+			header('location:/');
 	}
 
 	public function delete($sessionId) {
