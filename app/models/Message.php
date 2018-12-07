@@ -19,9 +19,7 @@ class Message extends Model {
 				WHERE m.threadId = t.threadId
 				AND (p.userId = t.firstUserId OR p.userId = t.secondUserId)
 				AND p.userId != :userId AND m.threadId = :threadId";
-		/*$sql = "SELECT * FROM message m, profile p 
-				WHERE (m.firstUserId = p.userId OR m.secondUser
-				AND m.threadId = :threadId";*/
+		
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['threadId'=>$this->threadId, 'userId'=>$this->senderId]);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Message');

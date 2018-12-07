@@ -11,10 +11,6 @@ class Thread extends Model {
 	}
 
 	public function getUserThreads($userId){
-		/*$sql = "SELECT * FROM thread t, profile p
-		WHERE p.userId = t.firstUserId || p.userId = t.secondUserId AND
-		(firstUserId = :userId || secondUserId = :secondUserId)";*/
-
 		$sql = "SELECT * FROM profile p, thread t
 				WHERE (p.userId = t.firstUserId OR p.userId = t.secondUserId)
 				AND (t.firstUserId = :userId OR t.secondUserId = :userId)
@@ -35,11 +31,4 @@ class Thread extends Model {
 
 	}
 }
-/*
-select * from profile p, thread t
-where (p.userId = t.firstUserId OR p.userId = t.secondUserId)
-and (t.firstUserId = 2 OR t.secondUserId = 2)
-and p.userid != 2;
-*/
-
 ?>

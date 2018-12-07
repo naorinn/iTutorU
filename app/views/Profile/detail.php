@@ -44,15 +44,11 @@
 			    </div>
 
 		      </div>     
-<p style="vertical-align: center; text-align: center; margin-top: 3%;"><?php print("$stars");?></p>
+				<p style="vertical-align: center; text-align: center; margin-top: 3%;"><?php print("$stars");?></p>
 		      <h3 style="vertical-align: center; text-align: center; margin-top: 4%;">
-
-		      	
-		      		
 		      		<p><?php print("$tutor->schoolName");?></p><br/>
 			        <p><?php print("$tutor->programName");?></p><br/>
 			        <p><?php print("$tutor->about");?></p>
-
 		      </h3>  
 	    </div>
 
