@@ -1,15 +1,8 @@
 <?php
 
 class ProfileController extends Controller{
-	public function index() {
-		if(isset($_SESSION['userId'])){
-			//$user = $this->model('User');
-			//$selected_user = $user->getUserById($_SESSION['userId']);
-		
-			header('location:/User/home');
-		}
-		else
-			header('location:/');
+	public function index() {		
+		header('location:/User/home');		
 	}
 
 	public function create() {
@@ -33,8 +26,6 @@ class ProfileController extends Controller{
 		else
 			header('location:/');
 	}
-
-		
 	
 
 	public function _create() {
@@ -76,6 +67,7 @@ class ProfileController extends Controller{
 
 	}
 
+
 	public function _edit() {
 		if(isset($_SESSION['userId'])){
 			if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['school']) && isset($_POST['program'])){
@@ -109,6 +101,7 @@ class ProfileController extends Controller{
 
 	}
 
+
 	public function updateProfileImage() {
 		if(isset($_SESSION['userId'])){
 			$this->view('Profile/profileImage', ['profileImagePath'=>'/images/profile_default.jpg']);
@@ -116,6 +109,7 @@ class ProfileController extends Controller{
 		else
 			header('location:/');
 	}
+
 
 	public function _updateProfileImage() {
 		if(isset($_SESSION['userId'])){
@@ -138,9 +132,6 @@ class ProfileController extends Controller{
 			header('location:/');
 
 	}
-
-	
-
 }
 
 ?>

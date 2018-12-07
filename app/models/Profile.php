@@ -13,30 +13,20 @@ class Profile extends Model
 	}
 
 	public function insert(){
-		$sql= "INSERT INTO Profile (userId, firstName, lastName, schoolId, programId) VALUES (:userId, :firstName, :lastName, :schoolId, :programId)";
+		$sql= "INSERT INTO profile (userId, firstName, lastName, schoolId, programId) VALUES (:userId, :firstName, :lastName, :schoolId, :programId)";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['userId'=>$this->userId,'firstName'=>$this->firstName, 'lastName'=>$this->lastName, 'schoolId'=>$this->schoolId, 'programId'=>$this->programId]);					
 	}
 
 	public function update() {
-		$sql = "UPDATE Profile SET firstName=:firstName, lastName=:lastName, schoolId=:schoolId, programId=:programId
+		$sql = "UPDATE profile SET firstName=:firstName, lastName=:lastName, schoolId=:schoolId, programId=:programId
 				WHERE userId=:userId";
 		$stmt = self::$_connection->prepare($sql);
 		$stmt->execute(['userId'=>$this->userId,'firstName'=>$this->firstName, 'lastName'=>$this->lastName, 'schoolId'=>$this->schoolId, 'programId'=>$this->programId]);
 	}
 
-
-	/*public function find($username) {
-		$sql = "SELECT * FROM User WHERE username LIKE ':username'";
-		$stmt = self::$_connection->prepare($sql);
-		$stmt->execute(['username'=>$username]);
-
-		$stmt->setFetchMode(PDO::FETCH_CLASS, "User");
-		return $stmt->fetch();
-	}*/
-
 	public function changeProfilePic($userId){
-		$sql = "UPDATE Profile SET profileImagePath=:profileImagePath
+		$sql = "UPDATE profile SET profileImagePath=:profileImagePath
 				WHERE userId=:userId";
 
 		$sth = self::$_connection->prepare($sql);
@@ -44,7 +34,7 @@ class Profile extends Model
 	}
 
 	public function getProfileByUserId($userId){
-		$sql = "SELECT * FROM Profile WHERE userId = :userId";
+		$sql = "SELECT * FROM profile WHERE userId = :userId";
         $stmt = self::$_connection->prepare($sql);
        $stmt->execute(['userId'=>$userId]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Profile");

@@ -6,8 +6,30 @@
 	</head>
 	<body>
 		<?php include_once('app/views/Default/header.php') ?>
+
+		<?php
+			$tutor = $data['tutor'];
+      		$stars = "";
+      		$starsFilled= 0;
+      		$noRatings = "";
+			if($tutor->rating != 0){						
+				for($i = 0; $i < $tutor->rating; $i++){
+
+					$stars .= "<span style='font-size: 25px; margin: 0'>&#9733;</span>";
+					$starsFilled++;
+				}
+			}
+			else{
+				$noRatings = "<br/>No ratings yet";
+			}
+			while($starsFilled < 5){
+				$stars .= "<span style='font-size: 25px; margin: 0'>&#9734;</span>";
+				$starsFilled++;
+			}
+
+      	?>
 		<div class="content_block">
-			<?php $tutor = $data['tutor'];?>
+			
 		    <div style="background-color: white; padding-bottom: 3%">
 				<div id="profileImageHeader" ></div>
 		        <div id="profileImageIndex" style="background-image: url('/images/<?php echo $tutor->profileImagePath?>')">
@@ -17,12 +39,16 @@
 			        	<a class='btn btn-primary' href="/Request/create/<?php echo $tutor->userId?>">Request tutor</a>
 						<a class='btn btn-primary' href='/Thread/find/<?php echo $tutor->userId?>'>Contact tutor</a>
 			        </h3>
+			        	
+
 			    </div>
+
 		      </div>     
+<p style="vertical-align: center; text-align: center; margin-top: 3%;"><?php print("$stars");?></p>
+		      <h3 style="vertical-align: center; text-align: center; margin-top: 4%;">
 
-		      <h3 style="vertical-align: center; text-align: center; margin-top: 8%;">
-
-
+		      	
+		      		
 		      		<p><?php print("$tutor->schoolName");?></p><br/>
 			        <p><?php print("$tutor->programName");?></p><br/>
 			        <p><?php print("$tutor->about");?></p>

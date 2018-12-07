@@ -2,13 +2,8 @@
 class TutorController extends Controller {
 
 
-	public function index(){
-		if(isset($_SESSION['userId'])){
-			$this->view('Tutor/index');
-		}
-		else
-			header('location:/');
-			
+	public function index(){	
+		header('location:/User/home');			
 	}
 	
 	public function create() {

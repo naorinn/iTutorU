@@ -40,17 +40,6 @@ class Tutor extends Model
 
 	}
 
-	/*public function getTutors($subject){
-		
-		$sql = "SELECT t.userId, p.firstName, p.lastName, p.profileImagePath, t.pay, t.description, t.timesTutored, t.rating FROM Tutor t, Profile p WHERE t.userId=p.userId AND t.description LIKE :subject";
-		$subject = "%$subject%";
-		$stmt = self::$_connection->prepare($sql);
-		$stmt->execute(['subject'=>$subject]);
-	
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "Tutor");
-		return $stmt->fetchAll();
-
-	}*/
 
 	public function getTutors($subject = '', $programId='', $price_lower = 0, $price_upper = 0){
 		$subjectSql = "";

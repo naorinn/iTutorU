@@ -1,0 +1,2 @@
+- admin operation to delete photos that are not in use on the server
+- automatically delete sessions and requests that are more than 90 days old
