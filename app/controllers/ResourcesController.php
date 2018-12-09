@@ -36,8 +36,8 @@ class ResourcesController extends Controller {
 				
 				
 				$resourceProgram = $this->model('ResourceProgram');
-				$programs = $_POST['programs'];
-				if(count($_POST['programs']) > 0){
+				$programs = explode(",", $_POST['programs']);
+				if(count($programs) > 0){
 					foreach($_POST['programs'] as $program){	
 						$resourceProgram->programId = $program;
 						$resourceProgram->resourceId = $resId;				
