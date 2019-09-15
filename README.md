@@ -1,3 +1,4 @@
-# ecomm_team_project2018
+# iTutorU
 
-This is readme
+This is an eCommerce project Naomi Catwell and I created in 2018.
+It is a tutoring website.
